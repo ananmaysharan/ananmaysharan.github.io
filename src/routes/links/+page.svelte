@@ -4,13 +4,13 @@
   
     let buttons = [
       { id: 1, buttonText: 'Github', url: '/' },
-      { id: 2, buttonText: 'LinkedIn', url: '/about' },
-      { id: 3, buttonText: 'Twitter', url: '/services' },
-      { id: 4, buttonText: 'Are.na', url: '/services' },
-      { id: 5, buttonText: 'TikTok', url: '/services' },
-      { id: 6, buttonText: 'YouTube', url: '/services' },
-      { id: 7, buttonText: 'Instagram', url: '/contact' },
-      { id: 8, buttonText: 'Letterboxd', url: '/services' },
+      { id: 2, buttonText: 'LinkedIn', url: '/' },
+      { id: 3, buttonText: 'Twitter', url: '/' },
+      { id: 4, buttonText: 'Are.na', url: '/' },
+      { id: 5, buttonText: 'TikTok', url: '/' },
+      { id: 6, buttonText: 'YouTube', url: '/' },
+      { id: 7, buttonText: 'Instagram', url: '/' },
+      { id: 8, buttonText: 'Letterboxd', url: '/' },
 
     ];
   
