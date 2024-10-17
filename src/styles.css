@@ -1,0 +1,88 @@
+h1 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+
+}
+
+h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+
+.text {
+    margin: 1em;
+}
+
+
+p {
+    font-family: 'Times New Roman Sans', serif;
+
+}
+
+body {
+    background-color: #fff;
+}
+
+.media-container {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+
+/*WORK*/
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em 1em;
+    margin: 1em;
+
+}
+
+.project-description {
+    border: 1px solid #eee;
+    padding: 2em;
+    border-radius: 1em;
+    min-width: 30%;
+}
+
+.splash {
+    border-radius: 1em;
+    border: 1px solid #eee;
+    overflow: hidden;
+    margin: 1em;
+    display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+}
+
+.splash-container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .splash-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+}
+
