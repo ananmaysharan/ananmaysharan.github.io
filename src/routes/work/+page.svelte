@@ -19,11 +19,11 @@
 <div class='grid'>
 
     <Card title={'Measuring Main Streets'} year={'2024'} tags={['Mapping', 'Web Development', 'Design']} img={mms} url={'/work/measuring-main-streets'}/>
-    <Card title={'Chemical Valley Pollution Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={pollution} url={'/work//chemical-valley-pollution-map'}/>
-    <Card title={'Under Gardiner Archival Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={gardiner} url={'/work//under-gardiner-archival-map'}/>
-    <Card title={'Opinion Generator'} year={'2024'} tags={['Personal', 'Web Development']} img={opiniongenerator} url={'/work//opinion-generator'}/>
-    <Card title={'Adaptive Artifacts'} year={'2023'} tags={['Data Visualization', 'Web Development']} img={aa} url={'/work//adaptive-artifacts'}/>
-    <Card title={'Pigeons and Planes'} year={'2021'} tags={['Writing']} img={pigeonsplanes} url={'/work//pigeons-planes'}/>
+    <Card title={'Chemical Valley Pollution Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={pollution} url={'/work/chemical-valley-pollution-map'}/>
+    <Card title={'Under Gardiner Archival Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={gardiner} url={'/work/under-gardiner-archival-map'}/>
+    <Card title={'Opinion Generator'} year={'2024'} tags={['Personal', 'Web Development']} img={opiniongenerator} url={'/work/opinion-generator'}/>
+    <Card title={'Adaptive Artifacts'} year={'2023'} tags={['Data Visualization', 'Web Development']} img={aa} url={'/work/adaptive-artifacts'}/>
+    <Card title={'Pigeons and Planes'} year={'2021'} tags={['Writing']} img={pigeonsplanes} url={'/work/pigeons-planes'}/>
 
 
 </div>
