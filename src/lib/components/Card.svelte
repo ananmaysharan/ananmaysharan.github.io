@@ -8,7 +8,7 @@
 </script>
 
 <div id="card">
-    <a href={base + 'work' + url}>
+    <a href={base + url}>
     <div class="content">
         <div class="card-header">
             <h3>{title}</h3>

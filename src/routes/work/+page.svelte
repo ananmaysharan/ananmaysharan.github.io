@@ -18,7 +18,7 @@
 
 <div class='grid'>
 
-    <Card title={'Measuring Main Streets'} year={'2024'} tags={['Mapping', 'Web Development', 'Design']} img={mms} url={'/measuring-main-streets'}/>
+    <Card title={'Measuring Main Streets'} year={'2024'} tags={['Mapping', 'Web Development', 'Design']} img={mms} url={'/work/measuring-main-streets'}/>
     <Card title={'Chemical Valley Pollution Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={pollution} url={'/chemical-valley-pollution-map'}/>
     <Card title={'Under Gardiner Archival Map'} year={'2023'} tags={['Mapping', 'Web Development']} img={gardiner} url={'/under-gardiner-archival-map'}/>
     <Card title={'Opinion Generator'} year={'2024'} tags={['Personal', 'Web Development']} img={opiniongenerator} url={'/opinion-generator'}/>
