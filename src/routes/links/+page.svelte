@@ -7,14 +7,14 @@
   const {Engine, Runner, World, Bodies, Composite, Mouse, MouseConstraint, Body, Events, Render} = pkg;
   
   let buttons = [
-    { id: 1, buttonText: 'Github', url: '/' },
-    { id: 2, buttonText: 'LinkedIn', url: '/' },
-    { id: 3, buttonText: 'Twitter', url: '/' },
-    { id: 4, buttonText: 'Are.na', url: '/' },
-    { id: 5, buttonText: 'TikTok', url: '/' },
-    { id: 6, buttonText: 'YouTube', url: '/' },
-    { id: 7, buttonText: 'Instagram', url: '/' },
-    { id: 8, buttonText: 'Letterboxd', url: '/' },
+    { id: 1, buttonText: 'Github', url: '/', color: 'github'  },
+    { id: 2, buttonText: 'LinkedIn', url: '/', color: 'linkedin'  },
+    { id: 3, buttonText: 'Twitter', url: '/', color: 'twitter' },
+    { id: 4, buttonText: 'Are.na', url: '/', color: 'arena'},
+    { id: 5, buttonText: 'TikTok', url: '/', color: 'tiktok'},
+    { id: 6, buttonText: 'YouTube', url: '/', color: 'youtube' },
+    { id: 7, buttonText: 'Instagram', url: '/',  color: 'instagram' },
+    { id: 8, buttonText: 'Letterboxd', url: '/', color: 'letterboxd'},
   ];
   
   let containerDiv;
@@ -91,34 +91,6 @@ onMount(() => {
       Composite.add(engine.world, buttonBody);
     });
 
-    // // Add mouse control
-    // const mouse = Mouse.create(render.canvas);
-    // const mouseConstraint = MouseConstraint.create(engine, {
-    //   mouse: mouse,
-    //   constraint: {
-    //     stiffness: 0.2,
-    //     render: {
-    //       visible: false
-    //     }
-    //   }
-    // });
-
-    // Composite.add(engine.world, mouseConstraint);
-
-    // // Keep the mouse in sync with rendering
-    // render.mouse = mouse;
-
-    // // Handle clicks
-    // Events.on(mouseConstraint, 'mouseup', (event) => {
-    //   const clickedBody = mouseConstraint.body;
-    //   if (clickedBody) {
-    //     const index = physicsButtons.indexOf(clickedBody);
-    //     if (index !== -1 && !mouseConstraint.dragging) {
-    //       window.location.href = buttons[index].url;
-    //     }
-    //   }
-    // });
-
     // Start the simulation
     Render.run(render);
     Runner.run(runner, engine);
@@ -160,7 +132,7 @@ onMount(() => {
         class="button-wrapper"
         bind:this={buttonElements[button.id - 1]}
       >
-        <LinkButton url={button.url} buttonText={button.buttonText} />
+        <LinkButton url={button.url} buttonText={button.buttonText} color={button.color} />
       </div>
     {/each}
   </div>
