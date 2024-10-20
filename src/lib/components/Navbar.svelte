@@ -20,7 +20,7 @@
       align-items: center;
       padding: 0 1em;
       background-color: #fff; /* You can change the background color */
-      height: 60px; /* Adjust the height as needed */
+      height: 10vh; /* Adjust the height as needed */
     }
   
     h1 a {

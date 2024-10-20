@@ -1,5 +1,6 @@
 <script>
     import Listening from "$lib/components/Listening.svelte";
+    import Button from "$lib/components/Button.svelte";
 </script>
 
 <div class='text'>
@@ -15,12 +16,19 @@
 <p>
     Please reach out to me via email if you're interested in chatting about any of my projects, past experience or to enquire about freelance work. 
 </p>
+
+
+<Button url={'mailto:ananmay01@gmail.com'} buttonText={'Email'} />
+
+
 </div>
 
 
 <div class='media-container'>
 <Listening/>
 </div>
+
+
 
 
 

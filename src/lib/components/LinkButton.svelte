@@ -21,10 +21,10 @@
     button::before {
         content: '';
         position: absolute;
-        top: -2px;  /* Control how much larger the background layer is */
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
+        top: -4px;  /* Control how much larger the background layer is */
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
  
  
         background: linear-gradient(180deg, #FFFFFF 0%, #666666 38.61%, #4F4F4F 61.84%, #eee 100%);
@@ -42,4 +42,13 @@
         text-decoration: none;
         color: white;
     }
+
+
+@media only screen and (min-width: 768px) {
+    button {
+
+        font-size: 2rem;
+
+    }
+}
 </style>
