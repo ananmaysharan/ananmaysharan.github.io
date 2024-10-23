@@ -6,7 +6,7 @@
 </script>
 
 <a href={url} target="_blank"
-    ><button class={color}> <div class='button-content'><svelte:component this={icon} />{buttonText}</div></button></a
+    ><button class={color}> <div class='button-content'><svelte:component this={icon} class='icon'/>{buttonText}</div></button></a
 >
 
 <style>
@@ -21,6 +21,13 @@
         min-width: 10em;
     }
 
+    .icon {
+    /* Add a drop shadow to the icon */
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+  }
+  
     .button-content {
         display: flex;
         flex-direction: row;
@@ -161,7 +168,7 @@
     }
 
     .github {
-        background: linear-gradient(180deg, #444444, #333 100%);
+        background: linear-gradient(180deg, #2F363D, #24292E 100%);
     }
 
     .github:before {
@@ -176,7 +183,7 @@
     }
 
     .tiktok {
-        background: linear-gradient(180deg, #69c9d0 0%, #fe2c55 100%);
+        background: linear-gradient(180deg, #222, #010101 100%);
     }
 
     .tiktok:before {

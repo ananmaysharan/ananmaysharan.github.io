@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="28px" viewBox="0 0 76 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>letterboxd</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="letterboxd" transform="translate(0, 0)" fill-rule="nonzero">
+            <circle id="Oval" fill="#FF8000" cx="14" cy="14" r="14"></circle>
+            <circle id="Oval" fill="#40BCF4" cx="62" cy="14" r="14"></circle>
+            <circle id="Oval" fill="#00E054" cx="38" cy="14" r="14"></circle>
+            <g id="Group" transform="translate(24, 6.785)" fill="#FFFFFF">
+                <path d="M26,0 C27.269,2.107 28,4.576 28,7.215 C28,9.854 27.27,12.323 26,14.43 C24.73,12.323 24,9.854 24,7.215 C24,4.603 24.715,2.158 25.961,0.065 L26,0 Z" id="BP"></path>
+                <g id="BP-link">
+                    <path d="M2,0 C3.269,2.107 4,4.576 4,7.215 C4,9.854 3.27,12.323 2,14.43 C0.73,12.323 0,9.854 0,7.215 C0,4.603 0.715,2.158 1.961,0.065 L2,0 Z" id="BP"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

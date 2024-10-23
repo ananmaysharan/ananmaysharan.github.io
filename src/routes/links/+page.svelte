@@ -7,10 +7,10 @@
   import Spotify from "~icons/mdi/spotify";
   import Github from "~icons/mdi/github";
   import LinkedIn from "~icons/mdi/linkedin";
-  import TikTok from "~icons/ic/baseline-tiktok";
+  import TikTok from "~icons/myIcons/tiktok";
   import YouTube from "~icons/mdi/youtube";
   import Twitter from "~icons/mdi/twitter";
-  import Letterboxd from "~icons/simple-icons/letterboxd";
+  import Letterboxd from "~icons/myIcons/letterboxd";
   import Arena from "~icons/myIcons/arena"; // Adjust the path as needed
 
   import pkg from "matter-js";
@@ -28,18 +28,18 @@
   } = pkg;
 
   let buttons = [
-    { id: 1, buttonText: "Github", url: "/", color: "github", icon: Github },
+    { id: 1, buttonText: "Github", url: "https://github.com/ananmaysharan", color: "github", icon: Github },
     {
       id: 2,
       buttonText: "LinkedIn",
-      url: "/",
+      url: "https://www.linkedin.com/in/ananmay-sharan/",
       color: "linkedin",
       icon: LinkedIn,
     },
-    { id: 3, buttonText: "Twitter", url: "/", color: "twitter", icon: Twitter },
+    { id: 3, buttonText: "Twitter", url: "https://x.com/ananmaysharan", color: "twitter", icon: Twitter },
     { id: 4, buttonText: "Are.na", url: "/", color: "arena", icon: Arena },
-    { id: 5, buttonText: "TikTok", url: "/", color: "tiktok", icon: TikTok },
-    { id: 6, buttonText: "YouTube", url: "/", color: "youtube", icon: YouTube },
+    { id: 5, buttonText: "TikTok", url: "https://www.tiktok.com/@ananmay_", color: "tiktok", icon: TikTok },
+    { id: 6, buttonText: "YouTube", url: "https://www.youtube.com/@ananmay", color: "youtube", icon: YouTube },
     {
       id: 7,
       buttonText: "Instagram",

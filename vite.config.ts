@@ -10,7 +10,7 @@ export default defineConfig({
     Icons({
       compiler: 'svelte',
       customCollections: {
-        myIcons: FileSystemIconLoader('./src/lib/assets', svg => svg.replace(/^<svg /, '<svg fill="currentColor" ')),
+        myIcons: FileSystemIconLoader('./src/lib/assets/icons', svg => svg.replace(/^<svg /, '<svg fill="currentColor" ')),
       },
     })
   ]
