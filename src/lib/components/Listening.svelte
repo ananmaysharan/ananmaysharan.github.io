@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import { onMount } from "svelte";
     import { writable } from "svelte/store";
 
@@ -8,6 +10,10 @@
     let img = writable(
         "https://i.imgur.com/sDCYwXa.png",
     );
+
+    let labelArtist;
+    let labelTitle;
+    
 
     onMount(async () => {
         const isCached = localStorage.getItem("listeningToCached");
@@ -54,10 +60,17 @@
             new Date().getTime().toString(),
         );
         localStorage.setItem("listeningToCached", "true");
+
     });
+
+    let isHovered = false;  // Add just this line
+
+
 </script>
 
-<div class="listening-container">
+<div class="listening-container"
+     on:mouseenter={() => isHovered = true}
+     on:mouseleave={() => isHovered = false}>
     <a href={$src}>
         <img
             src={$img}
@@ -67,6 +80,12 @@
         />
     </a>
     <div class="center-circle" />
+    {#if isHovered}
+        <div class="song-tooltip">
+            <span class="title">{$song}</span>
+            <span class="artist">{$artist}</span>
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -149,6 +168,53 @@
         }
         to {
             transform: rotate(360deg);
+        }
+    }
+
+
+    .song-tooltip {
+        position: absolute;
+        top: 50%;
+        right: calc(100% + 15px); /* Position to the left with 15px gap */
+        transform: translateY(-50%);
+        background-color: #222;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .song-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -8px; /* Arrow on right side pointing to disc */
+        transform: translateY(-50%);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #222; /* Arrow pointing right */
+    }
+
+    .song-tooltip .title {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 2px;
+    }
+
+    .song-tooltip .artist {
+        display: block;
+        opacity: 0.8;
+        font-size: 12px;
+    }
+
+    @media only screen and (max-width: 876px) {
+        .song-tooltip {
+            right: calc(100% + 10px); /* Slightly closer on mobile */
+            font-size: 12px;
+            padding: 6px 10px;
         }
     }
 </style>
