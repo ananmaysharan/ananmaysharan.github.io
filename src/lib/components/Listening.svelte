@@ -86,6 +86,13 @@
             <span class="artist">{$artist}</span>
         </div>
     {/if}
+     <!-- Musical notes animation -->
+     <div class="notes">
+        <div class="noot-1">&#9835;</div>
+        <div class="noot-2">&#9834;</div>
+        <div class="noot-3">&#9835;</div>
+        <div class="noot-4">&#9834;</div>
+    </div>
 </div>
 
 <style>
@@ -112,7 +119,7 @@
     animation: rotate 10s linear infinite;
     }
     
-    .disc:hover {
+    .disc:hover, .center-circle:hover {
         cursor: pointer;
     }
 
@@ -141,8 +148,6 @@
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
         border: 10px solid #222;
         outline: 2px solid #000;
-
-
     }
 
     @media only screen and (max-width: 876px) {
@@ -217,4 +222,34 @@
             padding: 6px 10px;
         }
     }
+
+    /* Musical notes animation */
+.notes {
+    position: absolute;
+    width: 50%;
+    min-width: 100px;
+    height: 100px;
+    top: 0;
+    right: -20px;
+}
+
+.noot-1, .noot-2, .noot-3, .noot-4 {
+    position: absolute;
+    animation: notes 2s infinite linear;
+    font-size: 1em;
+    opacity: 0;
+    color: #c0c0c0;
+}
+
+.noot-1 { top: 0px; left: 0; animation-delay: 0.5s; }
+.noot-2 { top: 0px; left: 10%; animation-delay: 1s; }
+.noot-3 { top: 0px; left: 20%; animation-delay: 1.5s; }
+.noot-4 { top: 0px; left: 30%; animation-delay: 2s; }
+
+@keyframes notes {
+    0% { transform: scale(1) translate(0, 0); opacity: 0; }
+    50% { opacity: 1; transform: scale(1.2) translate(50%, -50%); }
+    80% { opacity: 0; transform: scale(1.2) translate(100%, -100%); filter: blur(1px); }
+    100% { transform: scale(1.2) translate(100%, -100%); opacity: 0; filter: blur(2px); }
+}
 </style>
