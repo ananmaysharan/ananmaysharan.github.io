@@ -63,122 +63,141 @@
   let render;
   let runner;
   let physicsButtons = [];
+  let resizeTimeout;
+
+  function cleanupPhysics() {
+    if (render) Render.stop(render);
+    if (runner) Runner.stop(runner);
+    if (engine) {
+      World.clear(engine.world);
+      Engine.clear(engine);
+    }
+    physicsButtons = [];
+  }
+
+  function initPhysics() {
+    cleanupPhysics();
+
+    // Create engine
+    engine = Engine.create({
+      enableSleeping: true,
+    });
+
+    const containerBounds = containerDiv.getBoundingClientRect();
+    const containerWidth = containerBounds.width;
+    const containerHeight = containerBounds.height || window.innerHeight;
+
+    // Create renderer
+    render = Render.create({
+      element: containerDiv,
+      engine: engine,
+      options: {
+        width: containerWidth,
+        height: containerHeight,
+        wireframes: false,
+        background: "transparent",
+      },
+    });
+
+    // Create runner
+    runner = Runner.create();
+
+    // Create walls
+    const wallOptions = {
+      isStatic: true,
+      render: { visible: false },
+    };
+
+    const walls = [
+      Bodies.rectangle(
+        containerWidth / 2,
+        containerHeight - 10,
+        containerWidth,
+        20,
+        wallOptions,
+      ), // floor
+      Bodies.rectangle(
+        0,
+        containerHeight / 2,
+        20,
+        containerHeight,
+        wallOptions,
+      ), // left wall
+      Bodies.rectangle(
+        containerWidth,
+        containerHeight / 2,
+        20,
+        containerHeight,
+        wallOptions,
+      ), // right wall
+    ];
+
+    Composite.add(engine.world, walls);
+
+    // Create physics bodies for buttons
+    buttonElements.forEach((buttonEl, index) => {
+      if (!buttonEl) return;
+
+      const buttonBounds = buttonEl.getBoundingClientRect();
+
+      const buttonBody = Bodies.rectangle(
+        Math.random() * (containerWidth - buttonBounds.width) +
+          buttonBounds.width / 2, // Random X position
+        -50 - index * 50, // Staggered Y positions above viewport
+        buttonBounds.width + 10,
+        buttonBounds.height + 10,
+        {
+          restitution: 0.6,
+          friction: 0.8,
+          density: 0.001,
+          label: `button-${index}`,
+        },
+      );
+
+      physicsButtons.push(buttonBody);
+      Composite.add(engine.world, buttonBody);
+    });
+
+    // Start the simulation
+    Render.run(render);
+    Runner.run(runner, engine);
+
+    // Animation loop for button positions
+    function updateButtonPositions() {
+      buttonElements.forEach((buttonEl, index) => {
+        if (!buttonEl || !physicsButtons[index]) return;
+
+        const body = physicsButtons[index];
+        const x = body.position.x - buttonEl.offsetWidth / 2;
+        const y = body.position.y - buttonEl.offsetHeight / 2;
+        const rotation = body.angle * (180 / Math.PI);
+
+        buttonEl.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+      });
+      requestAnimationFrame(updateButtonPositions);
+    }
+
+    updateButtonPositions();
+  }
 
   onMount(() => {
     setTimeout(() => {
       initPhysics();
     }, 0);
 
-    function initPhysics() {
-      // Create engine
-      engine = Engine.create({
-        enableSleeping: true,
-      });
-
-      const containerBounds = containerDiv.getBoundingClientRect();
-      const containerWidth = containerBounds.width;
-      const containerHeight = containerBounds.height || window.innerHeight;
-
-      // Create renderer
-      render = Render.create({
-        element: containerDiv,
-        engine: engine,
-        options: {
-          width: containerWidth,
-          height: containerHeight,
-          wireframes: false,
-          background: "transparent",
-        },
-      });
-
-      // Create runner
-      runner = Runner.create();
-
-      // Create walls
-      const wallOptions = {
-        isStatic: true,
-        render: { visible: false },
-      };
-
-      const walls = [
-        Bodies.rectangle(
-          containerWidth / 2,
-          containerHeight - 10,
-          containerWidth,
-          20,
-          wallOptions,
-        ), // floor
-        Bodies.rectangle(
-          0,
-          containerHeight / 2,
-          20,
-          containerHeight,
-          wallOptions,
-        ), // left wall
-        Bodies.rectangle(
-          containerWidth,
-          containerHeight / 2,
-          20,
-          containerHeight,
-          wallOptions,
-        ), // right wall
-      ];
-
-      Composite.add(engine.world, walls);
-
-      // Create physics bodies for buttons
-      buttonElements.forEach((buttonEl, index) => {
-        if (!buttonEl) return;
-
-        const buttonBounds = buttonEl.getBoundingClientRect();
-
-        const buttonBody = Bodies.rectangle(
-          Math.random() * (containerWidth - buttonBounds.width) +
-            buttonBounds.width / 2, // Random X position
-          -50 - index * 50, // Staggered Y positions above viewport
-          buttonBounds.width + 10,
-          buttonBounds.height + 10,
-          {
-            restitution: 0.6,
-            friction: 0.8,
-            density: 0.001,
-            label: `button-${index}`,
-          },
-        );
-
-        physicsButtons.push(buttonBody);
-        Composite.add(engine.world, buttonBody);
-      });
-
-      // Start the simulation
-      Render.run(render);
-      Runner.run(runner, engine);
-
-      // Animation loop for button positions
-      function updateButtonPositions() {
-        buttonElements.forEach((buttonEl, index) => {
-          if (!buttonEl || !physicsButtons[index]) return;
-
-          const body = physicsButtons[index];
-          const x = body.position.x - buttonEl.offsetWidth / 2;
-          const y = body.position.y - buttonEl.offsetHeight / 2;
-          const rotation = body.angle * (180 / Math.PI);
-
-          buttonEl.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
-        });
-        requestAnimationFrame(updateButtonPositions);
-      }
-
-      updateButtonPositions();
+    function handleResize() {
+      // Debounce to avoid rapid re-initialization
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        initPhysics();
+      }, 100);
     }
 
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      if (render) Render.stop(render);
-      if (runner) Runner.stop(runner);
-      if (engine) {
-        World.clear(engine.world);
-        Engine.clear(engine);
-      }
+      window.removeEventListener('resize', handleResize);
+      cleanupPhysics();
     };
   });
 </script>

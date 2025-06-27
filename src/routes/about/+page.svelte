@@ -5,23 +5,28 @@
 </script>
 
 
-<div class='text'>
+<div class='text' id='about-text'>
 
-    <img src={profile} alt='profile'>
+    <img src={profile} alt='profile' id="profile">
 
+    <div>
 <p>
-   I currently work at the <a href="https://canurb.org/">Canadian Urban Institute</a> as a Research Analyst. I studied Human Geography, Computer Science and GIS at the University of Toronto.
+   I'm currently studying <a href="https://www.gsd.harvard.edu/design-engineering/">Design Engineering</a> at Harvard University, a collaborative degree program between the Graduate School of Design and the School of Engineering and Applied Sciences.
 </p>
 <p>
-    Previously, I interned at <a href="https://thebentway.ca/">The Bentway</a> and <a href="https://www.sodatone.com/">Sodatone (Warner Music Group)</a>.
+   Previously, I worked at the <a href="https://canurb.org/">Canadian Urban Institute</a> as a web developer and data analyst, and interned at <a href="https://thebentway.ca/">The Bentway</a> and <a href="https://www.sodatone.com/">Sodatone (Warner Music Group)</a>.
 </p>
 <p>
-    I'm interested in urban environments, music, fashion, and soccer, particularly in how they interact with technology and digital culture. 
+    I graduated from the University of Toronto with a bachelor’s degree in Human Geography, Computer Science and GIS in 2023.
 </p>
 <p>
-    Please reach out to me via email if you're interested in chatting about any of my projects, past experience or to enquire about freelance work. 
+    Some of my interests include: urban environments, design, music, fashion, cooking and soccer, particularly in how they interact with technology and digital culture. 
+</p>
+<p>
+    Please reach out to me via email if you’re interested in chatting about any of my projects, past experience or to just to say hi! 
 </p>
 
+</div>
 
 <Button url={'mailto:ananmay01@gmail.com'} buttonText={'Email'} />
 

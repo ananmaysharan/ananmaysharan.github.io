@@ -68,7 +68,7 @@
 
 </script>
 
-<div class="listening-container"
+<div class="listening-container listening-fixed"
      on:mouseenter={() => isHovered = true}
      on:mouseleave={() => isHovered = false}>
     <a href={$src}>

@@ -247,4 +247,17 @@
         color: white;
     }
 
+    /* Responsive styles for mobile */
+    @media (max-width: 600px) {
+        button {
+            font-size: 1.1rem;
+            min-width: 6em;
+            padding: 0.6em;
+        }
+        .icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
 </style>
