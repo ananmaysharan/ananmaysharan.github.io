@@ -21,6 +21,7 @@
       padding: 0 1em;
       background-color: #fff; /* You can change the background color */
       height: 10vh; /* Adjust the height as needed */
+      border-bottom: 1px solid #eee;
     }
   
     h1 a {

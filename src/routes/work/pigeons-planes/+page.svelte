@@ -14,7 +14,7 @@
     <h3>Description</h3>
 
     <p>
-        I briefly wrote for Pigeons and Planes/Complex News, covering new music.
+        I wrote for Pigeons and Planes/Complex News, covering new music.
 
     </p>
 

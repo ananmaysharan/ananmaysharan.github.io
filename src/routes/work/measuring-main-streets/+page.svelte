@@ -9,7 +9,7 @@
 <div class="text project-description">
     <h1>Measuring Main Streets</h1>
 
-    <h2>2024 — Present</h2>
+    <h2>2024 — 2025</h2>
 
     <h3>Description</h3>
 
