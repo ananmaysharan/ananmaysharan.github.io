@@ -86,7 +86,7 @@
 
     a {
         text-decoration: none;
-        color: #000;
+        color: #08090a;
     }
 
     .description {

@@ -20,7 +20,7 @@
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={ocean}
-        url={"/work/measuring-main-streets"}
+        url={"/work/ocean-records"}
     />
     <Card
         title={"Measuring Main Streets"}

@@ -1,5 +1,5 @@
 <script>
-    import pigeons from "$lib/assets/work/splash/pigeons-splash.webp";
+    import mms from "$lib/assets/work/ocean.webp";
     import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
 
@@ -15,22 +15,28 @@
 
     <section class="splash-content">
         <Overview  
-            title="Pigeons and Planes"
-            link="https://www.complex.com/author/loveinamovie"
-            img={pigeons}
-            roles={["Writer", "Music Journalist"]}
-            timeline="2021"
-            technologies={[]}
-            skills={["Music Journalism", "Content Writing", "Cultural Criticism"]}
+            title="Ocean Records"
+            link="http://ocean-records.vercel.app/"
+            img={mms}
+            roles={["Designer", "Web Developer"]}
+            timeline="September 2025"
+            technologies={["SvelteKit", "Mapbox", "GSAP", "P5.js"]}
+            skills={["Design Research", "Data Visualization", "Web Development"]}
+
         />
 
         <section id="overview">
             <h2>Overview</h2>
 
             <p>
-                I wrote for Pigeons and Planes/Complex News, covering new music.
+                Using machine learning to listen to the ocean.
             </p>
         </section>
+
+
+        <!-- <div id="solution" class="splash">
+            <img src={mms} alt="mms-splash" />
+        </div> -->
     </section>
 </div>
 

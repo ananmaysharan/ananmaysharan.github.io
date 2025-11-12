@@ -26,7 +26,7 @@
   
     h1 a {
       text-decoration: none;
-      color: #000; /* Adjust the color */
+      color: #08090a; /* Adjust the color */
       font-weight: 400;
     }
 
@@ -48,7 +48,7 @@
   
     .nav-links a {
       text-decoration: none;
-      color: #000; /* Adjust the link color */
+      color: #08090a; /* Adjust the link color */
 
     }
   

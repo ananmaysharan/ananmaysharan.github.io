@@ -153,7 +153,7 @@
     }
 
     .arena {
-        background: linear-gradient(180deg, #222, #000 100%);
+        background: linear-gradient(180deg, #222, #08090a 100%);
     }
 
     .arena:before {

@@ -1,40 +1,41 @@
 <script>
-    import Button from "$lib/components/Button.svelte";
     import opinion from "$lib/assets/work/splash/opinion-splash.webp";
+    import Contents from "$lib/components/Contents.svelte";
+    import Overview from "$lib/components/Overview.svelte";
+
+    const sections = [
+        { id: "overview", title: "Overview" },
+    ];
 </script>
 
+<div class="splash-container">
+    <aside>
+    <Contents {sections} />
+    </aside>
 
-<div class='splash-container'>
+    <section class="splash-content">
+        <Overview  
+            title="Opinion Generator"
+            link="https://ananmaysharan.github.io/opinion-generator/"
+            img={opinion}
+            showInfo={false}
+            roles={[]}
+            timeline="2024"
+            technologies={["HTML", "CSS", "Javascript", "Github Pages"]}
+            skills={["Web Development", "UI Design", "Creative Coding"]}
+        />
 
-<div class="text project-description">
-    <h1>Opinion Generator</h1>
+        <section id="overview">
+            <h2>Overview</h2>
 
-    <h2>2024</h2>
-
-    <h3>Description</h3>
-
-    <p>
-        A project inspired by some funny tweets that allows people to generate their own NYT Opinion headlines. Allowed me to experiment with using the canvas2html library.
-    </p>
-
-    <h3>Technologies</h3>
-
-    <p>HTML, CSS, Javascript, Github Pages</p>
-
-    <Button
-        buttonText={"Visit Website"}
-        url={"https://ananmaysharan.github.io/opinion-generator/"}
-    />
-</div>
-
-<div class="splash">
-    <img src={opinion} alt="opinion-splash" />
-</div>
-
+            <p>
+                A project inspired by some funny tweets that allows people to generate their own NYT Opinion headlines. Allowed me to experiment with using the canvas2html library.
+            </p>
+        </section>
+    </section>
 </div>
 
 <style>
-
     img {
         width: 100%;
         height: auto;

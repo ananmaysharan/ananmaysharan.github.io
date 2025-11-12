@@ -5,5 +5,6 @@
 
 <Navbar></Navbar>
 
+<main>
 <slot/>
-
+</main>

@@ -3,12 +3,12 @@ h1 {
 
 }
 
-h3 {
+h3, h4 {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 400;
 }
 
@@ -25,12 +25,12 @@ h1, h2, h3 {
 
 p {
     font-family: 'Times New Roman Sans', serif;
-
 }
 
 body {
     background-color: #fff;
     margin: 0;
+    color: #08090a
 }
 
 .media-container {
@@ -68,8 +68,13 @@ body {
 }
 
 .splash-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 2rem;
+}
+
+.splash-content {
+    margin: 2rem;
 }
 
 #profile {
@@ -89,17 +94,16 @@ body {
     .grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .splash-content {
+        max-width: 800px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .grid {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .splash-container {
-        display: flex;
-        flex-direction: row;
     }
 }
 

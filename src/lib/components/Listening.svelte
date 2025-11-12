@@ -147,7 +147,7 @@
         transform: translate(-50%, -50%);
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
         border: 10px solid #222;
-        outline: 2px solid #000;
+        outline: 2px solid #08090a;
     }
 
     @media only screen and (max-width: 876px) {
