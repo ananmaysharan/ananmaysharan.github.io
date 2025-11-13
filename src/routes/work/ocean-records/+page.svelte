@@ -55,7 +55,7 @@
             We used the NOAA data in conjunction with Google DeepMind's machine learning model, Perch 2.0, that can accurately classify different whale species and human-made sounds from underwater acoustic recordings.
             </p>
             <p>
-            Our interactive web-based data visualization, Ocean Records, allows users to explore the underwater soundscape of Monterey Bay between 2018 and 2022, highlighting the presence of different whale species and human-made sounds such as ship noise and fishing activity.
+            Our interactive web-based data visualization, Ocean Records, allows users to explore the underwater soundscape of Monterey Bay, highlighting the presence of different whale species and human-made sounds such as ship noise and fishing activity.
             </p>
         </section>
 <!-- 

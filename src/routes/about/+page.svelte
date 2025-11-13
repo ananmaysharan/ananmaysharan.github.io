@@ -54,11 +54,20 @@
         height: 100%;
     }
 
+    
     #about-text {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 4rem;
         align-items: center;
         padding: 4rem;
     }
+
+    @media only screen and (min-width: 992px) {
+        #about-text {
+            flex-direction: row;
+        }
+
+    }
 </style>
+
