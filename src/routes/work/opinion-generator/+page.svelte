@@ -20,7 +20,7 @@
             img={opinion}
             showInfo={false}
             roles={[]}
-            timeline="2024"
+            timeline={["2024"]}
             technologies={["HTML", "CSS", "Javascript", "Github Pages"]}
             skills={["Web Development", "UI Design", "Creative Coding"]}
         />

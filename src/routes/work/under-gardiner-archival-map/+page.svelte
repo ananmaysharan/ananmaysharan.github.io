@@ -19,7 +19,7 @@
             link="https://thebentway.github.io/gardinerwebmap/"
             img={gardiner}
             roles={["Web Developer", "Data Analyst"]}
-            timeline="2023"
+            timeline={["2023"]}
             technologies={["Mapbox", "HTML", "CSS", "Javascript"]}
             skills={["Web Development", "GIS", "Data Collection", "Archival Research"]}
         />

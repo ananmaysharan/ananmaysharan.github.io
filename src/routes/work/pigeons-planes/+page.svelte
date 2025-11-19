@@ -19,7 +19,7 @@
             link="https://www.complex.com/author/loveinamovie"
             img={pigeons}
             roles={["Writer", "Music Journalist"]}
-            timeline="2021"
+            timeline={["2021"]}
             technologies={[]}
             skills={["Music Journalism", "Content Writing", "Cultural Criticism"]}
         />

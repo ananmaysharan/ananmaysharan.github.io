@@ -19,7 +19,7 @@
             link="https://adaptive-artifacts.onrender.com/"
             img={adaptive}
             roles={["Web Developer"]}
-            timeline="2023"
+            timeline={["2023"]}
             technologies={["Plotly Dash", "Python (Pandas)", "Render"]}
             skills={["Data Visualization"]}
         />

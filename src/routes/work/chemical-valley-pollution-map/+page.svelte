@@ -19,7 +19,7 @@
             link="https://www.landandrefinery.org/projects/pollution-notification-map"
             img={pollution}
             roles={["Research Assistant", "Web Developer"]}
-            timeline="2023"
+            timeline={["2023"]}
             technologies={["Mapbox", "HTML", "CSS", "Javascript"]}
             skills={["Web Development", "GIS", "Data Cleaning"]}
         />

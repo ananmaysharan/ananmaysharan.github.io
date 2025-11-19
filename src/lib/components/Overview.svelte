@@ -4,7 +4,7 @@
     export let title = "";
     export let img;
     export let roles = [];
-    export let timeline = "";
+    export let timeline = [];
     export let technologies = [];
     export let skills = [];
     export let link = "";
@@ -37,7 +37,13 @@
 
         <div class="info-section">
             <h4>Timeline</h4>
-            <p>{timeline}</p>
+            {#each timeline as time}
+                <li>
+                    <ul>
+                        {time}
+                    </ul>
+                </li>
+            {/each}
         </div>
 
         <div class="info-section">
@@ -90,11 +96,12 @@
     }
 
     .info {
-        display: flex;
-        gap: 4rem;
-        justify-content: space-between;
-        color: #999;
-    }
+    display: grid;
+    justify-content: space-between;
+    color: #999;
+    grid-template-columns: 1fr 1fr;
+}
+
 
     .info ul,
     li {
@@ -102,4 +109,14 @@
         padding: 0;
         margin: 0;
     }
+
+    @media (min-width: 768px) {
+    .info {
+        display: flex;
+        gap: 4rem;
+        justify-content: space-between;
+    }
+    }
+
+
 </style>

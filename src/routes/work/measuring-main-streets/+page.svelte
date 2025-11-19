@@ -19,7 +19,7 @@
             link="http://measuringmainstreets.ca"
             img={mms}
             roles={["Web Developer", "Data Analyst"]}
-            timeline="September 2023 — July 2025"
+            timeline={["September 2023 — July 2025"]}
             technologies={["SvelteKit", "Mapbox", "Supabase", "D3"]}
             skills={["Full Stack Development", "Web Design", "Data Visualization", "GIS"]}
 
