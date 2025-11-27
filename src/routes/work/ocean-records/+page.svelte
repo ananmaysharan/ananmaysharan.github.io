@@ -331,15 +331,15 @@
 
         </section>
         <section id="reflection">
+
             <h3>Reflection & Next Steps</h3>
-            <p>This visualization was a chance to explore the intersection of marine biology, sound, and data, much of which was completely new to me but incredibly rewarding to deep dive into.</p>
+            <div>
+            <p>This visualization was a chance to explore the intersection of bioacousitcs, design and data, and was incredibly rewarding to deep dive into.</p>
             <p>Going forward, we are hoping to expand the amount of recordings analyzed using Perch as well as incorporate historical shipping data on the map.</p>
             <p>We are in the process of showcasing this work to NOAA and others at Google DeepMind.</p>
-
-            <p>If you made it this far, enjoy my favorite sticky note from the project!</p>
-
-            <div>
-                <img class='work-image' src={fish} alt="fish" />
+            </div>
+            <div style="display:flex; justify-content:center;">
+                <img class='work-image' style="max-width: 50%; border:none;"src={fish} alt="fish" />
             </div>
         </section>
 

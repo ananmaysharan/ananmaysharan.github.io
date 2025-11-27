@@ -22,13 +22,14 @@
             timeline={["2021"]}
             technologies={[]}
             skills={["Music Journalism", "Content Writing", "Cultural Criticism"]}
+            
         />
 
         <section id="overview">
             <h2>Overview</h2>
 
             <p>
-                I wrote for Pigeons and Planes/Complex News, covering new music.
+                In 2022,, I contributed to Pigeons and Planes/Complex News, covering new music and rising artists.
             </p>
         </section>
     </section>

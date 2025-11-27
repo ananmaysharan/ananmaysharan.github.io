@@ -30,14 +30,14 @@
         img={mms}
         url={"/work/measuring-main-streets"}
     />
-    <Card
+    <!-- <Card
         title={"Opinion Generator"}
         description={"Got a hot take?"}
         year={"2024"}
         tags={["Personal", "Development"]}
         img={opiniongenerator}
         url={"/work/opinion-generator"}
-    />
+    /> -->
     <Card
         title={"Chemical Valley Pollution Map"}
         description={"Visualizing 10 years of pollution events in Ontario's Chemical Valley."}
