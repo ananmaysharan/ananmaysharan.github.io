@@ -22,6 +22,7 @@
             timeline={["2021"]}
             technologies={[]}
             skills={["Music Journalism", "Content Writing", "Cultural Criticism"]}
+            showInfo={false}
             
         />
 
@@ -29,7 +30,7 @@
             <h2>Overview</h2>
 
             <p>
-                In 2022,, I contributed to Pigeons and Planes/Complex News, covering new music and rising artists.
+                In 2021, I contributed to Pigeons and Planes/Complex News, covering new music and interviewing rising artists.
             </p>
         </section>
     </section>

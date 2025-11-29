@@ -207,12 +207,16 @@
         display: block;
         font-weight: 500;
         margin-bottom: 2px;
+        font-family: 'Georgia', 'Times New Roman', serif;
+
     }
 
     .song-tooltip .artist {
         display: block;
         opacity: 0.8;
         font-size: 12px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+
     }
 
     @media only screen and (max-width: 876px) {

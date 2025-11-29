@@ -9,6 +9,8 @@
     export let skills = [];
     export let link = "";
     export let showInfo = true;
+
+    $: isVideo = img && (img.endsWith('.webm') || img.endsWith('.mp4') || img.endsWith('.mov'));
 </script>
 
 <div>
@@ -20,7 +22,11 @@
         />
     </div>
 
-    <img src={img} alt="img" class="image" />
+    {#if isVideo}
+        <video src={img} class="image" autoplay loop muted playsinline></video>
+    {:else}
+        <img src={img} alt="img" class="image" />
+    {/if}
 
     {#if showInfo}
     <div class="info">
