@@ -1,4 +1,6 @@
 <script>
+    // @ts-nocheck
+    import { onMount } from 'svelte';
     import ocean from "$lib/assets/work/ocean.webp";
     import global from "$lib/assets/work/ocean-records/global.webm";
     import year from "$lib/assets/work/ocean-records/year_view.webm";
@@ -41,6 +43,46 @@
         { id: "visual-identity", title: "Visual Identity" },
         { id: "reflection", title: "Reflection" },
     ];
+
+    let videoElements = [];
+
+    onMount(() => {
+        // Get all videos with data-inline-autoplay attribute
+        videoElements = Array.from(
+            document.querySelectorAll('video[data-inline-autoplay="true"]')
+        );
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.5 // 50% of video must be visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+                    // Video is in viewport - play it
+                    video.play().catch(err => {
+                        // Handle autoplay failures gracefully
+                        console.log('Autoplay failed:', err);
+                    });
+                } else {
+                    // Video left viewport - pause it
+                    video.pause();
+                }
+            });
+        }, observerOptions);
+
+        // Observe all videos
+        videoElements.forEach(video => observer.observe(video));
+
+        // Cleanup on component destroy
+        return () => {
+            videoElements.forEach(video => observer.unobserve(video));
+        };
+    });
 </script>
 
 <div class="splash-container">
@@ -122,7 +164,6 @@
             </p>
             <video
                 src={global}
-                autoplay
                 muted
                 loop
                 preload="auto"
@@ -148,7 +189,6 @@
             </p>
             <video
                 src={year}
-                autoplay
                 muted
                 loop
                 preload="auto"
@@ -174,7 +214,6 @@
             </p>
             <video
                 src={month}
-                autoplay
                 muted
                 loop
                 preload="auto"
@@ -283,7 +322,6 @@
         <section id="visual-identity">
             <h3>Visual Identity</h3>
             <h4>Inspirations</h4>
-            <p>Our visual identity was inspired by a number of historical precedents, drawing from the rich history of marine sound visualization, pictured below.</p>
 
                 <div>
                     <img class='work-image' src={payne} alt="payne" />
@@ -291,24 +329,12 @@
                 </div>  
             <div class="work-image-grid">
                 <div>
-                    <img class='work-image' src={holoturian} alt="holoturian" />
-                    <p class="caption">Ariel Guzik's Caligrafía cetácea</p>
-                </div>
-                <div>
                     <img class='work-image' src={songs} alt="songs" />
                     <p class="caption">Songs of the Humpback Whale (1970) album cover</p>
                 </div>
-            </div>
-            <p>At the same time, we wanted to incorporate the rich biodiversity and geography of Monterey Bay and its marine ecosystem into our visual identity as well as position our visualization as future-facing.</p>
-                
-            <div class="work-image-grid">
                 <div>
                     <img class='work-image' src={krill} alt="krill illustration" />
                     <p class="caption">Multicolored krill found in the Pacific Ocean</p>
-                </div>
-                <div>
-                    <img class='work-image' src={satellite} alt="satellite imagery" />
-                    <p class="caption">Satellite imagery of Monterey Bay</p>
                 </div>
             </div>
             <h4>Identity</h4>
