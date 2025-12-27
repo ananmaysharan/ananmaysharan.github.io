@@ -1,6 +1,4 @@
 <script>
-    // @ts-nocheck
-    import { onMount } from 'svelte';
     import ocean from "$lib/assets/work/ocean.webp";
     import global from "$lib/assets/work/ocean-records/global.webm";
     import year from "$lib/assets/work/ocean-records/year_view.webm";
@@ -43,46 +41,6 @@
         { id: "visual-identity", title: "Visual Identity" },
         { id: "reflection", title: "Reflection" },
     ];
-
-    let videoElements = [];
-
-    onMount(() => {
-        // Get all videos with data-inline-autoplay attribute
-        videoElements = Array.from(
-            document.querySelectorAll('video[data-inline-autoplay="true"]')
-        );
-
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.5 // 50% of video must be visible
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const video = entry.target;
-
-                if (entry.isIntersecting) {
-                    // Video is in viewport - play it
-                    video.play().catch(err => {
-                        // Handle autoplay failures gracefully
-                        console.log('Autoplay failed:', err);
-                    });
-                } else {
-                    // Video left viewport - pause it
-                    video.pause();
-                }
-            });
-        }, observerOptions);
-
-        // Observe all videos
-        videoElements.forEach(video => observer.observe(video));
-
-        // Cleanup on component destroy
-        return () => {
-            videoElements.forEach(video => observer.unobserve(video));
-        };
-    });
 </script>
 
 <div class="splash-container">
@@ -164,11 +122,12 @@
             </p>
             <video
                 src={global}
+                autoplay
                 muted
                 loop
+                playsinline
                 preload="auto"
                 class="work-video"
-                data-inline-autoplay="true"
                 style="pointer-events: auto;"
             ></video>
             <h4>Year View</h4>
@@ -189,11 +148,12 @@
             </p>
             <video
                 src={year}
+                autoplay
                 muted
                 loop
+                playsinline
                 preload="auto"
                 class="work-video"
-                data-inline-autoplay="true"
                 style="pointer-events: auto;"
             ></video>
             <h4>Month View</h4>
@@ -214,11 +174,12 @@
             </p>
             <video
                 src={month}
+                autoplay
                 muted
                 loop
+                playsinline
                 preload="auto"
                 class="work-video"
-                data-inline-autoplay="true"
                 style="pointer-events: auto;"
             ></video>
             <!-- <h4>Day View</h4> -->
