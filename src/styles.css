@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Cooper Regular'; /* A unique name for your font */
+  src: url('./lib/assets/fonts/Cooper-Regular.woff2') format('woff2'); /* Relative path to your font file */
+  font-weight: normal; /* Specify the font's weight */
+  font-style: normal; /* Specify the font's style */
+  font-display: swap; /* Helps control font loading behavior for better performance */
+}
+
 h1 {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 
@@ -30,7 +38,7 @@ h1, h2, h3, h4 {
 }
     
 p {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Cooper Regular', 'Georgia', 'Times New Roman', serif;
     color: rgba(0, 0, 0, 0.6);
 
 }

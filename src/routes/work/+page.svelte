@@ -6,6 +6,10 @@
     import memorymend from "$lib/assets/work/memorymend.webp";
     import ocean from "$lib/assets/work/ocean.webp";
     import pollution from "$lib/assets/work/pollution.webp";
+    import opiniongenerator from "$lib/assets/work/opiniongenerator.webp";
+    import pigeonsplanes from "$lib/assets/work/pigeonsplanes.webp";
+    import zinezone from "$lib/assets/work/zinezone.webm";
+    import drake from "$lib/assets/work/drake.webp";
 </script>
 
 <div class="text">
@@ -23,7 +27,7 @@
     />
     <Card
         title={"Memory Mend"}
-        description={"Democratizing machine embroidery and infusing memory into textile repair"}
+        description={"Hacking a sewing machine to do machine embroidery"}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={memorymend}
@@ -46,6 +50,14 @@
         url={"/work/chemical-valley-pollution-map"}
     />
     <Card
+        title={"Drake Time"}
+        description={"Gotta watch the time ’cause it’s flying right by..."}
+        year={"2026"}
+        tags={["Personal", "Development"]}
+        img={drake}
+        url={"/work/drake-time"}
+    />
+    <Card
         title={"Under Gardiner Archival Map"}
         description={"Helping archive the history of Toronto's Gardiner Expressway"}
         year={"2023"}
@@ -61,5 +73,28 @@
         img={aa}
         url={"/work/adaptive-artifacts"}
     />
-    <!-- <Card title={'Pigeons and Planes'} year={'2021'} tags={['Writing']} img={pigeonsplanes} url={'/work/pigeons-planes'}/> -->
+    <Card
+        title={"Opinion Generator"}
+        description={"Got a hot take?"}
+        year={"2024"}
+        tags={["Personal", "Development"]}
+        img={opiniongenerator}
+        url={"/work/opinion-generator"}
+    />
+    <Card
+        title={"Zine Zone"}
+        description={"in collaboration with Callia Silverton"}
+        year={"2024"}
+        tags={["Personal", "Development"]}
+        img={zinezone}
+        url={"/work/zine-zone"}
+    />
+    <Card
+        title={"Pigeons and Planes/Complex News"}
+        description={"Writing about new music"}
+        year={"2021"}
+        tags={["Writing"]}
+        img={pigeonsplanes}
+        url={"/work/pigeons-planes"}
+    />
 </div>
