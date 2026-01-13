@@ -19,12 +19,9 @@
     import figma2 from "$lib/assets/work/ocean-records/figma2.webp";
     import figma3 from "$lib/assets/work/ocean-records/figma3.webp";
     import figma4 from "$lib/assets/work/ocean-records/figma4.webp";
-    import holoturian from "$lib/assets/work/ocean-records/holoturian.webp";
     import songs from "$lib/assets/work/ocean-records/songs.webp";
     import payne from "$lib/assets/work/ocean-records/payne.webp";
     import krill from "$lib/assets/work/ocean-records/krill.webp";
-    import satellite from "$lib/assets/work/ocean-records/satellite.webp";
-    import style from "$lib/assets/work/ocean-records/style.webp";
     import palette from "$lib/assets/work/ocean-records/palette.webp";
     import fonts from "$lib/assets/work/ocean-records/fonts.webp";
     import fish from "$lib/assets/work/ocean-records/fish.webp";

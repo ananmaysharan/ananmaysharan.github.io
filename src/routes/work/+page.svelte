@@ -27,11 +27,11 @@
     />
     <Card
         title={"Memory Mend"}
-        description={"Hacking a sewing machine to do machine embroidery"}
+        description={"Retrofitting a sewing machine to be able to mend clothes with embroidery"}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={memorymend}
-        url={"/work"}
+        url={"/work/memory-mend"}
     />
     <Card
         title={"Measuring Main Streets"}
