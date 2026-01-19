@@ -6,10 +6,11 @@
     import memorymend from "$lib/assets/work/memorymend.webp";
     import ocean from "$lib/assets/work/ocean.webp";
     import pollution from "$lib/assets/work/pollution.webp";
-    import opiniongenerator from "$lib/assets/work/opiniongenerator.webp";
+    import opiniongenerator from "$lib/assets/work/splash/opinion-splash.webp";
     import pigeonsplanes from "$lib/assets/work/pigeonsplanes.webp";
     import zinezone from "$lib/assets/work/zinezone.webm";
     import drake from "$lib/assets/work/drake.webp";
+    import harvard from "$lib/assets/work/harvard.webp";
 </script>
 
 <div class="text">
@@ -27,7 +28,7 @@
     />
     <Card
         title={"Memory Mend"}
-        description={"Retrofitting a sewing machine to be able to mend clothes with embroidery"}
+        description={"Retrofitting a sewing machine to mend clothes with embroidery that preserves memories"}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={memorymend}
@@ -57,7 +58,15 @@
         img={drake}
         url={"/work/drake-time"}
     />
-    <Card
+        <Card
+        title={"Harvard Libraries"}
+        description={"Campus library availability app"}
+        year={"2026"}
+        tags={["Personal", "Development"]}
+        img={harvard}
+        url={"/work/harvard-libraries"}
+    />
+    <!-- <Card
         title={"Under Gardiner Archival Map"}
         description={"Helping archive the history of Toronto's Gardiner Expressway"}
         year={"2023"}
@@ -72,7 +81,7 @@
         tags={["Data Visualization", "Development"]}
         img={aa}
         url={"/work/adaptive-artifacts"}
-    />
+    /> -->
     <Card
         title={"Opinion Generator"}
         description={"Got a hot take?"}
