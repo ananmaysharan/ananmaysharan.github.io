@@ -28,13 +28,13 @@
     />
     <Card
         title={"Memory Mend"}
-        description={"Retrofitting a sewing machine to mend clothes with embroidery that preserves memories"}
+        description={"Retrofitting a sewing machine to mend clothes with embroidery"}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={memorymend}
         url={"/work/memory-mend"}
     />
-    <Card
+        <Card
         title={"Measuring Main Streets"}
         description={"Mapping every main street in Canada"}
         year={"2024"}
@@ -42,7 +42,15 @@
         img={mms}
         url={"/work/measuring-main-streets"}
     />
-    <Card
+            <Card
+        title={"Harvard Libraries"}
+        description={"Campus library web app"}
+        year={"2026"}
+        tags={["Personal", "Development"]}
+        img={harvard}
+        url={"/work/harvard-libraries"}
+    />
+        <Card
         title={"Chemical Valley Pollution Map"}
         description={"Visualizing 10 years of pollution events in Ontario's Chemical Valley"}
         year={"2023"}
@@ -57,14 +65,6 @@
         tags={["Personal", "Development"]}
         img={drake}
         url={"/work/drake-time"}
-    />
-        <Card
-        title={"Harvard Libraries"}
-        description={"Campus library availability app"}
-        year={"2026"}
-        tags={["Personal", "Development"]}
-        img={harvard}
-        url={"/work/harvard-libraries"}
     />
     <!-- <Card
         title={"Under Gardiner Archival Map"}

@@ -4,16 +4,19 @@
 	import chairImg from '$lib/assets/home/chair.png';
 	import zineImg from '$lib/assets/home/zine.png';
 	import trains from '$lib/assets/home/trains.png';
+	import ocean from '$lib/assets/work/ocean.webp';
 	
 	export let chairLink = '#';
 	export let zineLink = '#';
 	export let trainsLink = '#';
-	export let interval = 700; // 2 seconds by default
+	export let oceanLink = '#';
+	export let interval = 900; // 2 seconds by default
 	
 	const images = [
 		{ src: chairImg, alt: 'Chair', link: chairLink },
 		{ src: zineImg, alt: 'Zine', link: zineLink },
-		{ src: trains, alt: 'Train', link: trainsLink }
+		{ src: trains, alt: 'Train', link: trainsLink },
+		{ src: ocean, alt: 'Ocean Records Project', link: oceanLink }
 	];
 	
 	let currentIndex = 0;

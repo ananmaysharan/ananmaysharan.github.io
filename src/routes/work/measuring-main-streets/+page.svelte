@@ -16,7 +16,7 @@
     <section class="splash-content">
         <Overview  
             title="Measuring Main Streets"
-            link="http://measuringmainstreets.ca"
+            link="https://measuring-main-streets.vercel.app/"
             img={mms}
             roles={["Web Developer", "Data Analyst"]}
             timeline={["September 2023 — July 2025"]}
