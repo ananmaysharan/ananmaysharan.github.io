@@ -6,7 +6,7 @@
 <main class="home-page" aria-label="Homepage">
     <Gallery/>
 
-    <div class='media-container' role="complementary" aria-lable="Now playing">
+    <div class='media-container' role="complementary" aria-label="Now playing">
         <Listening/>
     </div>
 </main>
