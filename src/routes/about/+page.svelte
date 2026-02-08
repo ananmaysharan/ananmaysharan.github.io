@@ -38,8 +38,12 @@
             Please reach out to me via email if you’re interested in chatting
             about any of my projects, past experience or to just to say hi!
         </p>
-
+    
+        <div class="buttons">
     <Button url={"mailto:ananmay01@gmail.com"} buttonText={"Email"} />
+    <Button url={"https://www.linkedin.com/in/ananmay-sharan/"} buttonText={"LinkedIn"} />
+        </div>
+
         </div>
 
 </div>
@@ -52,6 +56,12 @@
     img {
         width: 300px;
         height: 100%;
+    }
+
+    .buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
     }
 
     
