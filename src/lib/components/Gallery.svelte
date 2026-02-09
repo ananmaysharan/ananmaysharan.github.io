@@ -90,7 +90,7 @@
 	
 	.image-container {
 		width: 100%;
-		border-radius: 8px;
+		/* border-radius: 8px; */
 		overflow: hidden;
 		transition: transform 0.2s ease;
 	}

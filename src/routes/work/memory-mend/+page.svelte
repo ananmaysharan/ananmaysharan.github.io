@@ -1,5 +1,8 @@
 <script>
     import memorymend from "$lib/assets/work/memorymend.webp";
+    import memory_embed from "$lib/assets/work/memory-mend/memory_embed.webm";
+    import scan_memory from "$lib/assets/work/memory-mend/scan_memory.webm";
+    import scanning_damage from "$lib/assets/work/memory-mend/scanning_damage.webm";
     import prototyping from "$lib/assets/work/memory-mend/prototyping.webm";
     import hardwarerender from "$lib/assets/work/memory-mend/hardwarerender.webp";
     import hardwareprototype from "$lib/assets/work/memory-mend/hardwareprototype.webp";
@@ -9,7 +12,7 @@
     import component1 from "$lib/assets/work/memory-mend/component1.webp";
     import component2 from "$lib/assets/work/memory-mend/component2.webp";
     import component3 from "$lib/assets/work/memory-mend/component3.webp";
-
+    
 
     import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
@@ -100,10 +103,40 @@
             </div>
             <h4>Software</h4>
             <h4>Starting a Memory Mend</h4>
+                        <video
+                src={scanning_damage}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                class="work-video"
+                style="pointer-events: auto;"
+            ></video>
             <p>Capture a photo and detect the damaged area using the built in YOLOv8 based damage detection computer vision model.</p>
             <h4>Embedding Memory & Pattern Generation</h4>
+            <video
+                src={memory_embed}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                class="work-video"
+                style="pointer-events: auto;"
+            ></video>
             <p>Input text, photos, videos or other medias associated with the garment to generate a unique pattern.</p>
             <h4>Scanning a Memory Mend</h4>
+            <video
+                src={scan_memory}
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                class="work-video"
+                style="pointer-events: auto;"
+            ></video>
             <p>Scanning the embroidery pattern to unlock the embedded memory.</p>
             
         </section>
