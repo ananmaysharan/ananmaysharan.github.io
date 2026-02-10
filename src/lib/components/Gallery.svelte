@@ -5,6 +5,7 @@
 	import zineImg from '$lib/assets/home/zine.png';
 	import trains from '$lib/assets/home/trains.png';
 	import ocean from '$lib/assets/work/ocean.webp';
+	import hardwarerender from '$lib/assets/work/memory-mend/hardwarerender.webp';
 	
 	export let chairLink = '#';
 	export let zineLink = '#';
@@ -16,7 +17,8 @@
 		{ src: chairImg, alt: 'Chair', link: chairLink },
 		{ src: zineImg, alt: 'Zine', link: zineLink },
 		{ src: trains, alt: 'Train', link: trainsLink },
-		{ src: ocean, alt: 'Ocean Records Project', link: oceanLink }
+		{ src: ocean, alt: 'Ocean Records Project', link: oceanLink },
+		{ src: hardwarerender, alt: 'Hardware Render', link: '#' }
 	];
 	
 	let currentIndex = 0;
