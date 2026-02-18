@@ -23,6 +23,7 @@
             timeline={["2025"]}
             technologies={["HTML", "CSS", "Javascript"]}
             skills={["Web Development", "Product Design", "Creative Coding"]}
+
         />
 
         <section id="overview">

@@ -45,6 +45,8 @@
                 "Hardware Prototyping",
                 "Computer Vision"
             ]}
+            buttonVariant="orange"
+
         />
 
         <section id="overview">
