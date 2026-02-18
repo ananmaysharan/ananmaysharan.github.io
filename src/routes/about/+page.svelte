@@ -13,7 +13,7 @@
                 href="https://www.gsd.harvard.edu/design-engineering/"
                 >Design Engineering</a
             > at Harvard University, a collaborative degree program between the Graduate
-            School of Design and the School of Engineering and Applied Sciences.
+            School of Design and the School of Engineering and Applied Sciences. The MDE program is built around a core of engineering and design methods that involve gaining understanding of complex challenges, imagining novel solutions, and building and assessing prototypes.
         </p>
         <p>
             Previously, I worked at the <a href="https://canurb.org/"

@@ -9,6 +9,7 @@
     export let skills = [];
     export let link = "";
     export let showInfo = true;
+    export let buttonVariant = "default";
 
     $: isVideo = img && (img.endsWith('.webm') || img.endsWith('.mp4') || img.endsWith('.mov'));
 </script>
@@ -19,6 +20,7 @@
         <Button
             buttonText={"Visit Website"}
             url={link}
+            variant={buttonVariant}
         />
     </div>
 
