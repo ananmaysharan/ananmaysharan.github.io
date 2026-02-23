@@ -3,13 +3,13 @@
     import Gallery from "$lib/components/Gallery.svelte";
 </script>
 
-<div class="home-page">
+<main class="home-page">
     <Gallery/>
-    
+
     <div class='media-container'>
         <Listening/>
     </div>
-</div>
+</main>
 
 <style>
     .home-page {

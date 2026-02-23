@@ -37,7 +37,7 @@
       icon: LinkedIn,
     },
     { id: 3, buttonText: "Twitter", url: "https://x.com/ananmaysharan", color: "twitter", icon: Twitter },
-    { id: 4, buttonText: "Are.na", url: "/", color: "arena", icon: Arena },
+    { id: 4, buttonText: "Are.na", url: "https://www.are.na/ananmay-sharan", color: "arena", icon: Arena },
     { id: 5, buttonText: "TikTok", url: "https://www.tiktok.com/@ananmay_", color: "tiktok", icon: TikTok },
     { id: 6, buttonText: "YouTube", url: "https://www.youtube.com/@ananmay", color: "youtube", icon: YouTube },
     {
