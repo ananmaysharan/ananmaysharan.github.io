@@ -8,13 +8,27 @@
     <img src={profile} alt="profile" id="profile" />
 
     <div>
+        <p>Hi! My name is Ananmay Sharan. I'm 24 years old.</p>
         <p>
             I'm currently studying <a
                 href="https://www.gsd.harvard.edu/design-engineering/"
                 >Design Engineering</a
             > at Harvard University, a collaborative degree program between the Graduate
-            School of Design and the School of Engineering and Applied Sciences.
+            School of Design and the School of Engineering and Applied Sciences. The MDE program is built around a core of engineering and design methods that involve gaining understanding of complex challenges, imagining novel solutions, and building and assessing prototypes.
         </p>
+        <p>
+            Completed Coursework:
+        </p>
+            <ul>
+                <li>Design Engineering Studio I & II</li>
+                <li>Integrative Frameworks: Product Management</li>
+                <li>Integrative Frameworks: Product Design</li>
+                <li>Digital Production: Design, Materials, Fabrication</li>
+                <li>Introduction to Electrical Engineering</li>
+                <li>Design, Technology, and Social Impact</li>
+                <li>Spirituality and Technology</li>
+            </ul>
+
         <p>
             Previously, I worked at the <a href="https://canurb.org/"
                 >Canadian Urban Institute</a
