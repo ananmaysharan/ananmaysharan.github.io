@@ -113,6 +113,8 @@
     .hover-card-trigger {
         display: inline-flex;
         text-decoration: underline;
+        cursor: pointer;
+
     }
 
     .hover-card {
@@ -126,6 +128,8 @@
         pointer-events: auto;
         animation: fadeIn 0.15s ease;
         max-width: min(400px, 90vw);
+        font-size: 0.9rem;
+
     }
 
     @keyframes fadeIn {

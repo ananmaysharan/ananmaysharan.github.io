@@ -31,8 +31,10 @@
 </script>
 
 <div class="text" id="about-text">
-
-    <p>Hi! My name is Ananmay Sharan. I'm a designer who loves to code, working across software and hardware.</p>
+    <p>
+        Hi! My name is Ananmay Sharan. I'm a designer who loves to code, working
+        across software and hardware.
+    </p>
 
     <img src={profile} alt="profile" id="profile" />
 
@@ -41,10 +43,16 @@
             I'm currently studying <a
                 href="https://www.gsd.harvard.edu/design-engineering/"
                 >Design Engineering</a
-            > at Harvard University, a collaborative degree program between the Graduate
-            School of Design and the School of Engineering and Applied Sciences. The program is built around a core of engineering and design methods that involve gaining understanding of complex challenges, imagining novel solutions, and building and assessing prototypes.
+            >
+            at Harvard University, a collaborative degree program between the Graduate
+            School of Design and the School of Engineering and Applied Sciences.
+            The program is built around a core of engineering and design methods
+            that involve gaining understanding of complex challenges, imagining novel
+            solutions, and building and assessing prototypes.
             <HoverCard>
-                <span slot="trigger" class="coursework">See the coursework I've completed.</span>
+                <span slot="trigger" class="coursework"
+                    >See the coursework I've completed.</span
+                >
                 <svelte:fragment slot="content">
                     <p class="coursework-heading">Graduate School of Design</p>
                     <ul class="coursework-list">
@@ -53,10 +61,13 @@
 
                         <li>Integrative Frameworks: Product Management</li>
                         <li>Integrative Frameworks: Product Design</li>
-                        <li>Digital Production: Design, Materials, Fabrication</li>
-
+                        <li>
+                            Digital Production: Design, Materials, Fabrication
+                        </li>
                     </ul>
-                    <p class="coursework-heading">School of Engineering & Applied Sciences</p>
+                    <p class="coursework-heading">
+                        School of Engineering & Applied Sciences
+                    </p>
                     <ul class="coursework-list">
                         <li>Introduction to Electrical Engineering</li>
                         <li>Design, Technology, and Social Impact</li>
@@ -67,22 +78,42 @@
                     </ul>
                 </svelte:fragment>
             </HoverCard>
-
         </p>
+        <p></p>
         <p>
-            <p>I'm <span class="age">{age}</span> years old and currently live in Cambridge, MA. Previously, I lived in Toronto, Washington DC, Rome and New Delhi. </p>        
+            I'm <span class="age">{age}</span> years old and currently live in
+            Cambridge, MA. Previously, I lived in
+            <HoverCard
+                ><span slot="trigger" class="location">Toronto,</span>
+                <svelte:fragment slot="content">2019 to 2025</svelte:fragment>
+            </HoverCard>
+            <HoverCard
+                ><span slot="trigger" class="location">Washington DC,</span>
+                <svelte:fragment slot="content">2017 to 2019</svelte:fragment>
+            </HoverCard>
+            <HoverCard
+                ><span slot="trigger" class="location">Rome</span>
+                <svelte:fragment slot="content">2013 to 2016</svelte:fragment>
+            </HoverCard> and <HoverCard
+                ><span slot="trigger" class="location">New Delhi.</span>
+                <svelte:fragment slot="content"
+                    >2004 to 2012, and part of 2016
+                </svelte:fragment>
+            </HoverCard>
+        </p>
 
         <p>
-            Before graduate school, I worked at the <a href="https://canurb.org/"
-                >Canadian Urban Institute</a
+            Before graduate school, I worked at the <a
+                href="https://canurb.org/">Canadian Urban Institute</a
             >
             as a web developer and data analyst, and interned at
             <a href="https://thebentway.ca/">The Bentway</a>
             and
-            <a href="https://www.wmg.com/news/warner-music-group-acquires-sodatone-33396">Sodatone (Warner Music Group)</a
-            >.
-            I graduated from the University of Toronto with a bachelor’s degree
-            in Human Geography, Computer Science and GIS in 2023.
+            <a
+                href="https://www.wmg.com/news/warner-music-group-acquires-sodatone-33396"
+                >Sodatone (Warner Music Group)</a
+            >. I graduated from the University of Toronto with a bachelor’s
+            degree in Human Geography, Computer Science and GIS in 2023.
         </p>
         <p>
             Some of my interests include: urban environments, design, music,
@@ -93,21 +124,20 @@
             Please reach out to me via email if you’re interested in chatting
             about any of my projects, past experience or to just to say hi!
         </p>
-    
+
         <div class="buttons">
             <Button url={"mailto:ananmay01@gmail.com"} buttonText={"Email"} />
             <button
                 class="copy-btn"
-                on:click={() => navigator.clipboard.writeText("ananmay01@gmail.com")}
+                on:click={() =>
+                    navigator.clipboard.writeText("ananmay01@gmail.com")}
             >
                 <span class="copy-icon">
                     <Copy size={16} weight="bold" />
                 </span>
             </button>
         </div>
-
-        </div>
-
+    </div>
 </div>
 
 <div class="media-container">
@@ -129,9 +159,7 @@
     #profile {
         align-self: center;
     }
-    
 
-    
     .copy-btn {
         display: inline-flex;
         justify-content: center;
@@ -157,19 +185,12 @@
     }
 
     .copy-btn:active .copy-icon {
-        transform: scale(0.90);
+        transform: scale(0.9);
     }
 
     .age {
         display: inline-block;
         width: 11.5ch;
-    }
-
-    .coursework {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.2rem;
-        cursor: pointer;
     }
 
     /* .coursework-heading {
@@ -195,4 +216,3 @@
         padding: 0 1.5rem;
     }
 </style>
-
