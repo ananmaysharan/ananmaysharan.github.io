@@ -165,9 +165,9 @@
             <a href="https://instagram.com/ananmaysharan" class="social-link" aria-label="Instagram">
                 <InstagramLogo size={20} weight="bold" />
             </a>
-            <a href="https://letterboxd.com/ananmaysharan" class="social-link" aria-label="Letterboxd">
+            <!-- <a href="https://letterboxd.com/ananmaysharan" class="social-link" aria-label="Letterboxd">
                 <LetterboxdLogo size={20} />
-            </a>
+            </a> -->
             <a href="https://open.spotify.com/user/ananmaysharan" class="social-link" aria-label="Spotify">
                 <SpotifyLogo size={20} weight="bold" />
             </a>
