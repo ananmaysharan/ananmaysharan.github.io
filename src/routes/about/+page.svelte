@@ -177,6 +177,7 @@
 
     .copy-btn:hover {
         background: #eee;
+        border: 1px solid #ddd;
     }
 
     .copy-icon {
