@@ -9,6 +9,7 @@
     let above = true;
     let posX = 0;
     let posY = 0;
+    let alignLeft = false;
 
     /** @type {ReturnType<typeof setTimeout> | undefined} */
     let hideTimeout;
@@ -21,11 +22,28 @@
         if (!triggerEl) return;
         const rect = triggerEl.getBoundingClientRect();
         const cardHeight = cardEl ? cardEl.offsetHeight : 200;
+        const cardWidth = cardEl ? cardEl.offsetWidth : 0;
         const spaceAbove = rect.top;
+        const vw = window.innerWidth;
+        const margin = 12;
 
         above = spaceAbove > cardHeight + 12;
         posX = rect.left + rect.width / 2;
         posY = above ? rect.top - 4 : rect.bottom + 4;
+
+        // Clamp horizontally so card stays within viewport
+        alignLeft = false;
+        if (cardWidth > 0) {
+            const leftEdge = posX - cardWidth / 2;
+            const rightEdge = posX + cardWidth / 2;
+            if (leftEdge < margin) {
+                posX = margin;
+                alignLeft = true;
+            } else if (rightEdge > vw - margin) {
+                posX = vw - margin - cardWidth;
+                alignLeft = true;
+            }
+        }
     }
 
     function show() {
@@ -56,6 +74,14 @@
         if (visible) requestAnimationFrame(calcPosition);
     }
 
+    function dismiss() {
+        visible = false;
+    }
+
+    function handleScroll() {
+        if (isMobile() && visible) dismiss();
+    }
+
     /** @param {MouseEvent} e */
     function handleClickOutside(e) {
         if (!visible || !isMobile()) return;
@@ -69,12 +95,14 @@
 
     onMount(() => {
         document.addEventListener("click", handleClickOutside, true);
+        window.addEventListener("scroll", handleScroll, { passive: true });
     });
 
     onDestroy(() => {
         clearTimeout(hideTimeout);
         if (typeof document !== "undefined") {
             document.removeEventListener("click", handleClickOutside, true);
+            window.removeEventListener("scroll", handleScroll);
         }
     });
 </script>
@@ -100,6 +128,7 @@
         bind:this={cardEl}
         on:mouseenter={cardEnter}
         on:mouseleave={cardLeave}
+        class:align-left={alignLeft}
         style="left: {posX}px; top: {above ? 'auto' : posY + 'px'}; bottom: {above ? (typeof window !== 'undefined' ? window.innerHeight - posY : 0) + 'px' : 'auto'};"
     >
         <slot name="content" />
@@ -111,10 +140,9 @@
 
 
     .hover-card-trigger {
-        display: inline-flex;
+        display: inline;
         text-decoration: underline;
         cursor: pointer;
-
     }
 
     .hover-card {
@@ -130,6 +158,10 @@
         max-width: min(400px, 90vw);
         font-size: 0.9rem;
 
+    }
+
+    .hover-card.align-left {
+        transform: translateX(0);
     }
 
     @keyframes fadeIn {
@@ -155,6 +187,36 @@
         to {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .hover-card.align-left {
+        animation-name: fadeInAligned;
+    }
+
+    .hover-card.align-left.above {
+        animation-name: fadeInAlignedAbove;
+    }
+
+    @keyframes fadeInAligned {
+        from {
+            opacity: 0;
+            transform: translateX(0) translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
+    }
+
+    @keyframes fadeInAlignedAbove {
+        from {
+            opacity: 0;
+            transform: translateX(0) translateY(-4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
         }
     }
 </style>

@@ -175,9 +175,11 @@
         padding: 0;
     }
 
-    .copy-btn:hover {
-        background: #eee;
-        border: 1px solid #ddd;
+    @media (hover: hover) {
+        .copy-btn:hover {
+            background: #eee;
+            border: 1px solid #ddd;
+        }
     }
 
     .copy-icon {
