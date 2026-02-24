@@ -3,7 +3,9 @@
     import Listening from "$lib/components/Listening.svelte";
     import Button from "$lib/components/Button.svelte";
     import HoverCard from "$lib/components/HoverCard.svelte";
-    import { Copy, ArrowRight } from "phosphor-svelte";
+    import { Copy, GithubLogo, LinkedinLogo, XLogo, TiktokLogo, YoutubeLogo, InstagramLogo, SpotifyLogo } from "phosphor-svelte";
+    import ArenaLogo from "$lib/components/icons/ArenaLogo.svelte";
+    import LetterboxdLogo from "$lib/components/icons/LetterboxdLogo.svelte";
     import profile from "$lib/assets/profile.jpg";
 
     const BIRTHDAY = new Date(2001, 3, 1); // April 1, 2001
@@ -125,17 +127,51 @@
             about any of my projects, past experience or to just to say hi!
         </p>
 
-        <div class="buttons">
-            <Button url={"mailto:ananmay01@gmail.com"} buttonText={"Email"} />
-            <button
-                class="copy-btn"
-                on:click={() =>
-                    navigator.clipboard.writeText("ananmay01@gmail.com")}
-            >
-                <span class="copy-icon">
-                    <Copy size={16} weight="bold" />
-                </span>
-            </button>
+        <div class="contact">
+            <div class="buttons">
+                <Button url={"mailto:ananmay01@gmail.com"} buttonText={"Email"} />
+                <button
+                    class="copy-btn"
+                    on:click={() =>
+                        navigator.clipboard.writeText("ananmay01@gmail.com")}
+                >
+                    <span class="copy-icon">
+                        <Copy size={16} weight="bold" />
+                    </span>
+                </button>
+            </div>
+
+            <p>Alternatively, find me on these platforms:</p>
+
+            <div class="social-links">
+            <a href="https://www.linkedin.com/in/ananmay-sharan/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                <LinkedinLogo size={20} weight="bold" />
+            </a>
+            <a href="https://github.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Github">
+                <GithubLogo size={20} weight="bold" />
+            </a>
+            <a href="https://x.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                <XLogo size={20} weight="bold" />
+            </a>
+            <a href="https://www.are.na/ananmay-sharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Are.na">
+                <ArenaLogo size={20} />
+            </a>
+            <a href="https://www.youtube.com/@ananmay" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                <YoutubeLogo size={20} weight="bold" />
+            </a>
+            <a href="https://www.tiktok.com/@ananmay_" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                <TiktokLogo size={20} weight="bold" />
+            </a>
+            <a href="https://instagram.com/ananmaysharan" class="social-link" aria-label="Instagram">
+                <InstagramLogo size={20} weight="bold" />
+            </a>
+            <a href="https://letterboxd.com/ananmaysharan" class="social-link" aria-label="Letterboxd">
+                <LetterboxdLogo size={20} />
+            </a>
+            <a href="https://open.spotify.com/user/ananmaysharan" class="social-link" aria-label="Spotify">
+                <SpotifyLogo size={20} weight="bold" />
+            </a>
+            </div>
         </div>
     </div>
 </div>
@@ -150,8 +186,14 @@
         height: 100%;
     }
 
-    .buttons {
+    .contact {
         margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .buttons {
         display: flex;
         gap: 0.5rem;
     }
@@ -189,6 +231,21 @@
 
     .copy-btn:active .copy-icon {
         transform: scale(0.9);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .social-link {
+        display: inline-flex;
+        color: #00000099;
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        color: #222;
     }
 
     .age {
