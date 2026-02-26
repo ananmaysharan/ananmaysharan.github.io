@@ -10,6 +10,11 @@
             shadow: '0 0 0 1px #2a2a2a',
             text: '#ffffff'
         },
+        grey: {
+            gradient: 'linear-gradient(#fff 0%, #eee 100%)',
+            shadow: '0 0 0 1px #eee',
+            text: '#000000'
+        },
         yellow: {
             gradient: 'linear-gradient(#ffdd73 0%, #ffbe25 100%)',
             shadow: '0 0 0 1px #fac83e',
@@ -39,6 +44,7 @@
     <button
         style="background: {style.gradient}; color: {style.text}; --shadow-color: {style.shadow};"
     >
+        <slot />
         {buttonText}
     </button>
 </a>
@@ -50,6 +56,7 @@
         border-radius: 8px;
         justify-content: center;
         align-items: center;
+        gap: 6px;
         height: 32px;
         padding: 6px 16px;
         text-decoration: none;

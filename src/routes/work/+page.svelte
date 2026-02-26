@@ -98,12 +98,12 @@
         img={zinezone}
         url={"/work/zine-zone"}
     />
-    <Card
+    <!-- <Card
         title={"Pigeons and Planes/Complex News"}
         description={"Writing about new music"}
         year={"2021"}
         tags={["Writing"]}
         img={pigeonsplanes}
         url={"/work/pigeons-planes"}
-    />
+    /> -->
 </div>

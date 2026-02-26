@@ -8,8 +8,11 @@
     export let technologies = [];
     export let skills = [];
     export let link = "";
+    export let showGithub = false;
+    export let githubLink = "";
     export let showInfo = true;
     export let buttonVariant = "default";
+    import { GithubLogo } from "phosphor-svelte";
 
     $: isVideo = img && (img.endsWith('.webm') || img.endsWith('.mp4') || img.endsWith('.mov'));
 </script>
@@ -17,11 +20,22 @@
 <div>
     <div class="title">
         <h1>{title}</h1>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+        {#if showGithub}
+            <Button
+                buttonText={"View Github"}
+                url={githubLink}
+                variant="grey"
+            >
+                <GithubLogo size={16} weight="bold"/>
+            </Button>
+        {/if}
         <Button
             buttonText={"Visit Website"}
             url={link}
             variant={buttonVariant}
         />
+        </div>
     </div>
 
     {#if isVideo}

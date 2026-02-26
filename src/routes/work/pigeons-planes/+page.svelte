@@ -16,14 +16,13 @@
     <section class="splash-content">
         <Overview  
             title="Pigeons and Planes"
-            link="https://www.complex.com/author/loveinamovie"
+            link="https://www.pigeonsandplanes.com/read/new-artists-to-watch-2021"
             img={pigeons}
             roles={["Writer", "Music Journalist"]}
             timeline={["2021"]}
             technologies={[]}
             skills={["Music Journalism", "Content Writing", "Cultural Criticism"]}
             showInfo={false}
-            
         />
 
         <section id="overview">

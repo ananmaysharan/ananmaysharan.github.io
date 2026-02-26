@@ -18,11 +18,10 @@
     .insight:hover {
         background-color: #f9f9f9;
         cursor: pointer;
-
     }
 
     .insight-text {
-    font-family: 'Cooper Regular', 'Georgia', 'Times New Roman', serif;
+        font-family: 'Cooper Regular', 'Georgia', 'Times New Roman', serif;
         margin: 0;
     }
 

@@ -22,7 +22,6 @@
             timeline={["September 2023 — July 2025"]}
             technologies={["SvelteKit", "Mapbox", "Supabase", "D3"]}
             skills={["Full Stack Development", "Web Design", "Data Visualization", "GIS"]}
-
         />
 
         <section id="overview">

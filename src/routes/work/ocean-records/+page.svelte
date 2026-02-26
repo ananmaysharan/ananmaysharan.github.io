@@ -58,6 +58,8 @@
                 "Data Visualization",
                 "Web Development",
             ]}
+            showGithub={true}
+            githubLink="https://github.com/ananmaysharan/ocean-records"
         />
 
         <section id="overview">

@@ -8,7 +8,8 @@
     <ul class="nav-links">
       <li><a href="/work">WORK</a></li>
       <li><a href="/about">ABOUT</a></li>
-      <li><a href="/blog">BLOG</a></li>
+      <li><a href="/writing">WRITING</a></li>
+
     </ul>
     
   </nav>
