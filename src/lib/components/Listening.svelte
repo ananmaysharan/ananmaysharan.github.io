@@ -207,7 +207,7 @@
         display: block;
         font-weight: 500;
         margin-bottom: 2px;
-        font-family: 'Georgia', 'Times New Roman', serif;
+        font-family: 'Cooper Regular', 'Georgia', 'Times New Roman', serif;
 
     }
 
@@ -215,7 +215,8 @@
         display: block;
         opacity: 0.8;
         font-size: 12px;
-            font-family: 'Georgia', 'Times New Roman', serif;
+        font-family: 'Cooper Regular', 'Georgia', 'Times New Roman', serif;
+
 
     }
 
