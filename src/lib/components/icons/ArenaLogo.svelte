@@ -1,7 +1,13 @@
 <script>
-  /** @type {string | number} */
-  export let size = "1em";
-  export let color = "currentColor";
+  
+  /**
+   * @typedef {Object} Props
+   * @property {string | number} [size]
+   * @property {string} [color]
+   */
+
+  /** @type {Props} */
+  let { size = "1em", color = "currentColor" } = $props();
 </script>
 
 <svg

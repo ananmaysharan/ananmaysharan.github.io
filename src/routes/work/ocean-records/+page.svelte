@@ -40,12 +40,12 @@
     ];
 </script>
 
-<div class="splash-container">
-    <aside>
+<div class="flex flex-col gap-8 md:grid md:grid-cols-[1fr_4fr] md:gap-8">
+    <aside class="hidden md:block">
         <Contents {sections} />
     </aside>
 
-    <section class="splash-content">
+    <section class="prose mx-8 my-8 flex flex-col gap-16 md:max-w-200">
         <Overview
             title="Ocean Records"
             link="http://ocean-records.vercel.app/"
@@ -76,7 +76,7 @@
             </p>
 
             <h4>Problem</h4>
-            <div class="insights-container">
+            <div class="flex flex-col gap-4">
             <Insight text="Ship strikes, which are collisions between vessels and
                     marine animals, are the leading cause of whale deaths
                     worldwide."></Insight>
@@ -126,7 +126,7 @@
                 loop
                 playsinline
                 preload="auto"
-                class="work-video"
+                class="w-full h-auto border border-border md:max-w-200"
                 style="pointer-events: auto;"
             ></video>
             <h4>Year View</h4>
@@ -152,7 +152,7 @@
                 loop
                 playsinline
                 preload="auto"
-                class="work-video"
+                class="w-full h-auto border border-border md:max-w-200"
                 style="pointer-events: auto;"
             ></video>
             <h4>Month View</h4>
@@ -178,7 +178,7 @@
                 loop
                 playsinline
                 preload="auto"
-                class="work-video"
+                class="w-full h-auto border border-border md:max-w-200"
                 style="pointer-events: auto;"
             ></video>
             <!-- <h4>Day View</h4> -->
@@ -189,60 +189,60 @@
             <h4>Ideation</h4>
             <p>We undertook an extensive research and ideation process to understand the problem space and develop our approach.</p>
             <p>Some highlights included talking to the authors of Google's Perch model, NOAA officials and doing desk research to understand the marine ecosystem in Monterey Bay.</p>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
             <div>
-                <img class='work-image'src={figma} alt="figma board" />
-                <p class="caption">Overview of our Figma file across the 6 week period</p>
+                <img class="border border-border w-full"src={figma} alt="figma board" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Overview of our Figma file across the 6 week period</p>
             </div>
             <div>
-                <img class='work-image' src={perch} alt="perch call" />
-                <p class="caption">Talking to Google DeepMind scientists</p>
+                <img class="border border-border w-full" src={perch} alt="perch call" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Talking to Google DeepMind scientists</p>
             </div>
             </div>
             <h4>Understanding Sound and Precedents</h4>
             <p> We developed an understanding of how different sound frequencies are visualized through spectrograms in marine bioacoustics. Simultaneously, we explored various sound based data visualization precedents, including Google's <a href="https://patternradio.withgoogle.com/" target="_blank" rel="noopener noreferrer">"Pattern Radio"</a>, The Pudding's <a href="https://pudding.cool/2023/05/country-radio/" target="_blank" rel="noopener noreferrer">"They Won't Play a Lady-O on Country Radio"</a> and MIT Media Lab's <a href="https://senseable.mit.edu/sonic-cities/" target="_blank" rel="noopener noreferrer">"Sonic Cities"</a>.</p>
             <!-- <div>
-                <img class='work-image' src={spectrogram} alt="spectrogram" />
+                <img class="border border-border w-full" src={spectrogram} alt="spectrogram" />
             </div> -->
             <p> Based on these initial explorations, we developed some early concepts for our visualization. They look quite different from our final solution, although some key ideas carried through! </p>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
                 <div>
-                    <img class='work-image' src={concept2} alt="early concept 2" />
+                    <img class="border border-border w-full" src={concept2} alt="early concept 2" />
                 </div>
                 <div>
-                    <img class='work-image' src={concept1} alt="early concept 1" />
+                    <img class="border border-border w-full" src={concept1} alt="early concept 1" />
                 </div>
             </div>
             <h4>Exploratory Data Analysis</h4>
             <p>Simultaneously, we processed the NOAA dataset using Python to understand high-level patterns across the 4 years of recordings from 3 different sensors. We found that NOAA had conducted their own detection analysis and wanted to explore the shape of this data.</p>
             <div>
-                <img class='work-image' style="margin-bottom: 1rem;" src={pattern} alt="pattern of animal and ship presence" />
+                <img class="border border-border w-full" style="margin-bottom: 1rem;" src={pattern} alt="pattern of animal and ship presence" />
             </div>
             <Insight text="The seasonal patterns of marine animal presence, driven by natural migration, contrasted sharply with the year-round, near constant presence of ships."></Insight>
             <h4>Refining Approach & Rapid Prototyping</h4>
             <p>Driven by this insight, we focused our efforts on conceptualizing ways to visualize these patterns effectively at a variety of timescales, both through hand-sketching and rapid prototyping in code.</p>
-                        <div class="work-image-grid">
+                        <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
             <div>
-                <img class='work-image' src={sketch1} alt="sketch 1" />
-                <p class="caption">Global View sketch</p>
+                <img class="border border-border w-full" src={sketch1} alt="sketch 1" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Global View sketch</p>
             </div>
             <div>
-                <img class='work-image' src={sketch2} alt="sketch 2" />
-                <p class="caption">Day View sketch</p>
+                <img class="border border-border w-full" src={sketch2} alt="sketch 2" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Day View sketch</p>
             </div>
             </div>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
             <div>
-                <img class='work-image' src={python} alt="python" />
-                <p class="caption">Visualizing detection data using Python and matplotlib</p>
+                <img class="border border-border w-full" src={python} alt="python" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Visualizing detection data using Python and matplotlib</p>
             </div>
             <div>
-                <img class='work-image' style="padding-bottom:5px;"src={web} alt="web prototype" />
-                <p class="caption">Prototyping visualizations using SvelteKit and D3.js</p>
+                <img class="border border-border w-full" style="padding-bottom:5px;"src={web} alt="web prototype" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Prototyping visualizations using SvelteKit and D3.js</p>
             </div>
             </div>
             <p>While we continued to iterate based on feedback from domain experts and our peers, we defined 3 key goals for our final visualization:</p>
-            <div class="insights-container">
+            <div class="flex flex-col gap-4">
             <Insight text="Creatively show the overlaps in frequencies between ships and animal calls."></Insight>
             <Insight text="Create an emotional reaction to the prevalence of anthropogenic noise even within sanctuary areas like Monterey Bay."></Insight>
             <Insight text="Showcase how passive acoustic monitoring offers a multi-dimensional look into marine ecosystems."></Insight>
@@ -252,29 +252,29 @@
             <p>After consultation with researchers at Google DeepMind, we performed an agile modeling workflow using Google Colab Notebooks, which involved creating embeddings of the recordings and training a custom classifier for each sound type.</p>
             <p>This approach allowed us to compute over 10 days worth of recordings at a detailed level for use in the Day view of our visualization.</p>
             <div>
-                <img class='work-image' style="padding:1em" src={agile} alt="agile modeling workflow" />
-                <p class="caption">Agile modeling workflow</p>
+                <img class="border border-border w-full" style="padding:1em" src={agile} alt="agile modeling workflow" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Agile modeling workflow</p>
             </div>
             <div>
-                <img class='work-image' style="padding:1em" src={perch1} alt="perch model output" />
-                <p class="caption">Outputs from training classifiers</p>
+                <img class="border border-border w-full" style="padding:1em" src={perch1} alt="perch model output" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Outputs from training classifiers</p>
             </div>
             <h4>Design Iteration</h4>
             <p>We went through a number of rounds of iteration based on feedback from critics and peers. We used Figma to create screens at a mid-fidelity that outlined the general structure and elements of the visualization, before working directly in code to implement the design.</p>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
                 <div>
-                    <img class='work-image' src={figma1} alt="figma iteration 1" />
+                    <img class="border border-border w-full" src={figma1} alt="figma iteration 1" />
                 </div>
                 <div>
-                    <img class='work-image' src={figma2} alt="figma iteration 2" />
+                    <img class="border border-border w-full" src={figma2} alt="figma iteration 2" />
                 </div>
             </div>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
                 <div>
-                    <img class='work-image' src={figma3} alt="figma iteration 3" />
+                    <img class="border border-border w-full" src={figma3} alt="figma iteration 3" />
                 </div>
                 <div>
-                    <img class='work-image' src={figma4} alt="figma iteration 4" />
+                    <img class="border border-border w-full" src={figma4} alt="figma iteration 4" />
                 </div>
             </div>
             <Insight text="We aimed to incorporate the ability to hear the actual sounds either through hover or autoplay at each temporal scale to create an immersive experience."></Insight>
@@ -284,35 +284,35 @@
             <h4>Inspirations</h4>
 
                 <div>
-                    <img class='work-image' src={payne} alt="payne" />
-                    <p class="caption">Songs of Humpback Whales (1971), Roger Payne & Scott McVay</p>
+                    <img class="border border-border w-full" src={payne} alt="payne" />
+                    <p class="text-[0.9em] text-text-secondary mt-2">Songs of Humpback Whales (1971), Roger Payne & Scott McVay</p>
                 </div>  
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
                 <div>
-                    <img class='work-image' src={songs} alt="songs" />
-                    <p class="caption">Songs of the Humpback Whale (1970) album cover</p>
+                    <img class="border border-border w-full" src={songs} alt="songs" />
+                    <p class="text-[0.9em] text-text-secondary mt-2">Songs of the Humpback Whale (1970) album cover</p>
                 </div>
                 <div>
-                    <img class='work-image' src={krill} alt="krill illustration" />
-                    <p class="caption">Multicolored krill found in the Pacific Ocean</p>
+                    <img class="border border-border w-full" src={krill} alt="krill illustration" />
+                    <p class="text-[0.9em] text-text-secondary mt-2">Multicolored krill found in the Pacific Ocean</p>
                 </div>
             </div>
             <h4>Identity</h4>
             <p>I designed a custom Mapbox style and a consistent visual identity for use across the visualization.</p>
-            <div class="work-image-grid">
+            <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
             <div>
-                <img class='work-image' style="padding:1.5em 0 1.5em 0; background-color:#07233f;"src={palette} alt="color palette" />
-                <p class="caption">Colors</p>
+                <img class="border border-border w-full" style="padding:1.5em 0 1.5em 0; background-color:#07233f;"src={palette} alt="color palette" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Colors</p>
             </div>
             <div>
-                <img class='work-image' src={fonts} alt="fonts" />
-                <p class="caption">Fonts</p>
+                <img class="border border-border w-full" src={fonts} alt="fonts" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Fonts</p>
 
             </div>
             </div>
             <div>
                 <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/ananmay/cmi5oq8jm003u01rr9dxd50sa.html?title=false&access_token=pk.eyJ1IjoiYW5hbm1heSIsImEiOiJjbDk0azNmY3oxa203M3huMzhyZndlZDRoIn0.1L-fBYplQMuwz0LGctNeiA&zoomwheel=false#0.57/73.3/-76" title="Ocean Records Portfolio" style="border:none;"></iframe>
-                <p class="caption">Custom Mapbox style</p>
+                <p class="text-[0.9em] text-text-secondary mt-2">Custom Mapbox style</p>
             </div>
 
         </section>
@@ -325,7 +325,7 @@
             <p>We are in the process of showcasing this work to NOAA and others at Google DeepMind.</p>
             </div>
             <div style="display:flex; justify-content:center;">
-                <img class='work-image' style="max-width: 50%; border:none;"src={fish} alt="fish" />
+                <img class="border border-border w-full" style="max-width: 50%; border:none;"src={fish} alt="fish" />
             </div>
         </section>
 
@@ -336,6 +336,3 @@
         </div> -->
     </section>
 </div>
-
-<style>
-</style>

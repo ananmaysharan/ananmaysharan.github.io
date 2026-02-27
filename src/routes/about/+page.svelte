@@ -3,12 +3,11 @@
     import Listening from "$lib/components/Listening.svelte";
     import Button from "$lib/components/Button.svelte";
     import HoverCard from "$lib/components/HoverCard.svelte";
-    import { Copy, GithubLogo, LinkedinLogo, XLogo, TiktokLogo, YoutubeLogo, InstagramLogo, SpotifyLogo } from "phosphor-svelte";
+    import { CopyIcon, GithubLogoIcon, LinkedinLogoIcon, XLogoIcon, TiktokLogoIcon, YoutubeLogoIcon, InstagramLogoIcon, SpotifyLogoIcon } from "phosphor-svelte";
     import ArenaLogo from "$lib/components/icons/ArenaLogo.svelte";
-    import LetterboxdLogo from "$lib/components/icons/LetterboxdLogo.svelte";
     import profile from "$lib/assets/profile.jpg";
 
-    const BIRTHDAY = new Date(2001, 3, 1); // April 1, 2001
+    const BIRTHDAY = new Date(2001, 3, 1);
 
     function getAge() {
         const now = Date.now();
@@ -17,7 +16,7 @@
         return ageYears.toFixed(9);
     }
 
-    let age = getAge();
+    let age = $state(getAge());
     /** @type {ReturnType<typeof setInterval> | undefined} */
     let interval;
 
@@ -32,13 +31,13 @@
     });
 </script>
 
-<div class="text" id="about-text">
+<div class="prose flex flex-col gap-16 items-start max-w-[600px] mx-auto my-16 px-6">
     <p>
         Hi! My name is Ananmay Sharan. I'm a designer who loves to code, working
         across software and hardware.
     </p>
 
-    <img src={profile} alt="profile" id="profile" />
+    <img src={profile} alt="profile" id="profile" class="w-[300px] h-full self-center" />
 
     <div>
         <p>
@@ -52,55 +51,48 @@
             that involve gaining understanding of complex challenges, imagining novel
             solutions, and building and assessing prototypes.
             <HoverCard>
-                <span slot="trigger" class="coursework"
-                    >See the coursework I've completed.</span
-                >
-                <svelte:fragment slot="content">
-                    <p class="coursework-heading">Graduate School of Design</p>
-                    <ul class="coursework-list">
+                {#snippet trigger()}
+                    <span>See the coursework I've completed.</span>
+                {/snippet}
+                {#snippet content()}
+                    <p>Graduate School of Design</p>
+                    <ul>
                         <li>Design Engineering Studio I</li>
                         <li>Design Engineering Studio II</li>
-
                         <li>Integrative Frameworks: Product Management</li>
                         <li>Integrative Frameworks: Product Design</li>
-                        <li>
-                            Digital Production: Design, Materials, Fabrication
-                        </li>
+                        <li>Digital Production: Design, Materials, Fabrication</li>
                     </ul>
-                    <p class="coursework-heading">
-                        School of Engineering & Applied Sciences
-                    </p>
-                    <ul class="coursework-list">
+                    <p>School of Engineering & Applied Sciences</p>
+                    <ul>
                         <li>Introduction to Electrical Engineering</li>
                         <li>Design, Technology, and Social Impact</li>
                     </ul>
-                    <p class="coursework-heading">Harvard Divinity School</p>
-                    <ul class="coursework-list">
+                    <p>Harvard Divinity School</p>
+                    <ul>
                         <li>Spirituality and Technology</li>
                     </ul>
-                </svelte:fragment>
+                {/snippet}
             </HoverCard>
         </p>
         <p></p>
         <p>
-            I'm <span class="age">{age}</span> years old and currently live in
+            I'm <span class="inline-block w-[11.5ch]">{age}</span> years old and currently live in
             Cambridge, MA. Previously, I lived in
-            <HoverCard
-                ><span slot="trigger" class="location">Toronto,</span>
-                <svelte:fragment slot="content">2019 to 2025</svelte:fragment>
+            <HoverCard>
+                {#snippet trigger()}<span>Toronto,</span>{/snippet}
+                {#snippet content()}2019 to 2025{/snippet}
             </HoverCard>
-            <HoverCard
-                ><span slot="trigger" class="location">Washington DC,</span>
-                <svelte:fragment slot="content">2017 to 2019</svelte:fragment>
+            <HoverCard>
+                {#snippet trigger()}<span>Washington DC,</span>{/snippet}
+                {#snippet content()}2017 to 2019{/snippet}
             </HoverCard>
-            <HoverCard
-                ><span slot="trigger" class="location">Rome</span>
-                <svelte:fragment slot="content">2013 to 2016</svelte:fragment>
-            </HoverCard> and <HoverCard
-                ><span slot="trigger" class="location">New Delhi.</span>
-                <svelte:fragment slot="content"
-                    >2004 to 2012, and part of 2016
-                </svelte:fragment>
+            <HoverCard>
+                {#snippet trigger()}<span>Rome</span>{/snippet}
+                {#snippet content()}2013 to 2016{/snippet}
+            </HoverCard> and <HoverCard>
+                {#snippet trigger()}<span>New Delhi.</span>{/snippet}
+                {#snippet content()}2004 to 2012, and part of 2016{/snippet}
             </HoverCard>
         </p>
 
@@ -114,7 +106,7 @@
             <a
                 href="https://www.wmg.com/news/warner-music-group-acquires-sodatone-33396"
                 >Sodatone (Warner Music Group)</a
-            >. I graduated from the University of Toronto with a bachelor’s
+            >. I graduated from the University of Toronto with a bachelor's
             degree in Human Geography, Computer Science and GIS in 2023.
         </p>
         <p>
@@ -123,156 +115,53 @@
             technology and digital culture.
         </p>
         <p>
-            Please reach out to me via email if you’re interested in chatting
+            Please reach out to me via email if you're interested in chatting
             about any of my projects, past experience or to just to say hi!
         </p>
 
-        <div class="contact">
-            <div class="buttons">
+        <div class="mt-8 flex flex-col gap-4">
+            <div class="flex gap-2">
                 <Button url={"mailto:ananmay01@gmail.com"} buttonText={"Email"} />
                 <button
-                    class="copy-btn"
-                    on:click={() =>
-                        navigator.clipboard.writeText("ananmay01@gmail.com")}
+                    class="inline-flex justify-center items-center w-8 h-8 border border-transparent rounded-lg bg-transparent text-[#00000099] cursor-pointer p-0 transition-all duration-200 hover:bg-[linear-gradient(#fff,#eee)] hover:border-[#eee] active:scale-[0.98]"
+                    onclick={() => navigator.clipboard.writeText("ananmay01@gmail.com")}
                 >
-                    <span class="copy-icon">
-                        <Copy size={16} weight="bold" />
-                    </span>
+                    <CopyIcon size={16} weight="bold" />
                 </button>
             </div>
 
             <p>Alternatively, find me on these platforms:</p>
 
-            <div class="social-links">
-            <a href="https://www.linkedin.com/in/ananmay-sharan/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                <LinkedinLogo size={20} weight="bold" />
+            <div class="flex gap-2">
+            <a href="https://www.linkedin.com/in/ananmay-sharan/" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="LinkedIn">
+                <LinkedinLogoIcon size={20} weight="bold" />
             </a>
-            <a href="https://github.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Github">
-                <GithubLogo size={20} weight="bold" />
+            <a href="https://github.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="Github">
+                <GithubLogoIcon size={20} weight="bold" />
             </a>
-            <a href="https://x.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
-                <XLogo size={20} weight="bold" />
+            <a href="https://x.com/ananmaysharan" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="Twitter">
+                <XLogoIcon size={20} weight="bold" />
             </a>
-            <a href="https://www.are.na/ananmay-sharan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Are.na">
+            <a href="https://www.are.na/ananmay-sharan" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="Are.na">
                 <ArenaLogo size={20} />
             </a>
-            <a href="https://www.youtube.com/@ananmay" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
-                <YoutubeLogo size={20} weight="bold" />
+            <a href="https://www.youtube.com/@ananmay" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="YouTube">
+                <YoutubeLogoIcon size={20} weight="bold" />
             </a>
-            <a href="https://www.tiktok.com/@ananmay_" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
-                <TiktokLogo size={20} weight="bold" />
+            <a href="https://www.tiktok.com/@ananmay_" target="_blank" rel="noopener noreferrer" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="TikTok">
+                <TiktokLogoIcon size={20} weight="bold" />
             </a>
-            <a href="https://instagram.com/ananmaysharan" class="social-link" aria-label="Instagram">
-                <InstagramLogo size={20} weight="bold" />
+            <a href="https://instagram.com/ananmaysharan" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="Instagram">
+                <InstagramLogoIcon size={20} weight="bold" />
             </a>
-            <!-- <a href="https://letterboxd.com/ananmaysharan" class="social-link" aria-label="Letterboxd">
-                <LetterboxdLogo size={20} />
-            </a> -->
-            <a href="https://open.spotify.com/user/ananmaysharan" class="social-link" aria-label="Spotify">
-                <SpotifyLogo size={20} weight="bold" />
+            <a href="https://open.spotify.com/user/ananmaysharan" class="inline-flex text-[#00000099] no-underline hover:text-[#222]" aria-label="Spotify">
+                <SpotifyLogoIcon size={20} weight="bold" />
             </a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="media-container">
+<div class="fixed bottom-4 right-4">
     <Listening />
 </div>
-
-<style>
-    img {
-        width: 300px;
-        height: 100%;
-    }
-
-    .contact {
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    #profile {
-        align-self: center;
-    }
-
-    .copy-btn {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 33px;
-        height: 33px;
-        border: none;
-        border-radius: 8px;
-        background: transparent;
-        color: #00000099;
-        cursor: pointer;
-        transition: background 0.2s;
-        padding: 0;
-    }
-
-    @media (hover: hover) {
-        .copy-btn:hover {
-            background: #eee;
-            border: 1px solid #ddd;
-        }
-    }
-
-    .copy-icon {
-        display: inline-flex;
-        transition: transform 0.15s ease;
-    }
-
-    .copy-btn:active .copy-icon {
-        transform: scale(0.9);
-    }
-
-    .social-links {
-        display: flex;
-        gap: 0.5rem;
-    }
-
-    .social-link {
-        display: inline-flex;
-        color: #00000099;
-        text-decoration: none;
-    }
-
-    .social-link:hover {
-        color: #222;
-    }
-
-    .age {
-        display: inline-block;
-        width: 11.5ch;
-    }
-
-    /* .coursework-heading {
-        font-weight: 600;
-        margin: 0 0 0.5rem 0;
-        font-size: 0.9rem;
-    }
-
-    .coursework-list {
-        margin: 0;
-        padding-left: 1.2rem;
-        font-size: 0.85rem;
-        line-height: 1.6;
-    } */
-
-    #about-text {
-        display: flex;
-        flex-direction: column;
-        gap: 4rem;
-        align-items: start;
-        max-width: 600px;
-        margin: 4rem auto;
-        padding: 0 1.5rem;
-    }
-</style>

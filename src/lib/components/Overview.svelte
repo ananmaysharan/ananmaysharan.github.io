@@ -1,33 +1,48 @@
-<script>
-    //@ts-nocheck
+<script lang="ts">
     import Button from "./Button.svelte";
-    export let title = "";
-    export let img;
-    export let roles = [];
-    export let timeline = [];
-    export let technologies = [];
-    export let skills = [];
-    export let link = "";
-    export let showGithub = false;
-    export let githubLink = "";
-    export let showInfo = true;
-    export let buttonVariant = "default";
-    import { GithubLogo } from "phosphor-svelte";
+    import { GithubLogoIcon } from "phosphor-svelte";
+    interface Props {
+        title?: string;
+        img: any;
+        roles?: any;
+        timeline?: any;
+        technologies?: any;
+        skills?: any;
+        link?: string;
+        showGithub?: boolean;
+        githubLink?: string;
+        showInfo?: boolean;
+        buttonVariant?: 'default' | 'grey' | 'yellow' | 'blue' | 'orange' | 'green';
+    }
 
-    $: isVideo = img && (img.endsWith('.webm') || img.endsWith('.mp4') || img.endsWith('.mov'));
+    let {
+        title = "",
+        img,
+        roles = [],
+        timeline = [],
+        technologies = [],
+        skills = [],
+        link = "",
+        showGithub = false,
+        githubLink = "",
+        showInfo = true,
+        buttonVariant = "default"
+    }: Props = $props();
+
+    let isVideo = $derived(img && (img.endsWith('.webm') || img.endsWith('.mp4') || img.endsWith('.mov')));
 </script>
 
 <div>
-    <div class="title">
-        <h1>{title}</h1>
-        <div style="display: flex; gap: 1rem; align-items: center;">
+    <div class="flex items-center justify-between">
+        <h1 class="m-0!">{title}</h1>
+        <div class="flex gap-4 items-center">
         {#if showGithub}
             <Button
                 buttonText={"View Github"}
                 url={githubLink}
                 variant="grey"
             >
-                <GithubLogo size={16} weight="bold"/>
+                <GithubLogoIcon size={16} weight="bold"/>
             </Button>
         {/if}
         <Button
@@ -39,51 +54,51 @@
     </div>
 
     {#if isVideo}
-        <video src={img} class="image" autoplay loop muted playsinline></video>
+        <video src={img} class="w-full h-auto border border-border mt-8" autoplay loop muted playsinline></video>
     {:else}
-        <img src={img} alt="img" class="image" />
+        <img src={img} alt="img" class="w-full h-auto border border-border mt-8" />
     {/if}
 
     {#if showInfo}
-    <div class="info">
-        <div class="info-section">
-            <h4>Role</h4>
+    <div class="not-prose font-sans grid grid-cols-2 justify-between text-text-secondary md:flex md:gap-16 md:justify-between">
+        <div>
+            <h4 class="mb-2">Role</h4>
             {#each roles as role}
                 <li>
-                    <ul>
+                    <ul class="list-none p-0 m-0">
                         {role}
                     </ul>
                 </li>
             {/each}
         </div>
 
-        <div class="info-section">
-            <h4>Timeline</h4>
+        <div>
+            <h4 class="mb-2">Timeline</h4>
             {#each timeline as time}
                 <li>
-                    <ul>
+                    <ul class="list-none p-0 m-0">
                         {time}
                     </ul>
                 </li>
             {/each}
         </div>
 
-        <div class="info-section">
-            <h4>Skills</h4>
+        <div>
+            <h4 class="mb-2">Skills</h4>
             {#each skills as skill}
                 <li>
-                    <ul>
+                    <ul class="list-none p-0 m-0">
                         {skill}
                     </ul>
                 </li>
             {/each}
         </div>
 
-        <div class="info-section">
-            <h4>Technologies</h4>
+        <div>
+            <h4 class="mb-2">Technologies</h4>
             {#each technologies as technology}
                 <li>
-                    <ul>
+                    <ul class="list-none p-0 m-0">
                         {technology}
                     </ul>
                 </li>
@@ -92,53 +107,3 @@
     </div>
     {/if}
 </div>
-
-<style>
-
-    .title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .title h1 {
-        margin: 0;
-    }  
-
-    h4 {
-        margin-bottom: 0.5rem;
-    }
-
-    .image {
-        width: 100%;
-        height: auto;
-        border: 1px solid #eee;
-        margin-top: 2rem;
-    }
-
-    .info {
-    display: grid;
-    justify-content: space-between;
-    color: #999;
-    grid-template-columns: 1fr 1fr;
-}
-
-
-    .info ul,
-    li {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    @media (min-width: 768px) {
-    .info {
-        display: flex;
-        gap: 4rem;
-        justify-content: space-between;
-    }
-    }
-
-
-</style>

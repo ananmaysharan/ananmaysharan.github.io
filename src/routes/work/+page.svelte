@@ -13,11 +13,11 @@
     import harvard from "$lib/assets/work/harvard.webp";
 </script>
 
-<div class="text">
+<div class="m-4">
     <p>Please find a selection of work below.</p>
 </div>
 
-<div class="grid">
+<div class="grid grid-cols-1 gap-4 m-4 md:grid-cols-2">
     <Card
         title={"Ocean Records"}
         description={"Using machine learning to listen to the ocean"}

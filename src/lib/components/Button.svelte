@@ -1,8 +1,19 @@
 <script>
-    export let buttonText = 'View Project';
-    export let url;
-    /** @type {'default' | 'yellow' | 'blue' | 'orange' | 'green'} */
-    export let variant = 'default';
+    /**
+     * @typedef {Object} Props
+     * @property {string} [buttonText]
+     * @property {any} url
+     * @property {'default' | 'grey' | 'yellow' | 'blue' | 'orange' | 'green'} [variant]
+     * @property {import('svelte').Snippet} [children]
+     */
+
+    /** @type {Props} */
+    let {
+        buttonText = 'View Project',
+        url,
+        variant = 'default',
+        children
+    } = $props();
 
     const variants = {
         default: {
@@ -37,44 +48,15 @@
         }
     };
 
-    $: style = variants[variant] || variants.default;
+    let style = $derived(variants[variant] || variants.default);
 </script>
 
-<a href={url} target="_blank">
+<a href={url} target="_blank" class="no-underline">
     <button
-        style="background: {style.gradient}; color: {style.text}; --shadow-color: {style.shadow};"
+        class="relative border-none rounded-lg justify-center items-center gap-1.5 h-8 px-4 py-1.5 no-underline font-normal transition-[filter] duration-200 inline-flex hover:cursor-pointer hover:brightness-105 active:scale-[0.98]"
+        style="background: {style.gradient}; color: {style.text}; box-shadow: inset 0 0 1px 1px #ffffff24, 0 0 0 1px #00000014, 0 2px 2px #0000000a, {style.shadow};"
     >
-        <slot />
+        {@render children?.()}
         {buttonText}
     </button>
 </a>
-
-<style>
-    button {
-        position: relative;
-        border: none;
-        border-radius: 8px;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        height: 32px;
-        padding: 6px 16px;
-        text-decoration: none;
-        transition: filter .2s;
-        display: inline-flex;
-        box-shadow: inset 0 0 1px 1px #ffffff24, 0 0 0 1px #00000014, 0 2px 2px #0000000a, var(--shadow-color);
-    }
-
-    button:hover {
-        cursor: pointer;
-        filter: brightness(105%);
-    }
-
-    button:active {
-        scale: 0.98;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>

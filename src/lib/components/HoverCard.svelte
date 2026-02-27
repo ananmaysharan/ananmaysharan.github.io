@@ -1,15 +1,23 @@
 <script>
     import { onMount, onDestroy } from "svelte";
+    /**
+     * @typedef {Object} Props
+     * @property {import('svelte').Snippet} [trigger]
+     * @property {import('svelte').Snippet} [content]
+     */
 
-    /** @type {HTMLElement} */
-    let triggerEl;
-    /** @type {HTMLElement} */
-    let cardEl;
-    let visible = false;
-    let above = true;
-    let posX = 0;
-    let posY = 0;
-    let alignLeft = false;
+    /** @type {Props} */
+    let { trigger, content } = $props();
+
+    /** @type {HTMLElement | undefined} */
+    let triggerEl = $state();
+    /** @type {HTMLElement | undefined} */
+    let cardEl = $state();
+    let visible = $state(false);
+    let above = $state(true);
+    let posX = $state(0);
+    let posY = $state(0);
+    let alignLeft = $state(false);
 
     /** @type {ReturnType<typeof setTimeout> | undefined} */
     let hideTimeout;
@@ -31,7 +39,6 @@
         posX = rect.left + rect.width / 2;
         posY = above ? rect.top - 4 : rect.bottom + 4;
 
-        // Clamp horizontally so card stays within viewport
         alignLeft = false;
         if (cardWidth > 0) {
             const leftEdge = posX - cardWidth / 2;
@@ -107,44 +114,35 @@
     });
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <span
-    class="hover-card-trigger"
+    class="inline underline cursor-pointer"
     bind:this={triggerEl}
-    on:mouseenter={show}
-    on:mouseleave={hide}
-    on:click={handleTap}
+    onmouseenter={show}
+    onmouseleave={hide}
+    onclick={handleTap}
 >
-    <slot name="trigger" />
+    {@render trigger?.()}
 </span>
 
 {#if visible}
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
         class="hover-card"
         class:above
         class:below={!above}
         bind:this={cardEl}
-        on:mouseenter={cardEnter}
-        on:mouseleave={cardLeave}
+        onmouseenter={cardEnter}
+        onmouseleave={cardLeave}
         class:align-left={alignLeft}
         style="left: {posX}px; top: {above ? 'auto' : posY + 'px'}; bottom: {above ? (typeof window !== 'undefined' ? window.innerHeight - posY : 0) + 'px' : 'auto'};"
     >
-        <slot name="content" />
+        {@render content?.()}
     </div>
 {/if}
 
 <style>
-
-
-
-    .hover-card-trigger {
-        display: inline;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
     .hover-card {
         position: fixed;
         transform: translateX(-50%);
@@ -157,37 +155,14 @@
         animation: fadeIn 0.15s ease;
         max-width: min(400px, 90vw);
         font-size: 0.9rem;
-
     }
 
     .hover-card.align-left {
         transform: translateX(0);
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(4px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-    }
-
     .hover-card.above {
         animation-name: fadeInAbove;
-    }
-
-    @keyframes fadeInAbove {
-        from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(-4px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
     }
 
     .hover-card.align-left {
@@ -196,27 +171,5 @@
 
     .hover-card.align-left.above {
         animation-name: fadeInAlignedAbove;
-    }
-
-    @keyframes fadeInAligned {
-        from {
-            opacity: 0;
-            transform: translateX(0) translateY(4px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-        }
-    }
-
-    @keyframes fadeInAlignedAbove {
-        from {
-            opacity: 0;
-            transform: translateX(0) translateY(-4px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-        }
     }
 </style>

@@ -8,12 +8,12 @@
     ];
 </script>
 
-<div class="splash-container">
-    <aside>
+<div class="flex flex-col gap-8 md:grid md:grid-cols-[1fr_4fr] md:gap-8">
+    <aside class="hidden md:block">
     <Contents {sections} />
     </aside>
 
-    <section class="splash-content">
+    <section class="prose mx-8 my-8 flex flex-col gap-16 md:max-w-200">
         <Overview  
             title="Pigeons and Planes"
             link="https://www.pigeonsandplanes.com/read/new-artists-to-watch-2021"
@@ -34,10 +34,3 @@
         </section>
     </section>
 </div>
-
-<style>
-    img {
-        width: 100%;
-        height: auto;
-    }
-</style>

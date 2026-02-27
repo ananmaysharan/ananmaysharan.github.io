@@ -3,29 +3,10 @@
     import Gallery from "$lib/components/Gallery.svelte";
 </script>
 
-<main class="home-page">
+<main class="h-[90vh] w-screen overflow-hidden flex flex-col items-center justify-center relative">
     <Gallery/>
 
-    <div class='media-container'>
+    <div class="absolute bottom-8 right-8">
         <Listening/>
     </div>
 </main>
-
-<style>
-    .home-page {
-        height: 90vh; /* Account for 10vh navbar */
-        width: 100vw;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-    
-    .media-container {
-        position: absolute;
-        bottom: 2rem;
-        right: 2rem;
-    }
-</style>

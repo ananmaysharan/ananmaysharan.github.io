@@ -1,18 +1,27 @@
-<script>
-	// @ts-nocheck
+<script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import chairImg from '$lib/assets/home/chair.png';
 	import zineImg from '$lib/assets/home/zine.png';
 	import trains from '$lib/assets/home/trains.png';
 	import ocean from '$lib/assets/work/ocean.webp';
 	import hardwarerender from '$lib/assets/work/memory-mend/hardwarerender.webp';
-	
-	export let chairLink = '#';
-	export let zineLink = '#';
-	export let trainsLink = '#';
-	export let oceanLink = '#';
-	export let interval = 900; // 2 seconds by default
-	
+
+	interface Props {
+		chairLink?: string;
+		zineLink?: string;
+		trainsLink?: string;
+		oceanLink?: string;
+		interval?: number;
+	}
+
+	let {
+		chairLink = '#',
+		zineLink = '#',
+		trainsLink = '#',
+		oceanLink = '#',
+		interval = 900
+	}: Props = $props();
+
 	const images = [
 		{ src: chairImg, alt: 'Chair', link: chairLink },
 		{ src: zineImg, alt: 'Zine', link: zineLink },
@@ -20,11 +29,11 @@
 		{ src: ocean, alt: 'Ocean Records Project', link: oceanLink },
 		{ src: hardwarerender, alt: 'Hardware Render', link: '#' }
 	];
-	
-	let currentIndex = 0;
-	let isPaused = false;
-	let intervalId;
-	
+
+	let currentIndex = $state(0);
+	let isPaused = $state(false);
+	let intervalId: ReturnType<typeof setInterval>;
+
 	function startCycling() {
 		if (intervalId) clearInterval(intervalId);
 		intervalId = setInterval(() => {
@@ -33,26 +42,26 @@
 			}
 		}, interval);
 	}
-	
+
 	function handleMouseEnter() {
 		isPaused = true;
 	}
-	
+
 	function handleMouseLeave() {
 		isPaused = false;
 	}
-	
+
 	function handleImageClick() {
 		const currentImage = images[currentIndex];
 		if (currentImage.link && currentImage.link !== '#') {
 			window.open(currentImage.link, '_blank');
 		}
 	}
-	
+
 	onMount(() => {
 		startCycling();
 	});
-	
+
 	onDestroy(() => {
 		if (intervalId) {
 			clearInterval(intervalId);
@@ -60,67 +69,21 @@
 	});
 </script>
 
-<div class="home-gallery">
-	<div 
-		class="image-container"
-		on:mouseenter={handleMouseEnter}
-		on:mouseleave={handleMouseLeave}
-		on:click={handleImageClick}
-		on:keydown={(e) => e.key === 'Enter' && handleImageClick()}
+<div class="w-full max-w-[400px] mx-auto h-full flex items-center justify-center">
+	<div
+		class="w-full overflow-hidden transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:cursor-pointer motion-reduce:transition-none motion-reduce:hover:transform-none"
+		onmouseenter={handleMouseEnter}
+		onmouseleave={handleMouseLeave}
+		onclick={handleImageClick}
+		onkeydown={(e) => e.key === 'Enter' && handleImageClick()}
 		role="button"
 		tabindex="0"
 	>
-		<img 
-			src={images[currentIndex].src} 
+		<img
+			src={images[currentIndex].src}
 			alt={images[currentIndex].alt}
-			class="home-image"
-			class:clickable={images[currentIndex].link !== '#'}
+			class="w-full h-auto block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
+			class:cursor-pointer={images[currentIndex].link !== '#'}
 		/>
 	</div>
 </div>
-
-<style>
-	.home-gallery {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 auto;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	.image-container {
-		width: 100%;
-		/* border-radius: 8px; */
-		overflow: hidden;
-		transition: transform 0.2s ease;
-	}
-	
-	.image-container:hover {
-		transform: scale(1.02);
-        cursor: pointer;
-	}
-
-	.home-image {
-		width: 100%;
-		height: auto;
-		display: block;
-		transition: opacity 0.3s ease;
-	}
-	
-	.home-image.clickable {
-		cursor: pointer;
-	}
-	
-	@media (prefers-reduced-motion: reduce) {
-		.image-container,
-		.home-image {
-			transition: none;
-		}
-		
-		.image-container:hover {
-			transform: none;
-		}
-	}
-</style>

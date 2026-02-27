@@ -1,17 +1,10 @@
 import { defineConfig } from 'vite'
 import { sveltekit } from '@sveltejs/kit/vite'
-import Icons from 'unplugin-icons/vite'
-import { FileSystemIconLoader } from 'unplugin-icons/loaders';
-
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     sveltekit(),
-    Icons({
-      compiler: 'svelte',
-      customCollections: {
-        myIcons: FileSystemIconLoader('./src/lib/assets/icons', svg => svg.replace(/^<svg /, '<svg fill="currentColor" ')),
-      },
-    })
   ]
 })
