@@ -54,18 +54,18 @@
     </div>
 
     {#if isVideo}
-        <video src={img} class="w-full h-auto border border-border mt-8" autoplay loop muted playsinline></video>
+        <video src={img} class="w-full h-auto border border-border mt-8! mb-4!" autoplay loop muted playsinline></video>
     {:else}
-        <img src={img} alt="img" class="w-full h-auto border border-border mt-8" />
+        <img src={img} alt="img" class="w-full h-auto border border-border mt-8! mb-4!" />
     {/if}
 
     {#if showInfo}
-    <div class="not-prose font-sans grid grid-cols-2 justify-between text-text-secondary md:flex md:gap-16 md:justify-between">
+    <div class="not-prose list-none font-sans grid grid-cols-2 justify-between text-text-secondary md:flex md:gap-16 md:justify-between">
         <div>
             <h4 class="mb-2">Role</h4>
             {#each roles as role}
                 <li>
-                    <ul class="list-none p-0 m-0">
+                    <ul class="p-0 m-0">
                         {role}
                     </ul>
                 </li>

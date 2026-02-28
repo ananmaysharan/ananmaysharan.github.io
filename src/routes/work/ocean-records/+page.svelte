@@ -45,7 +45,7 @@
         <Contents {sections} />
     </aside>
 
-    <section class="prose mx-8 my-8 flex flex-col gap-16 md:max-w-200">
+    <section class="prose mx-8 my-8 flex flex-col md:max-w-200">
         <Overview
             title="Ocean Records"
             link="http://ocean-records.vercel.app/"
@@ -64,18 +64,12 @@
 
         <section id="overview">
             <h3>Overview</h3>
+
+            <!-- <h4>Problem</h4> -->
             <h2>
                 How can we convey the acoustic conflict between human activity
                 and marine life in Monterey Bay, California?
             </h2>
-            <p>
-                I worked with a partner to research, design and develop this
-                data visualization project, completed as part of my Master's in
-                Design Engineering program at Harvard University.
-                <!-- The requirements were to create an interactive data visualization designed to uncover systems-level constructs, build knowledge and inform decision-making and impact, in response to the theme for the year 2025/26: Artificial + Natural. -->
-            </p>
-
-            <h4>Problem</h4>
             <div class="flex flex-col gap-4">
             <Insight text="Ship strikes, which are collisions between vessels and
                     marine animals, are the leading cause of whale deaths
@@ -87,8 +81,14 @@
                     species, which disrupts their ability to communicate and
                     navigate, making them more prone to strikes."></Insight>
             </div>
+            
 
             <h4>Approach</h4>
+                        <p>
+                I worked with a partner to research, design and develop this
+                data visualization project, completed as part of my Master's in
+                Design Engineering program at Harvard University.
+            </p>
             <p>
                 We found a NOAA dataset that contained over 4 years of
                 continuous underwater acoustic recordings from the Monterey Bay
@@ -187,15 +187,14 @@
         <section id="process">
             <h3>Process</h3>
             <h4>Ideation</h4>
-            <p>We undertook an extensive research and ideation process to understand the problem space and develop our approach.</p>
-            <p>Some highlights included talking to the authors of Google's Perch model, NOAA officials and doing desk research to understand the marine ecosystem in Monterey Bay.</p>
+            <p>We undertook an extensive research and ideation process to understand the problem space and develop our approach. Some highlights included talking to the authors of Google's Perch model, NOAA officials and doing desk research to understand the marine ecosystem in Monterey Bay.</p>
             <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
             <div>
                 <img class="border border-border w-full"src={figma} alt="figma board" />
                 <p class="text-[0.9em] text-text-secondary mt-2">Overview of our Figma file across the 6 week period</p>
             </div>
             <div>
-                <img class="border border-border w-full" src={perch} alt="perch call" />
+                <img class="border p-0 border-border w-full" src={perch} alt="perch call" />
                 <p class="text-[0.9em] text-text-secondary mt-2">Talking to Google DeepMind scientists</p>
             </div>
             </div>
@@ -219,6 +218,18 @@
                 <img class="border border-border w-full" style="margin-bottom: 1rem;" src={pattern} alt="pattern of animal and ship presence" />
             </div>
             <Insight text="The seasonal patterns of marine animal presence, driven by natural migration, contrasted sharply with the year-round, near constant presence of ships."></Insight>
+            <h4>Machine Learning: Using Perch</h4>
+            <p>We utilized Google DeepMind's Perch 2.0 bioacoustics model to enhance our analysis at the individual day level, enabling more precise identification of marine species and human sounds in comparison to the NOAA detections.</p>
+            <p>After consultation with researchers at Google DeepMind, we performed an agile modeling workflow using Google Colab Notebooks, which involved creating embeddings of the recordings and training a custom classifier for each sound type.</p>
+            <p>This approach allowed us to compute over 10 days worth of recordings at a detailed level for use in the Day view of our visualization.</p>
+            <div>
+                <img class="border border-border w-full" style="padding:1em" src={agile} alt="agile modeling workflow" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Agile modeling workflow</p>
+            </div>
+            <div>
+                <img class="border border-border w-full" style="padding:1em" src={perch1} alt="perch model output" />
+                <p class="text-[0.9em] text-text-secondary mt-2">Outputs from training classifiers</p>
+            </div>
             <h4>Refining Approach & Rapid Prototyping</h4>
             <p>Driven by this insight, we focused our efforts on conceptualizing ways to visualize these patterns effectively at a variety of timescales, both through hand-sketching and rapid prototyping in code.</p>
                         <div class="grid grid-cols-1 gap-4 my-4 md:grid-cols-2">
@@ -246,18 +257,6 @@
             <Insight text="Creatively show the overlaps in frequencies between ships and animal calls."></Insight>
             <Insight text="Create an emotional reaction to the prevalence of anthropogenic noise even within sanctuary areas like Monterey Bay."></Insight>
             <Insight text="Showcase how passive acoustic monitoring offers a multi-dimensional look into marine ecosystems."></Insight>
-            </div>
-            <h4>Machine Learning: Using Perch</h4>
-            <p>We utilized Google DeepMind's Perch 2.0 bioacoustics model to enhance our analysis at the individual day level, enabling more precise identification of marine species and human sounds in comparison to the NOAA detections.</p>
-            <p>After consultation with researchers at Google DeepMind, we performed an agile modeling workflow using Google Colab Notebooks, which involved creating embeddings of the recordings and training a custom classifier for each sound type.</p>
-            <p>This approach allowed us to compute over 10 days worth of recordings at a detailed level for use in the Day view of our visualization.</p>
-            <div>
-                <img class="border border-border w-full" style="padding:1em" src={agile} alt="agile modeling workflow" />
-                <p class="text-[0.9em] text-text-secondary mt-2">Agile modeling workflow</p>
-            </div>
-            <div>
-                <img class="border border-border w-full" style="padding:1em" src={perch1} alt="perch model output" />
-                <p class="text-[0.9em] text-text-secondary mt-2">Outputs from training classifiers</p>
             </div>
             <h4>Design Iteration</h4>
             <p>We went through a number of rounds of iteration based on feedback from critics and peers. We used Figma to create screens at a mid-fidelity that outlined the general structure and elements of the visualization, before working directly in code to implement the design.</p>

@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@utility prose {
+  img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  video {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 @font-face {
   font-family: 'Cooper Regular';
   src: url('./lib/assets/fonts/Cooper-Regular.woff2') format('woff2');
@@ -87,3 +98,4 @@ body {
   transform: rotate(0deg);
   cursor: pointer;
 }
+
