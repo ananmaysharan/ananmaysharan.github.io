@@ -11,6 +11,7 @@
     import zinezone from "$lib/assets/work/zinezone.webm";
     import drake from "$lib/assets/work/drake.webp";
     import harvard from "$lib/assets/work/harvard.webp";
+    import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
 </script>
 
 <div class="m-4">
@@ -65,6 +66,14 @@
         tags={["Personal", "Development"]}
         img={drake}
         url={"/work/drake-time"}
+    />
+    <Card
+        title={"Nutmeg Soccer"}
+        description={"Website redesign for a community soccer organization"}
+        year={"2025"}
+        tags={["Development"]}
+        img={nutmeg}
+        url={"/work/nutmeg-soccer"}
     />
     <!-- <Card
         title={"Under Gardiner Archival Map"}
