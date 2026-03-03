@@ -33,7 +33,7 @@
 
 <div class="prose flex flex-col gap-16 items-start max-w-[600px] mx-auto my-16 px-6">
     <p>
-        Hi! My name is Ananmay Sharan. I'm a designer who loves to code, working
+        Hi! My name is Ananmay Sharan. I'm a design engineer working
         across software and hardware.
     </p>
 

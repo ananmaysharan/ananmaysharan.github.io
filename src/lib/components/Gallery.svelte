@@ -4,19 +4,20 @@
 	import trains from '$lib/assets/home/trains.png';
 	import hardwarerender from '$lib/assets/work/memory-mend/hardwarerender.webp';
 	import pincode from '$lib/assets/home/pincode.webm';
+	import icsDrop from '$lib/assets/home/ics-drop.webm';
 
 	interface Props {
 		interval?: number;
 	}
 
-	let { interval = 1000 }: Props = $props();
+	let { interval = 1400 }: Props = $props();
 
 	const items = [
-		{ src: trains, alt: 'Train' },
-		{ src: chairImg, alt: 'Chair' },
 		{ src: hardwarerender, alt: 'Hardware Render' },
+		{ src: icsDrop, alt: 'ICS Drop' },
+		{ src: trains, alt: 'Train' },
 		{ src: pincode, alt: 'Pincode' },
-
+		{ src: chairImg, alt: 'Chair' },
 	];
 
 	function isVideo(src: string) {
@@ -41,8 +42,21 @@
 		}, interval);
 	}
 
+	let videoEl = $state<HTMLVideoElement | null>(null);
+
 	function handleVideoEnded() {
-		if (!isPaused) {
+		if (isPaused && videoEl) {
+			videoEl.currentTime = 0;
+			videoEl.play();
+		} else {
+			advance();
+			startCycling();
+		}
+	}
+
+	function handleMouseLeaveVideo() {
+		isPaused = false;
+		if (videoEl && videoEl.ended) {
 			advance();
 		}
 	}
@@ -72,10 +86,11 @@
 		aria-label="Image gallery"
 		class="w-full overflow-hidden transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:cursor-pointer motion-reduce:transition-none motion-reduce:hover:transform-none"
 		onmouseenter={handleMouseEnter}
-		onmouseleave={handleMouseLeave}
+		onmouseleave={isPlayingVideo ? handleMouseLeaveVideo : handleMouseLeave}
 	>
 		{#if isVideo(items[currentIndex].src)}
 			<video
+				bind:this={videoEl}
 				src={items[currentIndex].src}
 				class="w-full h-auto block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
 				autoplay
