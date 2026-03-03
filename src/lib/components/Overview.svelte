@@ -33,9 +33,9 @@
 </script>
 
 <div>
-    <div class="flex items-center justify-between">
-        <h1 class="m-0!">{title}</h1>
-        <div class="flex gap-4 items-center">
+    <div class="flex items-center justify-between gap-4">
+        <h1 class="m-0! {title.length > 30 ? 'text-3xl!' : ''}">{title}</h1>
+        <div class="flex gap-4 items-center shrink-0">
         {#if showGithub}
             <Button
                 buttonText={"View Github"}

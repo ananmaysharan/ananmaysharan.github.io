@@ -17,7 +17,6 @@
 		{ src: icsDrop, alt: 'ICS Drop' },
 		{ src: trains, alt: 'Train' },
 		{ src: pincode, alt: 'Pincode' },
-		{ src: chairImg, alt: 'Chair' },
 	];
 
 	function isVideo(src: string) {
@@ -80,7 +79,7 @@
 	});
 </script>
 
-<div class="w-full max-w-100 mx-auto h-full flex items-center justify-center">
+<div class="w-full max-w-140 mx-auto h-full flex items-center justify-center">
 	<div
 		role="region"
 		aria-label="Image gallery"

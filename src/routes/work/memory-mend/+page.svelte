@@ -54,12 +54,6 @@
             <h2>
                 A retrofit device that brings embroidery capability to any sewing machine, reducing the barrier of entry to mending clothes.
             </h2>
-            <p>
-                I worked in a team of 4 to research, design and develop this
-                digital + physical product design project, completed as part of my Master's in
-                Design Engineering program at Harvard University.
-                My responsibilities centered around designing and developing the mobile experience, as well as writing software to send embroidery instructions to our device. 
-            </p>
 
             <h4>Problem Statements</h4>
             <div class="flex flex-col gap-4">
@@ -86,6 +80,12 @@
             </p>
             <p>
                 Both the software and hardware products are intended to work together to create an intentional experience that aims to (re)build the human capacity for repair by lowering the barrier of entry to mending clothes through embroidery, while also creating a meaningful way to preserve and share memories associated with clothing to help extend their life.
+            </p>
+                        <p>
+                I worked in a team of 4 to research, design and develop this
+                digital + physical product design project, completed as part of my Master's in
+                Design Engineering program at Harvard University.
+                My responsibilities centered around designing and developing the mobile experience, as well as writing software to send embroidery instructions to our device. 
             </p>
         </section>
 
