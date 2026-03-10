@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -12,14 +13,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Cooper Regular';
-  src: url('./lib/assets/fonts/Cooper-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
   --color-primary: #08090a;
   --color-border: #eee;
@@ -27,7 +20,7 @@
   --color-text-secondary: #999;
   --color-bg: #fff;
   --color-bg-hover: #f9f9f9;
-  --font-serif: 'Cooper Regular', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
   --font-sans: 'Helvetica Neue', Arial, sans-serif;
   --breakpoint-custom: 876px;
   --animate-rotate: rotate 10s linear infinite;

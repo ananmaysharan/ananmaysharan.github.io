@@ -1,5 +1,7 @@
 <script>
     import Card from "$lib/components/Card.svelte";
+    import { SquaresFourIcon, RowsIcon } from "phosphor-svelte";
+    import { workView, setViewMode } from "$lib/workViewMode.svelte.js";
     import aa from "$lib/assets/work/aa.webp";
     import gardiner from "$lib/assets/work/gardiner.webp";
     import mms from "$lib/assets/work/mms.webp";
@@ -14,11 +16,27 @@
     import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
 </script>
 
-<div class="m-4">
-    <p>Please find a selection of work below.</p>
+<div class="m-4 flex flex-row items-center justify-between">
+    <p class="m-0">Please find a selection of work below.</p>
+    <div class="flex flex-row border border-border">
+        <button
+            class="p-2 flex items-center justify-center cursor-pointer border-none bg-white text-text-secondary hover:bg-gray-50"
+            onclick={() => setViewMode('grid')}
+            aria-label="Grid view"
+        >
+            <SquaresFourIcon size={18} weight={workView.mode === 'grid' ? 'fill' : 'bold'} />
+        </button>
+        <button
+            class="p-2 flex items-center justify-center cursor-pointer border-0 border-l border-solid border-border bg-white text-text-secondary hover:bg-gray-50"
+            onclick={() => setViewMode('list')}
+            aria-label="List view"
+        >
+            <RowsIcon size={18} weight={workView.mode === 'list' ? 'fill' : 'bold'} />
+        </button>
+    </div>
 </div>
 
-<div class="grid grid-cols-1 gap-4 m-4 md:grid-cols-2">
+<div class="grid m-4 {workView.mode === 'grid' ? 'grid-cols-1 gap-4 md:grid-cols-2' : 'grid-cols-1 border-t border-border'}">
     <Card
         title={"Ocean Records"}
         description={"Using machine learning to listen to the ocean"}
@@ -26,6 +44,7 @@
         tags={["Design", "Development", "Research"]}
         img={ocean}
         url={"/work/ocean-records"}
+        variant={workView.mode}
     />
     <Card
         title={"Memory Mend"}
@@ -34,6 +53,7 @@
         tags={["Design", "Development", "Research"]}
         img={memorymend}
         url={"/work/memory-mend"}
+        variant={workView.mode}
     />
         <Card
         title={"Measuring Main Streets"}
@@ -42,22 +62,25 @@
         tags={["Design", "Development", "Research"]}
         img={mms}
         url={"/work/measuring-main-streets"}
+        variant={workView.mode}
     />
             <Card
         title={"Harvard Libraries"}
-        description={"Campus library web app"}
+        description={"Campus library app"}
         year={"2026"}
         tags={["Personal", "Development"]}
         img={harvard}
         url={"/work/harvard-libraries"}
+        variant={workView.mode}
     />
         <Card
         title={"Chemical Valley Pollution Map"}
-        description={"Visualizing 10 years of pollution events in Ontario's Chemical Valley"}
+        description={"Visualizing 10 years of pollution in Ontario's Chemical Valley"}
         year={"2023"}
         tags={["Mapping", "Development"]}
         img={pollution}
         url={"/work/chemical-valley-pollution-map"}
+        variant={workView.mode}
     />
     <Card
         title={"Drake Time"}
@@ -66,15 +89,16 @@
         tags={["Personal", "Development"]}
         img={drake}
         url={"/work/drake-time"}
+        variant={workView.mode}
     />
-    <Card
+    <!-- <Card
         title={"Nutmeg Soccer"}
         description={"Website redesign for a community soccer organization"}
         year={"2025"}
         tags={["Development"]}
         img={nutmeg}
         url={"/work/nutmeg-soccer"}
-    />
+    /> -->
     <!-- <Card
         title={"Under Gardiner Archival Map"}
         description={"Helping archive the history of Toronto's Gardiner Expressway"}
@@ -98,6 +122,7 @@
         tags={["Personal", "Development"]}
         img={opiniongenerator}
         url={"/work/opinion-generator"}
+        variant={workView.mode}
     />
     <Card
         title={"Zine Zone"}
@@ -106,6 +131,7 @@
         tags={["Personal", "Development"]}
         img={zinezone}
         url={"/work/zine-zone"}
+        variant={workView.mode}
     />
     <!-- <Card
         title={"Pigeons and Planes/Complex News"}

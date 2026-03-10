@@ -49,6 +49,15 @@ GitHub Actions workflow (`.github/workflows/static-deploy.yml`) automatically de
 
 Strict mode enabled. Uses `svelte-check` for validation. Some components use `@ts-nocheck` for flexibility.
 
+## Tailwind CSS
+
+Always use canonical Tailwind utility classes instead of arbitrary value syntax when a standard utility exists. For example:
+- Use `w-15` instead of `w-[60px]`
+- Use `aspect-1920/1000` instead of `aspect-[1920/1000]`
+- Use `hover:scale-100!` instead of `hover:!scale-100`
+
+Only use arbitrary values (e.g. `w-[137px]`) when no canonical class maps to the desired value.
+
 ## Icons
 
 Custom SVG icons loaded via `unplugin-icons` from `src/lib/assets/icons/` and `@iconify/json` package.

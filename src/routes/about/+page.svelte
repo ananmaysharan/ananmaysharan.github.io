@@ -31,13 +31,13 @@
     });
 </script>
 
-<div class="prose flex flex-col gap-16 items-start max-w-[600px] mx-auto my-16 px-6">
+<div class="prose flex flex-col gap-16 items-start max-w-150 mx-auto my-16 px-6">
     <p>
         Hi! My name is Ananmay Sharan. I'm a design engineer working
         across software and hardware.
     </p>
 
-    <img src={profile} alt="profile" id="profile" class="w-[300px] h-full self-center" />
+    <img src={profile} alt="profile" id="profile" class="w-75 h-full self-center" />
 
     <div>
         <p>
