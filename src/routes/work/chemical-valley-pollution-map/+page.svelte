@@ -1,5 +1,7 @@
 <script>
     import pollution from "$lib/assets/work/splash/pollution-splash.webp";
+    import chemical1 from "$lib/assets/work/chemical_1.jpg";
+    import chemical2 from "$lib/assets/work/chemical_2.jpg";
     import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
 
@@ -39,6 +41,9 @@
                 I worked to help clean and prepare the raw data, and built several features including the ability to filter the notifications by Season, Company and Pollution Type. I also built an interactive time-slider to help further filter notifications. Finally, I integrated the report's design identity into the web map and helped them host it on Github Pages.
             </p>
         </section>
+
+        <img src={chemical1} alt="Chemical Valley pollution map screenshot" class="rounded-lg" />
+        <img src={chemical2} alt="Chemical Valley pollution map screenshot" class="rounded-lg" />
     </section>
 </div>
 
