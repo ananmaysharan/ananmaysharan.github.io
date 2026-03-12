@@ -42,8 +42,8 @@
             </p>
         </section>
 
-        <img src={chemical1} alt="Chemical Valley pollution map screenshot" class="rounded-lg" />
-        <img src={chemical2} alt="Chemical Valley pollution map screenshot" class="rounded-lg" />
+        <img src={chemical1} alt="Chemical Valley pollution map screenshot" />
+        <img src={chemical2} alt="Chemical Valley pollution map screenshot" />
     </section>
 </div>
 
