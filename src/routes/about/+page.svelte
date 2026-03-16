@@ -77,7 +77,7 @@
         </p>
         <p></p>
         <p>
-            I'm <span class="inline-block w-[11.5ch]">{age}</span> years old and currently live in
+            I'm <span class="inline-block w-[10.9ch]">{age}</span> years old and currently live in
             Cambridge, MA. Previously, I lived in
             <HoverCard>
                 {#snippet trigger()}<span>Toronto,</span>{/snippet}
