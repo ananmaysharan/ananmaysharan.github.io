@@ -5,10 +5,8 @@
     import aa from "$lib/assets/work/aa.webp";
     import gardiner from "$lib/assets/work/gardiner.webp";
     import mms from "$lib/assets/work/mms.webp";
-    import memorymend from "$lib/assets/work/memorymend.webp";
     import ocean from "$lib/assets/work/ocean.webp";
     import pollution from "$lib/assets/work/pollution.webp";
-    import opiniongenerator from "$lib/assets/work/splash/opinion-splash.webp";
     import pigeonsplanes from "$lib/assets/work/pigeonsplanes.webp";
     import zinezone from "$lib/assets/work/zinezone.webm";
     import drake from "$lib/assets/work/drake.webp";
@@ -44,15 +42,6 @@
         tags={["Design", "Development", "Research"]}
         img={ocean}
         url={"/work/ocean-records"}
-        variant={workView.mode}
-    />
-    <Card
-        title={"Memory Mend"}
-        description={"Retrofitting a sewing machine to mend clothes with embroidery"}
-        year={"2025"}
-        tags={["Design", "Development", "Research"]}
-        img={memorymend}
-        url={"/work/memory-mend"}
         variant={workView.mode}
     />
         <Card
@@ -115,15 +104,6 @@
         img={aa}
         url={"/work/adaptive-artifacts"}
     /> -->
-    <Card
-        title={"Opinion Generator"}
-        description={"Got a hot take?"}
-        year={"2024"}
-        tags={["Personal", "Development"]}
-        img={opiniongenerator}
-        url={"/work/opinion-generator"}
-        variant={workView.mode}
-    />
     <Card
         title={"Zine Zone"}
         description={"in collaboration with Callia Silverton"}
