@@ -150,11 +150,35 @@
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 0 0 1px #00000014, 0 2px 8px #0000001a;
-        padding: 12px 16px;
+        padding: 8px 12px;
         pointer-events: auto;
         animation: fadeIn 0.15s ease;
         max-width: min(400px, 90vw);
         font-size: 0.9rem;
+    }
+
+    .hover-card :global(p) {
+        margin: 0 0 4px;
+        line-height: 1.4;
+    }
+
+    .hover-card :global(p:last-child) {
+        margin-bottom: 0;
+    }
+
+    .hover-card :global(ul) {
+        margin: 0 0 8px;
+        padding-left: 20px;
+    }
+
+    .hover-card :global(ul:last-child) {
+        margin-bottom: 0;
+    }
+
+    .hover-card :global(li) {
+        margin: 2px 0;
+        padding-left: 2px;
+        line-height: 1.4;
     }
 
     .hover-card.align-left {

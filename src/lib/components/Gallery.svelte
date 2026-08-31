@@ -2,7 +2,6 @@
 	import { onMount, onDestroy } from 'svelte';
 	import chairImg from '$lib/assets/home/chair.png';
 	import trains from '$lib/assets/home/trains.png';
-	import hardwarerender from '$lib/assets/work/memory-mend/hardwarerender.webp';
 	import pincode from '$lib/assets/home/pincode.webm';
 	import icsDrop from '$lib/assets/home/ics-drop.webm';
 
@@ -13,7 +12,6 @@
 	let { interval = 1400 }: Props = $props();
 
 	const items = [
-		{ src: hardwarerender, alt: 'Hardware Render' },
 		{ src: icsDrop, alt: 'ICS Drop' },
 		{ src: trains, alt: 'Train' },
 		{ src: pincode, alt: 'Pincode' },
