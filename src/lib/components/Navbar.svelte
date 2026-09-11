@@ -1,4 +1,4 @@
-<nav class="flex justify-between items-center px-4 bg-white h-[10vh] border-b border-border">
+<nav class="flex justify-between items-center px-4 bg-white h-[10vh]">
     <h1><a href="/" class="no-underline text-primary font-normal font-sans">ANANMAY</a></h1>
 
     <ul class="flex list-none m-0 p-0 text-sm">

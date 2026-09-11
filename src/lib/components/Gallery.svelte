@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import chairImg from '$lib/assets/home/chair.png';
-	import trains from '$lib/assets/home/trains.png';
 	import pincode from '$lib/assets/home/pincode.webm';
 	import icsDrop from '$lib/assets/home/ics-drop.webm';
 
@@ -13,7 +12,6 @@
 
 	const items = [
 		{ src: icsDrop, alt: 'ICS Drop' },
-		{ src: trains, alt: 'Train' },
 		{ src: pincode, alt: 'Pincode' },
 	];
 
