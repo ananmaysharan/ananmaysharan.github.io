@@ -14,24 +14,13 @@
     import component3 from "$lib/assets/work/memory-mend/component3.webp";
     
 
-    import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
     import Insight from "$lib/components/Insight.svelte";
 
-    const sections = [
-        { id: "overview", title: "Overview" },
-        { id: "solution", title: "Solution" },
-        { id: "process", title: "Process" },
-        { id: "reflection", title: "Reflection & Next Steps" },
-    ];
 </script>
 
-<div class="flex flex-col gap-8 md:grid md:grid-cols-[1fr_4fr] md:gap-8">
-    <aside class="hidden md:block">
-        <Contents {sections} />
-    </aside>
-
-    <section class="prose mx-8 my-8 flex flex-col gap-16 md:max-w-200">
+<div class="flex flex-col items-center px-8">
+    <section class="prose w-full my-8 flex flex-col gap-16 md:max-w-200">
         <Overview
             title="Memory Mend"
             link="http://memory-mend.vercel.app/"

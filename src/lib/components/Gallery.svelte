@@ -1,40 +1,24 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import chairImg from '$lib/assets/home/chair.png';
 	import pincode from '$lib/assets/home/pincode.webm';
 	import icsDrop from '$lib/assets/home/ics-drop.webm';
-
-	interface Props {
-		interval?: number;
-	}
-
-	let { interval = 1400 }: Props = $props();
+	import dojiProfile from '$lib/assets/home/doji-profile-loop.mp4';
+	import dojiAnimation from '$lib/assets/home/doji-animation-loop.mp4';
+	import PhoneVideo from './PhoneVideo.svelte';
 
 	const items = [
+		{ src: dojiProfile, alt: 'Doji profile sharing' },
 		{ src: icsDrop, alt: 'ICS Drop' },
+		{ src: dojiAnimation, alt: 'Doji shopping animation' },
 		{ src: pincode, alt: 'Pincode' },
 	];
 
-	function isVideo(src: string) {
-		return src && (src.endsWith('.webm') || src.endsWith('.mp4') || src.endsWith('.mov'));
-	}
-
 	let currentIndex = $state(0);
 	let isPaused = $state(false);
-	let isPlayingVideo = $derived(isVideo(items[currentIndex].src));
-	let intervalId: ReturnType<typeof setInterval>;
+	let isBrowserClip = $derived(items[currentIndex].src === icsDrop);
+	let isPhoneClip = $derived(items[currentIndex].src === dojiProfile || items[currentIndex].src === dojiAnimation);
 
 	function advance() {
 		currentIndex = (currentIndex + 1) % items.length;
-	}
-
-	function startCycling() {
-		if (intervalId) clearInterval(intervalId);
-		intervalId = setInterval(() => {
-			if (!isPaused && !isPlayingVideo && items.length > 1) {
-				advance();
-			}
-		}, interval);
 	}
 
 	let videoEl = $state<HTMLVideoElement | null>(null);
@@ -44,14 +28,6 @@
 			videoEl.currentTime = 0;
 			videoEl.play();
 		} else {
-			advance();
-			startCycling();
-		}
-	}
-
-	function handleMouseLeaveVideo() {
-		isPaused = false;
-		if (videoEl && videoEl.ended) {
 			advance();
 		}
 	}
@@ -64,41 +40,87 @@
 		isPaused = false;
 	}
 
-	onMount(() => {
-		startCycling();
-	});
-
-	onDestroy(() => {
-		if (intervalId) {
-			clearInterval(intervalId);
-		}
-	});
 </script>
 
-<div class="w-full max-w-140 mx-auto h-full flex items-center justify-center">
+<div class="w-full max-w-140 mx-auto">
 	<div
 		role="region"
 		aria-label="Image gallery"
-		class="w-full overflow-hidden transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:cursor-pointer motion-reduce:transition-none motion-reduce:hover:transform-none"
+		class="gallery-stage w-full"
+		class:standard-stage={!isPhoneClip}
+		class:plain-frame={!isBrowserClip && !isPhoneClip}
+		class:browser-stage={isBrowserClip}
 		onmouseenter={handleMouseEnter}
-		onmouseleave={isPlayingVideo ? handleMouseLeaveVideo : handleMouseLeave}
+		onmouseleave={handleMouseLeave}
 	>
-		{#if isVideo(items[currentIndex].src)}
+		{#key items[currentIndex].src}
+		{#if isPhoneClip}
+			<div class="phone-slide">
+					<PhoneVideo src={items[currentIndex].src} label={items[currentIndex].alt} bind:videoEl loop={false} onended={handleVideoEnded} />
+			</div>
+		{:else}
+			<div class={isBrowserClip ? 'browser-frame' : 'w-full h-full'}>
 			<video
 				bind:this={videoEl}
 				src={items[currentIndex].src}
-				class="w-full h-auto block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
+				class="w-full object-contain block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
+				class:h-full={!isBrowserClip}
+				class:h-auto={isBrowserClip}
 				autoplay
 				muted
 				playsinline
 				onended={handleVideoEnded}
 			></video>
-		{:else}
-			<img
-				src={items[currentIndex].src}
-				alt={items[currentIndex].alt}
-				class="w-full h-auto block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
-			/>
+			</div>
 		{/if}
+		{/key}
 	</div>
 </div>
+
+<style>
+	.gallery-stage {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.standard-stage {
+		aspect-ratio: 3 / 2;
+	}
+
+	.phone-slide {
+		width: min(68%, 250px, calc(50svh * 442 / 914));
+		aspect-ratio: 442 / 914;
+		margin-block: 12px;
+	}
+
+	.plain-frame {
+		border: 1px solid var(--color-border);
+	}
+
+	.browser-stage {
+		padding: 12px;
+	}
+
+	.browser-frame {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		padding: 4px;
+		border: 1px solid rgb(0 0 0 / 10%);
+		border-radius: 13px;
+		background: rgb(220 220 224 / 45%);
+		-webkit-backdrop-filter: blur(12px);
+		backdrop-filter: blur(12px);
+		box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%);
+	}
+
+	.browser-frame video {
+		height: 100%;
+		object-fit: contain;
+		padding: 8px;
+		border-radius: 8px;
+		background: white;
+		box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+	}
+</style>

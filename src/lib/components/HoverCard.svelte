@@ -117,7 +117,7 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <span
-    class="inline underline cursor-pointer"
+    class="hover-card-trigger inline underline cursor-pointer"
     bind:this={triggerEl}
     onmouseenter={show}
     onmouseleave={hide}

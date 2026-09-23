@@ -3,25 +3,16 @@
     import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
     import nutmegOld from "$lib/assets/work/nutmeg/nutmeg_old.webp";
     import nutmegNew from "$lib/assets/work/nutmeg/nutmeg_new.webp";
-    import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
 
-    const sections = [
-        { id: "overview", title: "Overview" },
-        { id: "before-after", title: "Before & After" },
-    ];
 
     onMount(async () => {
         await import("img-comparison-slider");
     });
 </script>
 
-<div class="flex flex-col gap-8 md:grid md:grid-cols-[1fr_4fr] md:gap-8">
-    <aside class="hidden md:block">
-    <Contents {sections} />
-    </aside>
-
-    <section class="prose mx-8 my-8 flex flex-col gap-16 md:max-w-200">
+<div class="flex flex-col items-center px-8">
+    <section class="prose w-full my-8 flex flex-col gap-16 md:max-w-200">
         <Overview
             title="Nutmeg Soccer"
             link="https://nutmegsoccer.org"

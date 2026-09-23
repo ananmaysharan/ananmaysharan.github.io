@@ -7,25 +7,13 @@
     import scan from "$lib/assets/work/street-vision/scan.png";
     import report from "$lib/assets/work/street-vision/report.png";
     import { MagnifyingGlassIcon, ShieldCheckIcon, ArticleIcon } from "phosphor-svelte";
-    import Contents from "$lib/components/Contents.svelte";
     import Overview from "$lib/components/Overview.svelte";
     import Insight from "$lib/components/Insight.svelte";
 
-    const sections = [
-        { id: "overview", title: "Overview" },
-        { id: "architecture", title: "Agentic Architecture" },
-        { id: "interface", title: "Interface" },
-        { id: "data-quality", title: "Data Quality" },
-        { id: "reflection", title: "Reflection" },
-    ];
 </script>
 
-<div class="flex flex-col gap-8 md:grid md:grid-cols-[1fr_4fr] md:gap-8">
-    <aside class="hidden md:block">
-        <Contents {sections} />
-    </aside>
-
-    <section class="prose mx-8 my-8 flex flex-col md:max-w-200">
+<div class="flex flex-col items-center px-8">
+    <section class="prose w-full my-8 flex flex-col md:max-w-200">
         <Overview
             title="StreetVision"
             img={streetvision}

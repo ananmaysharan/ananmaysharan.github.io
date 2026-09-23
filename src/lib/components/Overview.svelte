@@ -3,7 +3,7 @@
     import { GithubLogoIcon } from "phosphor-svelte";
     interface Props {
         title?: string;
-        img: any;
+        img?: any;
         roles?: any;
         timeline?: any;
         technologies?: any;
@@ -45,22 +45,24 @@
                 <GithubLogoIcon size={16} weight="bold"/>
             </Button>
         {/if}
-        <Button
-            buttonText={"Visit Website"}
-            url={link}
-            variant={buttonVariant}
-        />
+        {#if link}
+            <Button
+                buttonText={"Visit Website"}
+                url={link}
+                variant={buttonVariant}
+            />
+        {/if}
         </div>
     </div>
 
     {#if isVideo}
         <video src={img} class="w-full h-auto border border-border mt-8! mb-4!" autoplay loop muted playsinline></video>
-    {:else}
+    {:else if img}
         <img src={img} alt="img" class="w-full h-auto border border-border mt-8! mb-4!" />
     {/if}
 
     {#if showInfo}
-    <div class="not-prose list-none font-sans grid grid-cols-2 justify-between text-text-secondary md:flex md:gap-16 md:justify-between">
+    <div class="not-prose list-none font-serif grid grid-cols-2 justify-between text-text-secondary md:flex md:gap-16 md:justify-between">
         <div>
             <h4 class="mb-2">Role</h4>
             {#each roles as role}

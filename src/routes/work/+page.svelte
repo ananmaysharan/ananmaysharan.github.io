@@ -1,65 +1,57 @@
 <script>
     import Card from "$lib/components/Card.svelte";
-    import { SquaresFourIcon, RowsIcon } from "phosphor-svelte";
-    import { workView, setViewMode } from "$lib/workViewMode.svelte.js";
+    import { workView } from "$lib/workViewMode.svelte.js";
     import aa from "$lib/assets/work/aa.webp";
     import gardiner from "$lib/assets/work/gardiner.webp";
     import mms from "$lib/assets/work/mms.webp";
-    import ocean from "$lib/assets/work/ocean.webp";
+    import ocean from "$lib/assets/work/ocean-records/year_view.webm";
+    import oceanGlobal from "$lib/assets/work/ocean-records/global.webm";
+    import oceanMonth from "$lib/assets/work/ocean-records/month_view.webm";
     import pollution from "$lib/assets/work/pollution.webp";
     import pigeonsplanes from "$lib/assets/work/pigeonsplanes.webp";
     import zinezone from "$lib/assets/work/zinezone.webm";
-    import drake from "$lib/assets/work/drake.webp";
     import harvard from "$lib/assets/work/harvard.webp";
     import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
 </script>
 
-<div class="m-4 flex flex-row items-center justify-between">
-    <p class="m-0">Please find a selection of work below.</p>
-    <div class="flex flex-row border border-border">
-        <button
-            class="p-2 flex items-center justify-center cursor-pointer border-none bg-white text-text-secondary hover:bg-gray-50"
-            onclick={() => setViewMode('grid')}
-            aria-label="Grid view"
-        >
-            <SquaresFourIcon size={18} weight={workView.mode === 'grid' ? 'fill' : 'bold'} />
-        </button>
-        <button
-            class="p-2 flex items-center justify-center cursor-pointer border-0 border-l border-solid border-border bg-white text-text-secondary hover:bg-gray-50"
-            onclick={() => setViewMode('list')}
-            aria-label="List view"
-        >
-            <RowsIcon size={18} weight={workView.mode === 'list' ? 'fill' : 'bold'} />
-        </button>
-    </div>
-</div>
-
-<div class="grid m-4 {workView.mode === 'grid' ? 'grid-cols-1 gap-4 md:grid-cols-2' : 'grid-cols-1 border-t border-border'}">
+<main class="w-full px-6 pt-8 sm:pt-12 pb-12 font-serif text-base leading-6 text-text-muted">
+<div class="grid {workView.mode === 'grid' ? 'grid-cols-1 gap-4 md:grid-cols-2' : workView.mode === 'feature' ? 'grid-cols-1 gap-16 md:gap-24' : 'grid-cols-1 border-t border-border'}">
+    <Card
+        accessibleLabel="Doji"
+        phoneVideo
+        title="Doji"
+        description="Doji is a social shopping app for people to express their personal style. I designed and shipped profile and look sharing features, as well as the education flow for the Doji iOS extension."
+        tags={[]}
+        img={null}
+        url={null}
+        variant={workView.mode}
+    />
     <Card
         title={"Ocean Records"}
-        description={"Using machine learning to listen to the ocean"}
+        description={"Data visualization project using Google DeepMind's Perch machine learning model to detect clashes between animal and human sounds underwater."}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={ocean}
+        videoSources={[oceanGlobal, ocean, oceanMonth]}
         url={"/work/ocean-records"}
         variant={workView.mode}
     />
-        <Card
-        title={"Measuring Main Streets"}
-        description={"Mapping every main street in Canada"}
-        year={"2024"}
-        tags={["Design", "Development", "Research"]}
-        img={mms}
-        url={"/work/measuring-main-streets"}
-        variant={workView.mode}
-    />
-            <Card
+    <Card
         title={"Harvard Libraries"}
         description={"Campus library app"}
         year={"2026"}
         tags={["Personal", "Development"]}
         img={harvard}
         url={"/work/harvard-libraries"}
+        variant={workView.mode}
+    />
+    <Card
+        title={"Measuring Main Streets"}
+        description={"Mapping every main street in Canada"}
+        year={"2024"}
+        tags={["Design", "Development", "Research"]}
+        img={mms}
+        url={"/work/measuring-main-streets"}
         variant={workView.mode}
     />
         <Card
@@ -69,15 +61,6 @@
         tags={["Mapping", "Development"]}
         img={pollution}
         url={"/work/chemical-valley-pollution-map"}
-        variant={workView.mode}
-    />
-    <Card
-        title={"Drake Time"}
-        description={"Gotta watch the time ’cause it’s flying right by..."}
-        year={"2026"}
-        tags={["Personal", "Development"]}
-        img={drake}
-        url={"/work/drake-time"}
         variant={workView.mode}
     />
     <!-- <Card
@@ -122,3 +105,4 @@
         url={"/work/pigeons-planes"}
     /> -->
 </div>
+</main>

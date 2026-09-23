@@ -16,6 +16,17 @@
     } from "phosphor-svelte";
     import ArenaLogo from "$lib/components/icons/ArenaLogo.svelte";
     import profile from "$lib/assets/profile.jpg";
+    import FaviconLink from "$lib/components/FaviconLink.svelte";
+    import dojiIcon from "$lib/assets/favicons/doji.png";
+    import torontoIcon from "$lib/assets/favicons/utoronto.ico";
+    import { orderedFaviconReveals } from "$lib/actions/orderedFaviconReveals";
+    import { animatedParagraph } from "$lib/actions/animatedParagraph";
+    import gsdIcon from "$lib/assets/favicons/harvard-gsd.png";
+    import harvardIcon from "$lib/assets/favicons/harvard.png";
+    import seasIcon from "$lib/assets/favicons/harvard-seas.png";
+    import cuiIcon from "$lib/assets/favicons/canadian-urban-institute.png";
+    import bentwayIcon from "$lib/assets/favicons/the-bentway.png";
+    import wmgIcon from "$lib/assets/favicons/warner-music-group.png";
 
     const BIRTHDAY = new Date(2001, 3, 1);
 
@@ -56,23 +67,21 @@
     });
 </script>
 
-<div
-    class="prose flex flex-col gap-8 items-start max-w-150 mx-auto my-16 px-6"
->
-    <p>
-        Hi! My name is Ananmay Sharan. I'm a designer working across software
-        and hardware.
-    </p>
-
+<main class="w-full px-6 pt-8 sm:pt-12 pb-12">
+<section use:orderedFaviconReveals class="about-content flex flex-col gap-6 items-start w-full max-w-120 mx-auto font-serif text-base leading-6 text-text-muted">
     <img
         src={profile}
         alt="profile"
         id="profile"
-        class="w-75 h-full self-center"
+        class="w-75 h-full self-center lg:self-start mb-6"
     />
 
-    <div>
-        <p>
+    <p>
+        Hi! My name is Ananmay Sharan.
+    </p>
+
+    <div class="biography">
+        <p use:animatedParagraph>
             I'm currently studying
             <HoverCard>
                 {#snippet trigger()}<span>Design Engineering</span>{/snippet}
@@ -88,12 +97,12 @@
                     </p>
                 {/snippet}
             </HoverCard>
-            at Harvard University, a collaborative degree program between the
-            Graduate School of Design and the School of Engineering and Applied
-            Sciences.
+            at <FaviconLink href="https://www.harvard.edu/" icon={harvardIcon} label="Harvard University" suffix="," iconScale={1.3} bordered={false} /> a collaborative degree program between the
+            <FaviconLink href="https://www.gsd.harvard.edu/" icon={gsdIcon} label="Graduate School of Design" bordered={false} /> and the
+            <FaviconLink href="https://seas.harvard.edu/" icon={seasIcon} label="School of Engineering and Applied Sciences" suffix="." bordered={false} />
             <HoverCard>
                 {#snippet trigger()}
-                    <span>See the coursework I've completed.</span>
+                    <span class="coursework-link">See the coursework I've completed.</span>
                 {/snippet}
                 {#snippet content()}
                     <p>Graduate School of Design</p>
@@ -118,14 +127,12 @@
                 {/snippet}
             </HoverCard>
         </p>
-        <p>
-            During the summer of 2026, I interned at <a href="https://doji.com/"
-                >Doji</a
-            > in New York City.
+        <p use:animatedParagraph>
+            During the summer of 2026, I worked on design at
+            <FaviconLink href="https://doji.com/" icon={dojiIcon} label="Doji" /> in New York City.
         </p>
-        <p></p>
         <p>
-            I'm <span class="inline-block w-[10.9ch]">{age}</span> years old and
+            I'm <span class="tabular-nums">{age}</span>{' '}years old and
             currently live in Cambridge, MA. Previously, I lived in
             <HoverCard>
                 {#snippet trigger()}<span>Toronto,</span>{/snippet}
@@ -144,17 +151,14 @@
             </HoverCard>
         </p>
 
-        <p>
-            Before graduate school, I worked at the <a
-                href="https://canurb.org/">Canadian Urban Institute</a
-            >
-            as a web developer and data analyst, and interned at
-            <a href="https://thebentway.ca/">The Bentway</a>
+        <p use:animatedParagraph>
+            I led technical development at the
+            <FaviconLink href="https://canurb.org/" icon={cuiIcon} label="Canadian Urban Institute" />
+            as a web developer and designer, and interned at
+            <FaviconLink href="https://thebentway.ca/" icon={bentwayIcon} label="The Bentway" bordered={false} />
             and
-            <a
-                href="https://www.wmg.com/news/warner-music-group-acquires-sodatone-33396"
-                >Sodatone (Warner Music Group)</a
-            >. I graduated from the University of Toronto with a bachelor's
+            <FaviconLink href="https://www.wmg.com/news/warner-music-group-acquires-sodatone-33396" icon={wmgIcon} label="Warner Music Group/Sodatone" suffix="." bordered={false} /> I graduated from the
+            <FaviconLink href="https://www.utoronto.ca/" icon={torontoIcon} label="University of Toronto" /> with a bachelor's
             degree in Human Geography, Computer Science and GIS in 2023.
         </p>
         <p>
@@ -267,13 +271,44 @@
             </div>
         </div>
     </div>
-</div>
+</section>
+</main>
 
 <div class="fixed bottom-4 right-4">
     <Listening />
 </div>
 
 <style>
+    .coursework-link,
+    .coursework-link :global([data-animated-word]) {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .about-content :global(.hover-card-trigger) {
+        text-decoration: none;
+    }
+
+    .about-content :global(.hover-card-trigger:hover),
+    .about-content :global(.hover-card-trigger:hover [data-animated-word]) {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .biography > p + p {
+        margin-top: 1.5rem;
+    }
+
+    .about-content p a {
+        text-decoration: none;
+        text-underline-offset: 2px;
+    }
+
+    .about-content p a:hover {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
     .copy-button {
         transition:
             transform 0.15s ease-out,

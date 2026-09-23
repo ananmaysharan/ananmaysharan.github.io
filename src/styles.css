@@ -1,6 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@font-face {
+  /* The interactive menu requires a variable font, not a permanent fallback. */
+  font-family: 'ABC Gramercy Interactive';
+  src: url('./lib/assets/fonts/ABCGramercyStandardVariable-Trial.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'ABC Gramercy';
+  src: url('./lib/assets/fonts/ABCGramercyStandardVariable-Trial.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'ABC Gramercy';
+  src: url('./lib/assets/fonts/ABCGramercy-RegularItalic-Trial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: optional;
+}
 
 @utility prose {
   img {
@@ -21,8 +45,8 @@
   --color-selection: #d64045;
   --color-bg: #fff;
   --color-bg-hover: #f9f9f9;
-  --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'ABC Gramercy', 'Times New Roman', Times, serif;
+  --default-font-family: var(--font-serif);
   --breakpoint-custom: 876px;
   --animate-rotate: rotate 10s linear infinite;
   --animate-fade-in: fadeIn 0.15s ease;
@@ -62,7 +86,7 @@
 
 /* Minimal global base styles */
 h1, h3, h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
 }
 
 h1, h2, h3, h4 {
@@ -75,6 +99,7 @@ p, ul {
 }
 
 body {
+  font-family: var(--font-serif);
   background-color: var(--color-bg);
   margin: 0;
   color: var(--color-primary);

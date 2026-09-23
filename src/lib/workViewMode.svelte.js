@@ -1,14 +1,11 @@
 import { browser } from '$app/environment';
 
-/** @type {'grid' | 'list'} */
-const initial = browser ? /** @type {'grid' | 'list'} */ (localStorage.getItem('workViewMode') || 'grid') : 'grid';
-
 export const workView = $state({
-	/** @type {'grid' | 'list'} */
-	mode: initial
+	/** @type {'grid' | 'list' | 'feature'} */
+	mode: 'feature'
 });
 
-/** @param {'grid' | 'list'} mode */
+/** @param {'grid' | 'list' | 'feature'} mode */
 export function setViewMode(mode) {
 	workView.mode = mode;
 	if (browser) {
