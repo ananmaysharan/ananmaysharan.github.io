@@ -53,7 +53,7 @@
 
 <a href={url} target="_blank" class="no-underline">
     <button
-        class="relative border-none rounded-lg justify-center items-center gap-1.5 h-8 px-4 py-1.5 no-underline font-normal transition-[filter] duration-200 inline-flex hover:cursor-pointer hover:brightness-105 active:scale-[0.98]"
+        class="relative border-none rounded-lg justify-center items-center gap-1.5 h-8 px-4 py-1.5 no-underline font-sans font-normal transition-[filter] duration-200 inline-flex hover:cursor-pointer hover:brightness-105 active:scale-[0.98]"
         style="background: {style.gradient}; color: {style.text}; box-shadow: inset 0 0 1px 1px #ffffff24, 0 0 0 1px #00000014, 0 2px 2px #0000000a, {style.shadow};"
     >
         {@render children?.()}

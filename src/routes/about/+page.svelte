@@ -67,8 +67,8 @@
     });
 </script>
 
-<main class="w-full px-6 pt-8 sm:pt-12 pb-12">
-<section use:orderedFaviconReveals class="about-content flex flex-col gap-6 items-start w-full max-w-120 mx-auto font-serif text-base leading-6 text-text-muted">
+<main class="w-full px-6 pt-4 sm:pt-6 pb-12">
+<section use:orderedFaviconReveals class="about-content flex flex-col items-start w-full max-w-120 mx-auto font-serif">
     <img
         src={profile}
         alt="profile"
@@ -279,10 +279,21 @@
 </div>
 
 <style>
+    .about-content {
+        font-size: var(--body-font-size);
+        line-height: var(--body-line-height);
+        color: var(--body-color);
+        gap: var(--body-paragraph-space);
+    }
+
+    .about-content > p,
+    .biography p {
+        color: var(--body-color);
+    }
+
     .coursework-link,
     .coursework-link :global([data-animated-word]) {
         text-decoration: underline;
-        text-underline-offset: 2px;
     }
 
     .about-content :global(.hover-card-trigger) {
@@ -292,16 +303,14 @@
     .about-content :global(.hover-card-trigger:hover),
     .about-content :global(.hover-card-trigger:hover [data-animated-word]) {
         text-decoration: underline;
-        text-underline-offset: 2px;
     }
 
     .biography > p + p {
-        margin-top: 1.5rem;
+        margin-top: var(--body-paragraph-space);
     }
 
     .about-content p a {
         text-decoration: none;
-        text-underline-offset: 2px;
     }
 
     .about-content p a:hover {
@@ -319,6 +328,11 @@
     .copy-button:hover {
         background: linear-gradient(#fff, #eee);
         border-color: #eee;
+        box-shadow:
+            inset 0 0 1px 1px #ffffff24,
+            0 0 0 1px #00000014,
+            0 2px 2px #0000000a,
+            0 0 0 1px #eee;
     }
 
     .copy-button:active {

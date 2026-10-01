@@ -42,12 +42,13 @@
 
 </script>
 
-<div class="w-full max-w-140 mx-auto">
+<div class="gallery-shell w-full max-w-140 mx-auto">
 	<div
 		role="region"
 		aria-label="Image gallery"
 		class="gallery-stage w-full"
 		class:standard-stage={!isPhoneClip}
+		class:phone-stage={isPhoneClip}
 		class:plain-frame={!isBrowserClip && !isPhoneClip}
 		class:browser-stage={isBrowserClip}
 		onmouseenter={handleMouseEnter}
@@ -78,20 +79,34 @@
 </div>
 
 <style>
+	.gallery-shell {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		min-height: 0;
+	}
+
 	.gallery-stage {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		max-height: 100%;
 	}
 
 	.standard-stage {
 		aspect-ratio: 3 / 2;
 	}
 
+	.phone-stage {
+		height: 100%;
+		min-height: 0;
+	}
+
 	.phone-slide {
-		width: min(68%, 250px, calc(50svh * 442 / 914));
+		height: min(100%, 50svh);
+		width: auto;
+		max-width: 100%;
 		aspect-ratio: 442 / 914;
-		margin-block: 12px;
 	}
 
 	.plain-frame {

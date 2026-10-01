@@ -1,15 +1,17 @@
 <script lang="ts">
     import { page } from '$app/state';
+    import { base } from '$app/paths';
     import Logo from './Logo.svelte';
 
     const tabs = [
         { href: '/', label: 'Home' },
         { href: '/work', label: 'Work' },
+        { href: '/writing', label: 'Writing' },
         { href: '/about', label: 'About' },
     ];
 </script>
 
-<header class="relative flex flex-wrap items-start justify-between gap-6 px-6 py-6 bg-white font-serif text-sm leading-5 lg:block lg:min-h-24">
+<header class="relative flex flex-wrap items-end justify-between gap-6 px-6 py-6 bg-white font-serif text-sm leading-5 lg:block lg:min-h-24">
     <div class="font-serif lg:absolute lg:left-6 lg:top-6">
         <Logo />
     </div>
@@ -17,9 +19,10 @@
     <nav aria-label="Main navigation" class="shrink-0 lg:w-full lg:max-w-120 lg:mx-auto">
         <ul class="flex w-fit justify-start list-none m-0 p-0">
             {#each tabs as tab, index}
-                {@const isActive = page.url.pathname === tab.href || (tab.href !== '/' && page.url.pathname.startsWith(`${tab.href}/`))}
+                {@const href = `${base}${tab.href}`}
+                {@const isActive = page.url.pathname === href || (tab.href !== '/' && page.url.pathname.startsWith(`${href}/`))}
                 <li class="flex items-baseline">
-                    <a href={tab.href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.url.pathname === tab.href ? 'page' : 'location') : undefined}>
+                    <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.url.pathname === href ? 'page' : 'location') : undefined}>
                         <span class="menu-label" aria-hidden="true">{tab.label}</span>
                     </a>
                     {#if index < tabs.length - 1}
@@ -29,6 +32,7 @@
             {/each}
         </ul>
     </nav>
+
 </header>
 
 <style>

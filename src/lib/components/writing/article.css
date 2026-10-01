@@ -1,0 +1,73 @@
+.writing-article {
+    font-size: var(--body-font-size);
+    max-width: 60ch;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 64rem) {
+    .writing-article {
+        /* Match the left edge of the centered 30rem navigation column. */
+        margin-left: calc((100% - 30rem) / 2);
+        margin-right: 0;
+    }
+}
+
+.writing-body {
+    color: var(--body-color);
+    line-height: var(--body-line-height);
+}
+
+.writing-body p, .writing-body ul, .writing-body ol { color: inherit; }
+
+.writing-body > :first-child { margin-top: 0; }
+.writing-body > :last-child { margin-bottom: 0; }
+.writing-body p, .writing-body ul, .writing-body ol,
+.writing-body blockquote, .writing-body pre, .writing-body figure,
+.writing-body > img, .writing-body > video, .writing-body > audio,
+.writing-body > iframe, .writing-body table { margin-block: 0 var(--body-paragraph-space); }
+
+.writing-body h2, .writing-body h3, .writing-body h4 {
+    color: var(--color-primary);
+    margin: 2.5rem 0 1rem;
+    line-height: 1.3;
+    font-weight: 400;
+}
+.writing-body h2 { font-size: 1.5rem; }
+.writing-body h3 { font-size: 1.25rem; }
+.writing-body h4 { font-size: 1.125rem; }
+.writing-body a { color: inherit; text-decoration: underline; }
+.writing-article a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+.writing-body ul { list-style: disc; padding-left: 1.5em; }
+.writing-body ol { list-style: decimal; padding-left: 1.5em; }
+.writing-body li + li { margin-top: .4em; }
+.writing-body li > ul, .writing-body li > ol { margin-block: .4em; }
+.writing-body strong { color: inherit; font-weight: 600; }
+.writing-body blockquote { border-inline-start: 2px solid #d4d4d4; padding-inline-start: 1em; font-style: normal; }
+.writing-body blockquote > :last-child { margin-bottom: 0; }
+.writing-body hr { margin-block: 2.5rem; border: 0; border-top: 1px solid var(--color-border); }
+.writing-body img, .writing-body video { display: block; max-width: 100%; height: auto; }
+.writing-body audio, .writing-body iframe { display: block; width: 100%; max-width: 100%; }
+.writing-body figcaption { margin-top: .75rem; font-size: .875rem; color: var(--color-text-muted); }
+.writing-body figure img, .writing-body figure video { margin: 0; }
+
+/* Apply wide to a figure or demo wrapper; it remains inside the viewport. */
+.writing-body .wide {
+    width: min(56rem, calc(100vw - 3rem));
+    max-width: none;
+    margin-left: calc((100% - min(56rem, calc(100vw - 3rem))) / 2);
+}
+
+.writing-body code { font-family: ui-monospace, monospace; font-size: .875em; }
+.writing-body :not(pre) > code { background: var(--color-bg-hover); padding: .15em .3em; border-radius: .2rem; }
+.writing-body pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--color-border); border-radius: .25rem; background: var(--color-bg-hover); color: var(--color-primary); }
+.writing-body pre code { white-space: pre; overflow-wrap: normal; }
+.writing-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .875rem; }
+.writing-body th, .writing-body td { border-bottom: 1px solid var(--color-border); padding: .75rem; text-align: left; }
+.writing-body th { color: var(--color-primary); font-weight: 600; }
+
+/* mdsvex's build-time Prism token classes. */
+.writing-body .token.comment, .writing-body .token.prolog, .writing-body .token.doctype { color: #6a737d; }
+.writing-body .token.keyword, .writing-body .token.tag, .writing-body .token.boolean { color: #93426b; }
+.writing-body .token.string, .writing-body .token.attr-value { color: #306847; }
+.writing-body .token.number, .writing-body .token.function { color: #365e92; }
+.writing-body .token.punctuation, .writing-body .token.operator { color: #555; }

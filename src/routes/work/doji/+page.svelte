@@ -30,10 +30,6 @@
     ];
 </script>
 
-<svelte:head>
-    <title>Doji — Ananmay Sharan</title>
-</svelte:head>
-
 <main aria-label="Doji" class="flex flex-col items-center px-8">
     <section class="prose w-full my-8 flex flex-col gap-16 md:max-w-200">
         <Overview title="Doji" showInfo={false} />

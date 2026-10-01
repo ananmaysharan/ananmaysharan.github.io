@@ -1,0 +1,3 @@
+Selected artwork backgrounds were processed locally with rembg (u2net). The masks were restricted to connected exterior background areas to preserve the paintings and frames. Originals are retained in originals/. Cutouts use WebP transparency and are embedded in gallery.tsx; processed works skip replacement with the original remote image. Source and photographer credits remain in the artwork metadata.
+
+Processed IDs: 1000005, 1297927844, 479115467, 3760336786, 1540336789, 2980530378, 1584644222, 752966522, 1359680870, 3976699669, 1517089668, 1188410248, 545726487, 47003253, 645966661, 1042301447

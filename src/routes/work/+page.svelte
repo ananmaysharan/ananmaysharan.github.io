@@ -14,13 +14,13 @@
     import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
 </script>
 
-<main class="w-full px-6 pt-8 sm:pt-12 pb-12 font-serif text-base leading-6 text-text-muted">
+<main class="w-full px-6 pt-4 sm:pt-6 pb-12 font-serif text-base leading-6 text-text-muted">
 <div class="grid {workView.mode === 'grid' ? 'grid-cols-1 gap-4 md:grid-cols-2' : workView.mode === 'feature' ? 'grid-cols-1 gap-16 md:gap-24' : 'grid-cols-1 border-t border-border'}">
     <Card
         accessibleLabel="Doji"
         phoneVideo
         title="Doji"
-        description="Doji is a social shopping app for people to express their personal style. I designed and shipped profile and look sharing features, as well as the education flow for the Doji iOS extension."
+        description="Doji is an AI-powered social shopping app. I designed and shipped profile and look sharing features, a redesigned settings page and worked on the Doji iOS extension."
         tags={[]}
         img={null}
         url={null}
@@ -28,7 +28,7 @@
     />
     <Card
         title={"Ocean Records"}
-        description={"Data visualization project using Google DeepMind's Perch machine learning model to detect clashes between animal and human sounds underwater."}
+        description={"Data visualization project using Google DeepMind's Perch machine learning model to detect conflict between marine and human sounds in California's Monterey Bay."}
         year={"2025"}
         tags={["Design", "Development", "Research"]}
         img={ocean}

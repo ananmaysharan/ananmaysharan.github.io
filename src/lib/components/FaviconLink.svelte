@@ -24,7 +24,6 @@
     a {
         color: inherit;
         text-decoration: none;
-        text-underline-offset: 2px;
     }
 
     a:hover { text-decoration: underline; }

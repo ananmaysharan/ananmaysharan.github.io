@@ -1,6 +1,34 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --body-font-size: 1.0625rem;
+  --body-line-height: 1.55;
+  --body-paragraph-space: 1.25em;
+  --body-color: #353534;
+}
+
+/* Native underlines match the reference menu and follow each font's metrics. */
+a, .hover-card-trigger, .coursework-link, [data-animated-word] {
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-decoration-skip-ink: auto;
+  text-decoration-color: currentColor;
+}
+
+.writing-article h1,
+.writing-body h2,
+.writing-body h3 {
+  text-wrap: balance;
+}
+
+.home-copy p,
+.biography > p,
+.writing-body p,
+.writing-body li {
+  text-wrap: pretty;
+}
+
 @font-face {
   /* The interactive menu requires a variable font, not a permanent fallback. */
   font-family: 'ABC Gramercy Interactive';
@@ -15,7 +43,7 @@
   src: url('./lib/assets/fonts/ABCGramercyStandardVariable-Trial.woff2') format('woff2');
   font-weight: 200 1000;
   font-style: normal;
-  font-display: optional;
+  font-display: block;
 }
 
 @font-face {
@@ -23,7 +51,7 @@
   src: url('./lib/assets/fonts/ABCGramercy-RegularItalic-Trial.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
-  font-display: optional;
+  font-display: block;
 }
 
 @utility prose {

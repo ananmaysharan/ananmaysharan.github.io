@@ -7,7 +7,11 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"predev": "npm run prototypes:build",
+		"prebuild": "npm run prototypes:build",
+		"precheck": "npm run prototypes:build",
+		"prototypes:build": "node scripts/build-prototypes.mjs"
 	},
 	"devDependencies": {
 		"@fontsource/work-sans": "^5.0.19",
@@ -15,6 +19,10 @@
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@tailwindcss/vite": "^4.2.1",
+		"esbuild": "^0.25.12",
+		"mdsvex": "^0.12.8",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"tailwindcss": "^4.2.1",
@@ -26,6 +34,8 @@
 		"@chenglou/pretext": "^0.0.9",
 		"@sveltejs/adapter-static": "^3.0.5",
 		"@tailwindcss/typography": "^0.5.19",
+		"embla-carousel": "^8.6.0",
+		"embla-carousel-svelte": "^8.6.0",
 		"img-comparison-slider": "^8.0.7",
 		"phosphor-svelte": "^3.1.0"
 	}

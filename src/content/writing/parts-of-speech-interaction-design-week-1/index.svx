@@ -1,0 +1,84 @@
+---
+title: 'Parts of Speech: Interaction Design (Week 1)'
+date: "2026-09-30"
+description: A verb study exploring "mount".
+---
+
+<script>
+    import Prototype from '$lib/components/writing/Prototype.svelte';
+    import PhotoGallery from '$lib/components/writing/PhotoGallery.svelte';
+    import illustrative from './images/illustrative.png';
+    import abstract from './images/abstract.png';
+    import emotive from './images/emotive.png';
+    import antithetical from './images/antithetical.png';
+    import frame from './prototypes/frame.html?raw';
+    import gallery from './prototypes/gallery.html?raw';
+    const typeStudies = [
+        {
+            src: illustrative, alt: 'Mount rendered as a terminal command', caption: 'Illustrative', outline: true,
+            description: 'Detailed, clear, descriptive, realistic, functional, direct recognition.',
+            definition: 'To make a disk or disk drive available for use on a computer.'
+        },
+        {
+            src: abstract, alt: 'Mount with letters rising into a peak', caption: 'Abstract', outline: true,
+            description: 'Distills subjects into non-literal, simplified, geometric, gestural.',
+            definition: 'To gradually increase, rise, or get bigger; to go up or onto'
+        },
+        {
+            src: emotive, alt: 'Mount rendered as floating dimensional letterforms', caption: 'Emotive', outline: true,
+            description: 'Dramatic, exaggerated, subjective, intimate, evokes visceral emotions.',
+            definition: 'to attach something to a wall, in a frame, etc., so that it can be looked at or used:'
+        },
+        {
+            src: antithetical, alt: 'Mount rendered in flowing italic type', caption: 'Antithetical', outline: true,
+            description: 'Contradictory, binary, paradoxical, argumentative, satirical.',
+            definition: 'To get on a horse, bicycle, etc. in order to ride.'
+        }
+    ];
+</script>
+
+Jump directly to the interactions by [clicking here](#mount-frame).
+
+It's the fall of 2026 - my second last semester at Harvard. As part of the Design Engineering program, I'm taking a class called Parts of Speech: Reimagining Computing Through Verbs at the GSD, taught by [Jenny Rodenhouse](). I'll attach a brief excerpt from the syllabus here:
+
+>Every interface is built from actions. We boot, click, swipe, friend, and cancel; each verb carries a history and a worldview about who and what computing is for. With large language models (LLMs) and text-to-form tools, a word can call a world into being in seconds, so choosing how to order a few letters is also a way of building one. This seminar takes verbs as its subject, studying how form and time direct a person to act.
+
+Each week, we do a *verb study*. This involves:
+
+1. Selecting a verb in response to a particular era of computing, researching its origins, etymology, and history through four lenses—illustrative, abstract, emotive and antithetical—and representing these through a type study.
+2. Deconstructing each artifact through elements of design: line, color, shape, form, space and composition, texture.
+3. Sketching the interaction at a low fidelity, before building an interactive version of it using code.
+
+I thought it'd be nice to [document](https://notes.andymatuschak.org/zCMhncA1iSE74MKKYQS5PBZ) the prototypes I make here, along with a bit of my thinking process.
+
+**Week 1:**
+
+We had to select a verb associate with the "command" era of computing (ie. pre-GUI), specifically in response to the verb "boot".
+
+I chose the verb "mount". In computing terms, the definition is as follows:
+
+*"To make a disk or disk drive available for use on a computer."*
+
+I was interested in "mount" because of the multitude of other meanings the verb has:
+
+- "To gradually increase, rise, or get bigger; to go up or onto."
+- "To attach something to a wall, in a frame, etc., so that it can be looked at or used."
+- "To get on a horse, bicycle, etc. in order to ride."
+
+Here are the type studies I did based on the 4 definitions:
+
+<PhotoGallery items={typeStudies} label="Mount type studies" aspectRatio="3 / 2" fit="cover" />
+
+I was most interested in exploring an interaction based on "mount" that involves attaching something to a wall or in a frame, since to me it felt like the definition that is closest to being the spiritual root of the [computing](https://columbia.edu/cu/computinghistory/media.html) related definition.
+
+All that being said, here is the first interaction I designed:
+
+<Prototype id="mount-frame" title="Mount: picture frame" document={frame} compact />
+
+This first interaction was fun, but rather plain, so I wanted to see if I could extend it a bit further, which led to this:
+
+<Prototype id="mount-gallery" title="Mount: gallery" document={gallery} />
+
+The images are sourced from a few different art archives and each refresh provides a different set of them, loosely organized into eras. I kind of got carried away making this (something I'm thinking about for IDEP is how the sunk cost fallacy still applies to vibe-coded prototypes: even when you haven't even sunk that much work into something, throwing it away is hard!)
+
+While it is a cool interaction, it's probably closer to the verb "align" than "mount". That being said, it was a fun start to the class, and hopefully I can get better at this over the semester.
