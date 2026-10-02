@@ -1,7 +1,7 @@
 <script>
     import PhoneVideo from './PhoneVideo.svelte';
-    import education from '$lib/assets/home/doji-education-loop.mp4';
-    import settings from '$lib/assets/home/doji-settings.mp4';
+    import education from '#lib/assets/home/doji-education-loop.mp4';
+    import settings from '#lib/assets/home/doji-settings.mp4';
 
     let { showSettings = false } = $props();
 </script>

@@ -1,34 +1,34 @@
 <script>
-    import ocean from "$lib/assets/work/ocean.webp";
-    import global from "$lib/assets/work/ocean-records/global.webm";
-    import year from "$lib/assets/work/ocean-records/year_view.webm";
-    import month from "$lib/assets/work/ocean-records/month_view.webm";
-    import figma from "$lib/assets/work/ocean-records/figma.webp";
-    import perch from "$lib/assets/work/ocean-records/perch.webp";
-    import spectrogram from "$lib/assets/work/ocean-records/spectrogram.webp";
-    import concept1 from "$lib/assets/work/ocean-records/concept1.webp";
-    import concept2 from "$lib/assets/work/ocean-records/concept2.webp";
-    import pattern from "$lib/assets/work/ocean-records/pattern.webp";
-    import python from "$lib/assets/work/ocean-records/python.webp";
-    import web from "$lib/assets/work/ocean-records/web.webp";
-    import sketch1 from "$lib/assets/work/ocean-records/sketch1.webp";
-    import sketch2 from "$lib/assets/work/ocean-records/sketch2.webp";
-    import agile from "$lib/assets/work/ocean-records/agile.webp";
-    import perch1 from "$lib/assets/work/ocean-records/perch1.webp";
-    import figma1 from "$lib/assets/work/ocean-records/figma1.webp";
-    import figma2 from "$lib/assets/work/ocean-records/figma2.webp";
-    import figma3 from "$lib/assets/work/ocean-records/figma3.webp";
-    import figma4 from "$lib/assets/work/ocean-records/figma4.webp";
-    import songs from "$lib/assets/work/ocean-records/songs.webp";
-    import payne from "$lib/assets/work/ocean-records/payne.webp";
-    import krill from "$lib/assets/work/ocean-records/krill.webp";
-    import palette from "$lib/assets/work/ocean-records/palette.webp";
-    import fonts from "$lib/assets/work/ocean-records/fonts.webp";
-    import fish from "$lib/assets/work/ocean-records/fish.webp";
+    import ocean from "#lib/assets/work/ocean.webp";
+    import global from "#lib/assets/work/ocean-records/global.webm";
+    import year from "#lib/assets/work/ocean-records/year_view.webm";
+    import month from "#lib/assets/work/ocean-records/month_view.webm";
+    import figma from "#lib/assets/work/ocean-records/figma.webp";
+    import perch from "#lib/assets/work/ocean-records/perch.webp";
+    import spectrogram from "#lib/assets/work/ocean-records/spectrogram.webp";
+    import concept1 from "#lib/assets/work/ocean-records/concept1.webp";
+    import concept2 from "#lib/assets/work/ocean-records/concept2.webp";
+    import pattern from "#lib/assets/work/ocean-records/pattern.webp";
+    import python from "#lib/assets/work/ocean-records/python.webp";
+    import web from "#lib/assets/work/ocean-records/web.webp";
+    import sketch1 from "#lib/assets/work/ocean-records/sketch1.webp";
+    import sketch2 from "#lib/assets/work/ocean-records/sketch2.webp";
+    import agile from "#lib/assets/work/ocean-records/agile.webp";
+    import perch1 from "#lib/assets/work/ocean-records/perch1.webp";
+    import figma1 from "#lib/assets/work/ocean-records/figma1.webp";
+    import figma2 from "#lib/assets/work/ocean-records/figma2.webp";
+    import figma3 from "#lib/assets/work/ocean-records/figma3.webp";
+    import figma4 from "#lib/assets/work/ocean-records/figma4.webp";
+    import songs from "#lib/assets/work/ocean-records/songs.webp";
+    import payne from "#lib/assets/work/ocean-records/payne.webp";
+    import krill from "#lib/assets/work/ocean-records/krill.webp";
+    import palette from "#lib/assets/work/ocean-records/palette.webp";
+    import fonts from "#lib/assets/work/ocean-records/fonts.webp";
+    import fish from "#lib/assets/work/ocean-records/fish.webp";
 
 
-    import Overview from "$lib/components/Overview.svelte";
-    import Insight from "$lib/components/Insight.svelte";
+    import Overview from "#lib/components/Overview.svelte";
+    import Insight from "#lib/components/Insight.svelte";
 
 </script>
 

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import pincode from '$lib/assets/home/pincode.webm';
-	import icsDrop from '$lib/assets/home/ics-drop.webm';
-	import dojiProfile from '$lib/assets/home/doji-profile-loop.mp4';
-	import dojiAnimation from '$lib/assets/home/doji-animation-loop.mp4';
+	import pincode from '#lib/assets/home/pincode.webm';
+	import icsDrop from '#lib/assets/home/ics-drop.webm';
+	import dojiProfile from '#lib/assets/home/doji-profile-loop.mp4';
+	import dojiAnimation from '#lib/assets/home/doji-animation-loop.mp4';
 	import PhoneVideo from './PhoneVideo.svelte';
 
 	const items = [
@@ -137,5 +137,12 @@
 		border-radius: 8px;
 		background: white;
 		box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+	}
+
+	@media (max-width: 63.999rem) {
+		.gallery-shell { height: auto; align-items: flex-start; }
+		.phone-stage { height: auto; }
+		.phone-slide { height: min(50svh, 28rem); }
+		.browser-stage { aspect-ratio: auto; padding: 0; }
 	}
 </style>

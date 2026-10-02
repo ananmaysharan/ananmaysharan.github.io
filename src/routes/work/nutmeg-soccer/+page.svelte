@@ -1,9 +1,9 @@
 <script>
     import { onMount } from "svelte";
-    import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
-    import nutmegOld from "$lib/assets/work/nutmeg/nutmeg_old.webp";
-    import nutmegNew from "$lib/assets/work/nutmeg/nutmeg_new.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import nutmeg from "#lib/assets/work/splash/nutmeg-splash.webp";
+    import nutmegOld from "#lib/assets/work/nutmeg/nutmeg_old.webp";
+    import nutmegNew from "#lib/assets/work/nutmeg/nutmeg_new.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 
     onMount(async () => {

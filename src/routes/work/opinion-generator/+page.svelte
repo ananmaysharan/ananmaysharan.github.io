@@ -1,6 +1,6 @@
 <script>
-    import opinion from "$lib/assets/work/splash/opinion-splash.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import opinion from "#lib/assets/work/splash/opinion-splash.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

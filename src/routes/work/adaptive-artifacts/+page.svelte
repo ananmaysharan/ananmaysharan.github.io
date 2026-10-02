@@ -1,6 +1,6 @@
 <script>
-    import adaptive from "$lib/assets/work/splash/adaptive-splash.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import adaptive from "#lib/assets/work/splash/adaptive-splash.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

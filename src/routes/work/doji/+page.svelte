@@ -1,9 +1,9 @@
 <script>
-    import PhoneVideo from '$lib/components/PhoneVideo.svelte';
-    import Overview from '$lib/components/Overview.svelte';
-    import profile from '$lib/assets/home/doji-profile-loop.mp4';
-    import education from '$lib/assets/home/doji-education-loop.mp4';
-    import settings from '$lib/assets/home/doji-settings.mp4';
+    import PhoneVideo from '#lib/components/PhoneVideo.svelte';
+    import Overview from '#lib/components/Overview.svelte';
+    import profile from '#lib/assets/home/doji-profile-loop.mp4';
+    import education from '#lib/assets/home/doji-education-loop.mp4';
+    import settings from '#lib/assets/home/doji-settings.mp4';
 
     const projects = [
         {

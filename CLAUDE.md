@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for www.ananmay.net built with SvelteKit 2 and Svelte 4. Uses Vite for bundling and deploys as a static site to GitHub Pages.
+Personal portfolio website for ananmay.net built with SvelteKit 3, Svelte 5, and Vite 8. Uses Node.js 24 and deploys as a static site to GitHub Pages. Configuration lives in `vite.config.ts`.
 
 ## Common Commands
 
@@ -20,7 +20,7 @@ npm run check:watch  # Run svelte-check in watch mode
 
 **Routing**: SvelteKit file-based routing in `src/routes/`. Each route has `+page.svelte` for the component and optionally `+layout.svelte` for shared layout.
 
-**Components**: Reusable components in `src/lib/components/` - imported via `$lib/components/ComponentName.svelte` alias.
+**Components**: Reusable components in `src/lib/components/` - imported via the `#lib/components/ComponentName.svelte` alias declared in `package.json`. Include `.ts` or `.js` extensions when importing modules.
 
 **Assets**: Images and icons in `src/lib/assets/`. Project images use WebP/WebM formats for optimization.
 

@@ -5,7 +5,6 @@
     let artist = $state("undef");
     let src = $state("https://open.spotify.com/user/ananmaysharan");
     let img = $state("https://i.imgur.com/sDCYwXa.png");
-    let isHovered = $state(false);
 
     onMount(async () => {
         const isCached = localStorage.getItem("listeningToCached");
@@ -50,9 +49,7 @@
     });
 </script>
 
-<div class="listening-container"
-     onmouseenter={() => isHovered = true}
-     onmouseleave={() => isHovered = false}>
+<div class="listening-container">
     <a href={src}>
         <img
             src={img}
@@ -62,12 +59,10 @@
         />
     </a>
     <div class="center-circle"></div>
-    {#if isHovered}
         <div class="song-tooltip">
             <span class="block font-medium mb-0.5 font-serif">{song}</span>
             <span class="block opacity-80 text-xs font-serif">{artist}</span>
         </div>
-    {/if}
     <div class="notes">
         <div class="noot-1">&#9835;</div>
         <div class="noot-2">&#9834;</div>
@@ -133,6 +128,7 @@
     }
 
     .song-tooltip {
+        display: none;
         position: absolute;
         top: 50%;
         right: calc(100% + 15px);
@@ -145,6 +141,11 @@
         white-space: nowrap;
         z-index: 10;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .listening-container:hover .song-tooltip,
+    .listening-container:focus-within .song-tooltip {
+        display: block;
     }
 
     .song-tooltip::after {

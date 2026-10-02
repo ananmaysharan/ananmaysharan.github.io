@@ -1,9 +1,9 @@
 <script lang="ts">
     import '../styles.css'
     import { page } from '$app/state';
-    import Navbar from '$lib/components/Navbar.svelte';
-    import gramercyRegular from '$lib/assets/fonts/ABCGramercyStandardVariable-Trial.woff2?url';
-    import gramercyItalic from '$lib/assets/fonts/ABCGramercy-RegularItalic-Trial.woff2?url';
+    import Navbar from '#lib/components/Navbar.svelte';
+    import gramercyRegular from '#lib/assets/fonts/ABCGramercyStandardVariable-Trial.woff2?url';
+    import gramercyItalic from '#lib/assets/fonts/ABCGramercy-RegularItalic-Trial.woff2?url';
     interface Props {
         children?: import('svelte').Snippet;
     }

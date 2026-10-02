@@ -16,6 +16,9 @@ npm create svelte@latest my-app
 
 ## Developing
 
+This project uses SvelteKit 3, Svelte 5, and Vite 8. Use Node.js 24 (Node.js 22.17 or later is required).
+Configuration lives in `vite.config.ts`; project imports use `#lib/*`, declared in `package.json`.
+
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
@@ -35,4 +38,4 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The static adapter outputs the site to `build`. Pushes to `main` build and deploy it to GitHub Pages.

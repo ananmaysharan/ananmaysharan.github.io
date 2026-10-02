@@ -1,6 +1,6 @@
 <script>
-    import pigeons from "$lib/assets/work/splash/pigeons-splash.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import pigeons from "#lib/assets/work/splash/pigeons-splash.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

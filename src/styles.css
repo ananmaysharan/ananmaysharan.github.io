@@ -22,11 +22,14 @@ a, .hover-card-trigger, .coursework-link, [data-animated-word] {
   text-wrap: balance;
 }
 
-.home-copy p,
 .biography > p,
 .writing-body p,
 .writing-body li {
   text-wrap: pretty;
+}
+
+.home-copy p {
+  text-wrap: wrap;
 }
 
 @font-face {

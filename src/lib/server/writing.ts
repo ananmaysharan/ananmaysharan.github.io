@@ -1,4 +1,4 @@
-import type { Post } from '$lib/writing';
+import type { Post } from '#lib/writing.ts';
 
 // Only published folders are imported. Drafts never enter the client import map.
 const metadata = import.meta.glob('/src/content/writing/*/index.svx', {

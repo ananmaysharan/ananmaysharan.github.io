@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Snippet } from 'svelte';
-    import { site, siteUrl } from '$lib/site';
-    import { formatPostDate, type Post } from '$lib/writing';
+    import { site, siteUrl } from '#lib/site.ts';
+    import { formatPostDate, type Post } from '#lib/writing.ts';
     import './article.css';
 
     let { post, children }: { post: Post; children: Snippet } = $props();

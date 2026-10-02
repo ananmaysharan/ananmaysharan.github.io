@@ -1,8 +1,8 @@
 <script>
-    import pollution from "$lib/assets/work/splash/pollution-splash.webp";
-    import chemical1 from "$lib/assets/work/chemical_1.jpg";
-    import chemical2 from "$lib/assets/work/chemical_2.jpg";
-    import Overview from "$lib/components/Overview.svelte";
+    import pollution from "#lib/assets/work/splash/pollution-splash.webp";
+    import chemical1 from "#lib/assets/work/chemical_1.jpg";
+    import chemical2 from "#lib/assets/work/chemical_2.jpg";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

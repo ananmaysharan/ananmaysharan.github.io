@@ -1,6 +1,6 @@
 <script>
-    import gardiner from "$lib/assets/work/splash/under-gardiner-splash.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import gardiner from "#lib/assets/work/splash/under-gardiner-splash.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

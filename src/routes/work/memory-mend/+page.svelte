@@ -1,21 +1,21 @@
 <script>
-    import memorymend from "$lib/assets/work/memorymend.webp";
-    import memory_embed from "$lib/assets/work/memory-mend/memory_embed.webm";
-    import scan_memory from "$lib/assets/work/memory-mend/scan_memory.webm";
-    import scanning_damage from "$lib/assets/work/memory-mend/scanning_damage.webm";
-    import prototyping from "$lib/assets/work/memory-mend/prototyping.webm";
-    import hardwarerender from "$lib/assets/work/memory-mend/hardwarerender.webp";
-    import hardwareprototype from "$lib/assets/work/memory-mend/hardwareprototype.webp";
-    import uisketch from "$lib/assets/work/memory-mend/uisketch.webp";
-    import patterngeneration from "$lib/assets/work/memory-mend/patterngeneration.webp";
-    import component0 from "$lib/assets/work/memory-mend/component0.webp";
-    import component1 from "$lib/assets/work/memory-mend/component1.webp";
-    import component2 from "$lib/assets/work/memory-mend/component2.webp";
-    import component3 from "$lib/assets/work/memory-mend/component3.webp";
+    import memorymend from "#lib/assets/work/memorymend.webp";
+    import memory_embed from "#lib/assets/work/memory-mend/memory_embed.webm";
+    import scan_memory from "#lib/assets/work/memory-mend/scan_memory.webm";
+    import scanning_damage from "#lib/assets/work/memory-mend/scanning_damage.webm";
+    import prototyping from "#lib/assets/work/memory-mend/prototyping.webm";
+    import hardwarerender from "#lib/assets/work/memory-mend/hardwarerender.webp";
+    import hardwareprototype from "#lib/assets/work/memory-mend/hardwareprototype.webp";
+    import uisketch from "#lib/assets/work/memory-mend/uisketch.webp";
+    import patterngeneration from "#lib/assets/work/memory-mend/patterngeneration.webp";
+    import component0 from "#lib/assets/work/memory-mend/component0.webp";
+    import component1 from "#lib/assets/work/memory-mend/component1.webp";
+    import component2 from "#lib/assets/work/memory-mend/component2.webp";
+    import component3 from "#lib/assets/work/memory-mend/component3.webp";
     
 
-    import Overview from "$lib/components/Overview.svelte";
-    import Insight from "$lib/components/Insight.svelte";
+    import Overview from "#lib/components/Overview.svelte";
+    import Insight from "#lib/components/Insight.svelte";
 
 </script>
 
@@ -64,6 +64,7 @@
             <h2>How can we build a device that lowers the barrier of entry to mending clothes through embroidery without automating away the meaning derived from manual effort?</h2>
             <p>
                 We built a retrofit device using an off the shelf, inexpensive cartesian plotter with a CNC micro-controller, controlled using a Raspberry Pi, that can be attached to any existing mechanical sewing machine to add embroidery functionality. 
+            </p>
             <p>
                 The device is controlled by a mobile application, Memory Mend, that allows uses to embed memories in the form of photos, videos, text and other media to generate a unique embroidery pattern. The patterns are scannable, allowing users to "unlock" the embedded memory by taking a photo with their phone.
             </p>

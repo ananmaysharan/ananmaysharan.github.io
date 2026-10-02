@@ -1,7 +1,7 @@
 <script>
-    import opinion from "$lib/assets/work/zinezone.webm";
-    import contents from "$lib/assets/work/zinezone.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import opinion from "#lib/assets/work/zinezone.webm";
+    import contents from "#lib/assets/work/zinezone.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

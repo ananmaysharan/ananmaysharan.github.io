@@ -1,6 +1,6 @@
 <script>
-    import harvard from "$lib/assets/work/harvard.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import harvard from "#lib/assets/work/harvard.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

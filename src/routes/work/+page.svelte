@@ -1,17 +1,17 @@
 <script>
-    import Card from "$lib/components/Card.svelte";
-    import { workView } from "$lib/workViewMode.svelte.js";
-    import aa from "$lib/assets/work/aa.webp";
-    import gardiner from "$lib/assets/work/gardiner.webp";
-    import mms from "$lib/assets/work/mms.webp";
-    import ocean from "$lib/assets/work/ocean-records/year_view.webm";
-    import oceanGlobal from "$lib/assets/work/ocean-records/global.webm";
-    import oceanMonth from "$lib/assets/work/ocean-records/month_view.webm";
-    import pollution from "$lib/assets/work/pollution.webp";
-    import pigeonsplanes from "$lib/assets/work/pigeonsplanes.webp";
-    import zinezone from "$lib/assets/work/zinezone.webm";
-    import harvard from "$lib/assets/work/harvard.webp";
-    import nutmeg from "$lib/assets/work/splash/nutmeg-splash.webp";
+    import Card from "#lib/components/Card.svelte";
+    import { workView } from "#lib/workViewMode.svelte.js";
+    import aa from "#lib/assets/work/aa.webp";
+    import gardiner from "#lib/assets/work/gardiner.webp";
+    import mms from "#lib/assets/work/mms.webp";
+    import ocean from "#lib/assets/work/ocean-records/year_view.webm";
+    import oceanGlobal from "#lib/assets/work/ocean-records/global.webm";
+    import oceanMonth from "#lib/assets/work/ocean-records/month_view.webm";
+    import pollution from "#lib/assets/work/pollution.webp";
+    import pigeonsplanes from "#lib/assets/work/pigeonsplanes.webp";
+    import zinezone from "#lib/assets/work/zinezone.webm";
+    import harvard from "#lib/assets/work/harvard.webp";
+    import nutmeg from "#lib/assets/work/splash/nutmeg-splash.webp";
 </script>
 
 <main class="w-full px-6 pt-4 sm:pt-6 pb-12 font-serif text-base leading-6 text-text-muted">

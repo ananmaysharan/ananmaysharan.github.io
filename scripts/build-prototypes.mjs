@@ -20,6 +20,8 @@ for (const name of ['frame', 'gallery']) {
         write: false,
         format: 'iife',
         jsx: 'automatic',
+        // React demos are standalone; they do not use SvelteKit's TypeScript config.
+        tsconfigRaw: {},
         minify: true,
         define: { 'process.env.NODE_ENV': '"production"' }
     });

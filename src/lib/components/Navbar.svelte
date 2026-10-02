@@ -1,17 +1,18 @@
 <script lang="ts">
     import { page } from '$app/state';
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import Logo from './Logo.svelte';
+    import SocialLinks from './SocialLinks.svelte';
 
     const tabs = [
         { href: '/', label: 'Home' },
         { href: '/work', label: 'Work' },
         { href: '/writing', label: 'Writing' },
         { href: '/about', label: 'About' },
-    ];
+    ] as const;
 </script>
 
-<header class="relative flex flex-wrap items-end justify-between gap-6 px-6 py-6 bg-white font-serif text-sm leading-5 lg:block lg:min-h-24">
+<header class:home-header={page.route.id === '/'} class="relative flex flex-wrap items-start justify-between gap-6 px-6 py-6 bg-white font-serif text-sm leading-5 lg:block lg:min-h-24">
     <div class="font-serif lg:absolute lg:left-6 lg:top-6">
         <Logo />
     </div>
@@ -19,10 +20,10 @@
     <nav aria-label="Main navigation" class="shrink-0 lg:w-full lg:max-w-120 lg:mx-auto">
         <ul class="flex w-fit justify-start list-none m-0 p-0">
             {#each tabs as tab, index}
-                {@const href = `${base}${tab.href}`}
-                {@const isActive = page.url.pathname === href || (tab.href !== '/' && page.url.pathname.startsWith(`${href}/`))}
+                {@const href = resolve(tab.href)}
+                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`))}
                 <li class="flex items-baseline">
-                    <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.url.pathname === href ? 'page' : 'location') : undefined}>
+                    <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.route.id === tab.href ? 'page' : 'location') : undefined}>
                         <span class="menu-label" aria-hidden="true">{tab.label}</span>
                     </a>
                     {#if index < tabs.length - 1}
@@ -33,9 +34,17 @@
         </ul>
     </nav>
 
+    {#if page.route.id === '/'}
+        <SocialLinks class="hidden lg:flex lg:absolute lg:right-6 lg:top-6" />
+    {/if}
+
 </header>
 
 <style>
+    @media (max-width: 63.999rem) {
+        .home-header { padding-bottom: 0; }
+    }
+
     .menu-label {
         display: inline-flex;
         white-space: nowrap;
@@ -83,5 +92,6 @@
             transition: none;
         }
     }
+
 
 </style>

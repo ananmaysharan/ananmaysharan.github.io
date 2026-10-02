@@ -1,6 +1,6 @@
-import { dev } from '$app/environment';
-import { getPosts, parsePost } from '$lib/server/writing';
-import type { Post } from '$lib/writing';
+import { dev } from '$app/env';
+import { getPosts, parsePost } from '#lib/server/writing.ts';
+import type { Post } from '#lib/writing.ts';
 
 const drafts = dev ? import.meta.glob('/src/content/drafts/*/index.svx', { import: 'metadata' }) : {};
 

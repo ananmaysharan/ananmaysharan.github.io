@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { getPost, getPosts } from '$lib/server/writing';
+import { getPost, getPosts } from '#lib/server/writing.ts';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 export const entries: EntryGenerator = () => getPosts().map(({ slug }) => ({ slug }));

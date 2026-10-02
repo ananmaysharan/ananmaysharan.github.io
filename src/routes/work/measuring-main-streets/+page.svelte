@@ -1,6 +1,6 @@
 <script>
-    import mms from "$lib/assets/work/mms.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import mms from "#lib/assets/work/mms.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

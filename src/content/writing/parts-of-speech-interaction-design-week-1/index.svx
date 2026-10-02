@@ -5,8 +5,8 @@ description: A verb study exploring "mount".
 ---
 
 <script>
-    import Prototype from '$lib/components/writing/Prototype.svelte';
-    import PhotoGallery from '$lib/components/writing/PhotoGallery.svelte';
+    import Prototype from '#lib/components/writing/Prototype.svelte';
+    import PhotoGallery from '#lib/components/writing/PhotoGallery.svelte';
     import illustrative from './images/illustrative.png';
     import abstract from './images/abstract.png';
     import emotive from './images/emotive.png';

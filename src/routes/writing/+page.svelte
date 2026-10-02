@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { base } from '$app/paths';
-    import { siteUrl } from '$lib/site';
-    import { formatPostDate } from '$lib/writing';
+    import { resolve } from '$app/paths';
+    import { siteUrl } from '#lib/site.ts';
+    import { formatPostDate } from '#lib/writing.ts';
     import type { PageData } from './$types';
     let { data }: { data: PageData } = $props();
 </script>
@@ -25,7 +25,7 @@
                     {#each group.posts as post (post.slug)}
                         <li class="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 gap-y-1 py-1.5">
                             <span class="post-title min-w-0">
-                                <a class="post-link text-primary no-underline" href={`${base}/writing/${post.preview ? 'preview/' : ''}${post.slug}`}>{post.title}</a>{#if post.preview}<span class="text-sm text-text-muted"><span class="mx-[0.25em]" aria-hidden="true">·</span>Draft</span>{/if}
+                                <a class="post-link text-primary no-underline" href={post.preview ? resolve('/writing/preview/[slug]', { slug: post.slug }) : resolve('/writing/[slug]', { slug: post.slug })}>{post.title}</a>{#if post.preview}<span class="text-sm text-text-muted"><span class="mx-[0.25em]" aria-hidden="true">·</span>Draft</span>{/if}
                             </span>
                             <time class="text-sm text-text-muted whitespace-nowrap" datetime={post.date}>{formatPostDate(post.date)}</time>
                         </li>

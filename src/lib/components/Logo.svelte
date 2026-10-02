@@ -2,7 +2,17 @@
     import { cubicOut } from 'svelte/easing';
     import { ArrowsClockwiseIcon } from 'phosphor-svelte';
 
-    const descriptions = ['a designer', 'an Arsenal fan', 'a design engineer', 'a home cook', 'a soccer player'];
+    const descriptions = [
+        'a designer',
+        'an Arsenal fan',
+        'a design engineer',
+        'a home cook',
+        'a soccer player',
+        'a bedroom DJ',
+        'a mediocre tennis player',
+        'an amateur cartographer',
+        'a transit enthusiast'
+    ];
     let descriptionIndex = $state(0);
     let turns = $state(0);
     let skipMotion = $state(false);

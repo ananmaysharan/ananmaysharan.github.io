@@ -1,6 +1,6 @@
 <script>
-    import drake from "$lib/assets/work/drake.webp";
-    import Overview from "$lib/components/Overview.svelte";
+    import drake from "#lib/assets/work/drake.webp";
+    import Overview from "#lib/components/Overview.svelte";
 
 </script>
 

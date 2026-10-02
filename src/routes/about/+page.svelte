@@ -1,8 +1,8 @@
 <script>
     import { onMount, onDestroy } from "svelte";
-    import Listening from "$lib/components/Listening.svelte";
-    import Button from "$lib/components/Button.svelte";
-    import HoverCard from "$lib/components/HoverCard.svelte";
+    import Listening from "#lib/components/Listening.svelte";
+    import Button from "#lib/components/Button.svelte";
+    import HoverCard from "#lib/components/HoverCard.svelte";
     import {
         CopyIcon,
         CheckCircleIcon,
@@ -14,19 +14,19 @@
         InstagramLogoIcon,
         SpotifyLogoIcon,
     } from "phosphor-svelte";
-    import ArenaLogo from "$lib/components/icons/ArenaLogo.svelte";
-    import profile from "$lib/assets/profile.jpg";
-    import FaviconLink from "$lib/components/FaviconLink.svelte";
-    import dojiIcon from "$lib/assets/favicons/doji.png";
-    import torontoIcon from "$lib/assets/favicons/utoronto.ico";
-    import { orderedFaviconReveals } from "$lib/actions/orderedFaviconReveals";
-    import { animatedParagraph } from "$lib/actions/animatedParagraph";
-    import gsdIcon from "$lib/assets/favicons/harvard-gsd.png";
-    import harvardIcon from "$lib/assets/favicons/harvard.png";
-    import seasIcon from "$lib/assets/favicons/harvard-seas.png";
-    import cuiIcon from "$lib/assets/favicons/canadian-urban-institute.png";
-    import bentwayIcon from "$lib/assets/favicons/the-bentway.png";
-    import wmgIcon from "$lib/assets/favicons/warner-music-group.png";
+    import ArenaLogo from "#lib/components/icons/ArenaLogo.svelte";
+    import profile from "#lib/assets/profile.jpg";
+    import FaviconLink from "#lib/components/FaviconLink.svelte";
+    import dojiIcon from "#lib/assets/favicons/doji.png";
+    import torontoIcon from "#lib/assets/favicons/utoronto.ico";
+    import { orderedFaviconReveals } from "#lib/actions/orderedFaviconReveals.ts";
+    import { animatedParagraph } from "#lib/actions/animatedParagraph.ts";
+    import gsdIcon from "#lib/assets/favicons/harvard-gsd.png";
+    import harvardIcon from "#lib/assets/favicons/harvard.png";
+    import seasIcon from "#lib/assets/favicons/harvard-seas.png";
+    import cuiIcon from "#lib/assets/favicons/canadian-urban-institute.png";
+    import bentwayIcon from "#lib/assets/favicons/the-bentway.png";
+    import wmgIcon from "#lib/assets/favicons/warner-music-group.png";
 
     const BIRTHDAY = new Date(2001, 3, 1);
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import frame from '$lib/assets/home/iphone-17-black.webp';
-    import recording from '$lib/assets/home/doji-profile-loop.mp4';
+    import frame from '#lib/assets/home/iphone-17-black.webp';
+    import recording from '#lib/assets/home/doji-profile-loop.mp4';
 
     let {
         src = recording,

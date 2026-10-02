@@ -1,4 +1,4 @@
-import { dev } from '$app/environment';
+import { dev } from '$app/env';
 import { error } from '@sveltejs/kit';
 import type { Component } from 'svelte';
 import type { PageLoad } from './$types';

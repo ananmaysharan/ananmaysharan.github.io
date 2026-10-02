@@ -1,14 +1,14 @@
 <script>
-    import streetvision from "$lib/assets/work/street-vision/streetvision.png";
-    import completestreets from "$lib/assets/work/street-vision/complete-streets.png";
-    import dundas from "$lib/assets/work/street-vision/dundas.png";
-    import semantic from "$lib/assets/work/street-vision/semantic.png";
-    import home from "$lib/assets/work/street-vision/home.png";
-    import scan from "$lib/assets/work/street-vision/scan.png";
-    import report from "$lib/assets/work/street-vision/report.png";
+    import streetvision from "#lib/assets/work/street-vision/streetvision.png";
+    import completestreets from "#lib/assets/work/street-vision/complete-streets.png";
+    import dundas from "#lib/assets/work/street-vision/dundas.png";
+    import semantic from "#lib/assets/work/street-vision/semantic.png";
+    import home from "#lib/assets/work/street-vision/home.png";
+    import scan from "#lib/assets/work/street-vision/scan.png";
+    import report from "#lib/assets/work/street-vision/report.png";
     import { MagnifyingGlassIcon, ShieldCheckIcon, ArticleIcon } from "phosphor-svelte";
-    import Overview from "$lib/components/Overview.svelte";
-    import Insight from "$lib/components/Insight.svelte";
+    import Overview from "#lib/components/Overview.svelte";
+    import Insight from "#lib/components/Insight.svelte";
 
 </script>
 
