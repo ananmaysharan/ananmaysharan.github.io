@@ -11,152 +11,86 @@
 	import { visibleVideoPlayback } from '#lib/actions/visibleVideoPlayback.ts';
 
 	const items = [
-		{ src: dojiProfile, poster: profilePoster, alt: 'Doji profile sharing' },
-		{ src: icsDrop, poster: dropPoster, alt: 'ICS Drop' },
-		{ src: dojiAnimation, poster: animationPoster, alt: 'Doji shopping animation' },
-		{ src: pincode, poster: pincodePoster, alt: 'Pincode' },
+		{ src: dojiProfile, poster: profilePoster, alt: 'Doji profile sharing', type: 'phone' },
+		{ src: icsDrop, poster: dropPoster, alt: 'ICS Drop', type: 'browser' },
+		{ src: dojiAnimation, poster: animationPoster, alt: 'Doji shopping animation', type: 'phone' },
+		{ src: pincode, poster: pincodePoster, alt: 'Pincode', type: 'plain' },
 	];
 
 	let currentIndex = $state(0);
 	let isPaused = $state(false);
-	let isBrowserClip = $derived(items[currentIndex].src === icsDrop);
-	let isPhoneClip = $derived(items[currentIndex].src === dojiProfile || items[currentIndex].src === dojiAnimation);
+	let hasFrame = $state(items.map(() => false));
 
-	function advance() {
-		currentIndex = (currentIndex + 1) % items.length;
-	}
-
-	let videoEl = $state<HTMLVideoElement | null>(null);
-
-	function handleVideoEnded() {
-		if (isPaused && videoEl) {
-			videoEl.currentTime = 0;
-			void videoEl.play().catch(() => { if (videoEl) videoEl.controls = true; });
+	function handleVideoEnded(event: Event, index: number) {
+		if (index !== currentIndex) return;
+		if (isPaused) {
+			const video = event.currentTarget as HTMLVideoElement;
+			video.currentTime = 0;
+			void video.play().catch(() => { video.controls = true; });
 		} else {
-			advance();
+			hasFrame[index] = false;
+			currentIndex = (currentIndex + 1) % items.length;
 		}
 	}
-
-	function handleMouseEnter() {
-		isPaused = true;
-	}
-
-	function handleMouseLeave() {
-		isPaused = false;
-	}
-
 </script>
 
 <div class="gallery-shell w-full max-w-140 mx-auto">
-	<div
-		role="region"
-		aria-label="Image gallery"
-		class="gallery-stage w-full"
-		class:standard-stage={!isPhoneClip}
-		class:phone-stage={isPhoneClip}
-		class:plain-frame={!isBrowserClip && !isPhoneClip}
-		class:browser-stage={isBrowserClip}
-		onmouseenter={handleMouseEnter}
-		onmouseleave={handleMouseLeave}
-	>
-		{#key items[currentIndex].src}
-		{#if isPhoneClip}
-			<div class="phone-slide">
-					<PhoneVideo src={items[currentIndex].src} poster={items[currentIndex].poster} label={items[currentIndex].alt} bind:videoEl loop={false} onended={handleVideoEnded} />
+	<div role="region" aria-label="Video reel" class="gallery-stage w-full"
+		onpointerenter={(event) => { if (event.pointerType === 'mouse') isPaused = true; }}
+		onpointerleave={(event) => { if (event.pointerType === 'mouse') isPaused = false; }}>
+		{#each items as item, index (item.src)}
+			<div class="gallery-slide" class:active={index === currentIndex} aria-hidden={index !== currentIndex} inert={index !== currentIndex}>
+				{#if item.type === 'phone'}
+					<div class="phone-slide">
+						<PhoneVideo src={item.src} poster={item.poster} label={item.alt}
+							active={index === currentIndex} loop={false} onended={(event) => handleVideoEnded(event, index)} />
+					</div>
+				{:else}
+					<div class="desktop-slide" class:browser-frame={item.type === 'browser'} class:plain-frame={item.type === 'plain'}>
+						<div class="video-surface" class:browser-screen={item.type === 'browser'}>
+							<video use:visibleVideoPlayback={index === currentIndex} src={item.src} poster={item.poster}
+								preload="auto" aria-label={item.alt} muted playsinline
+								onplaying={() => { hasFrame[index] = true; }} onended={(event) => handleVideoEnded(event, index)}></video>
+							{#if !hasFrame[index]}<img class="clip-poster" src={item.poster} alt="" aria-hidden="true" />{/if}
+						</div>
+					</div>
+				{/if}
 			</div>
-		{:else}
-			<div class={isBrowserClip ? 'browser-frame' : 'w-full h-full'}>
-			<video
-				bind:this={videoEl}
-				use:visibleVideoPlayback
-				src={items[currentIndex].src}
-				poster={items[currentIndex].poster}
-				preload="auto"
-				aria-label={items[currentIndex].alt}
-				class="w-full object-contain block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
-				class:h-full={!isBrowserClip}
-				class:h-auto={isBrowserClip}
-				autoplay
-				muted
-				playsinline
-				onended={handleVideoEnded}
-			></video>
-			</div>
-		{/if}
-		{/key}
+		{/each}
 	</div>
 </div>
 
 <style>
-	.gallery-shell {
-		display: flex;
-		align-items: center;
-		height: 100%;
-		min-height: 0;
+	.gallery-shell { height: 100%; min-height: 0; }
+	.gallery-stage { position: relative; height: 100%; min-height: 0; }
+	.gallery-slide {
+		position: absolute; inset: 0;
+		display: flex; align-items: center; justify-content: center;
+		visibility: hidden; pointer-events: none;
 	}
-
-	.gallery-stage {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		max-height: 100%;
-	}
-
-	.standard-stage {
-		aspect-ratio: 3 / 2;
-	}
-
-	.phone-stage {
-		height: 100%;
-		min-height: 0;
-	}
-
-	.phone-slide {
-		height: min(100%, 50svh);
-		width: auto;
-		max-width: 100%;
-		aspect-ratio: 442 / 914;
-	}
-
-	.plain-frame {
-		border: 1px solid var(--color-border);
-	}
-
-	.browser-stage {
-		padding: 12px;
-	}
-
+	.gallery-slide.active { visibility: visible; pointer-events: auto; }
+	.phone-slide { height: min(100%, 50svh); max-width: 100%; aspect-ratio: 442 / 914; }
+	.desktop-slide { width: 100%; }
+	.plain-frame { border: 1px solid var(--color-border); }
+	.video-surface { position: relative; width: 100%; aspect-ratio: 3 / 2; overflow: hidden; background: white; }
+	video, .clip-poster { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+	.clip-poster { pointer-events: none; }
 	.browser-frame {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		overflow: hidden;
-		padding: 4px;
-		border: 1px solid rgb(0 0 0 / 10%);
-		border-radius: 13px;
+		width: calc(100% - 24px); padding: 4px;
+		border: 1px solid rgb(0 0 0 / 10%); border-radius: 13px;
 		background: rgb(220 220 224 / 45%);
-		-webkit-backdrop-filter: blur(12px);
-		backdrop-filter: blur(12px);
 		box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%);
 	}
-
-	.browser-frame video {
-		height: 100%;
-		object-fit: contain;
-		padding: 8px;
-		border-radius: 8px;
-		background: white;
-		box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
-	}
-
+	.browser-screen { aspect-ratio: 16 / 9; border: 1px solid rgb(0 0 0 / 6%); border-radius: 8px; }
+	.browser-screen video, .browser-screen .clip-poster { padding: 8px; }
 	@media (max-width: 63.999rem) {
-		.gallery-shell { height: auto; align-items: flex-start; }
-		.phone-stage { height: auto; }
-		.phone-slide { height: min(50svh, 28rem); }
-		.browser-stage { aspect-ratio: auto; padding: 0; }
+		.gallery-shell { height: auto; }
+		.gallery-stage { height: min(50svh, 28rem); }
+		.phone-slide { height: 100%; }
+		.browser-frame { width: 100%; }
 	}
-
 	@media (max-width: 39.999rem) {
-		.phone-stage { padding-block: 1.5rem; }
+		.gallery-stage { height: auto; aspect-ratio: 1 / 1.65; }
 		.phone-slide { width: 72%; height: auto; }
 	}
 </style>
