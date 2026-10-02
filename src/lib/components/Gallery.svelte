@@ -4,12 +4,17 @@
 	import dojiProfile from '#lib/assets/home/doji-profile-loop.mp4';
 	import dojiAnimation from '#lib/assets/home/doji-animation-loop.mp4';
 	import PhoneVideo from './PhoneVideo.svelte';
+	import profilePoster from '#lib/assets/home/doji-profile-loop-poster.webp';
+	import animationPoster from '#lib/assets/home/doji-animation-loop-poster.webp';
+	import dropPoster from '#lib/assets/home/ics-drop-poster.webp';
+	import pincodePoster from '#lib/assets/home/pincode-poster.webp';
+	import { visibleVideoPlayback } from '#lib/actions/visibleVideoPlayback.ts';
 
 	const items = [
-		{ src: dojiProfile, alt: 'Doji profile sharing' },
-		{ src: icsDrop, alt: 'ICS Drop' },
-		{ src: dojiAnimation, alt: 'Doji shopping animation' },
-		{ src: pincode, alt: 'Pincode' },
+		{ src: dojiProfile, poster: profilePoster, alt: 'Doji profile sharing' },
+		{ src: icsDrop, poster: dropPoster, alt: 'ICS Drop' },
+		{ src: dojiAnimation, poster: animationPoster, alt: 'Doji shopping animation' },
+		{ src: pincode, poster: pincodePoster, alt: 'Pincode' },
 	];
 
 	let currentIndex = $state(0);
@@ -26,7 +31,7 @@
 	function handleVideoEnded() {
 		if (isPaused && videoEl) {
 			videoEl.currentTime = 0;
-			videoEl.play();
+			void videoEl.play().catch(() => { if (videoEl) videoEl.controls = true; });
 		} else {
 			advance();
 		}
@@ -57,13 +62,17 @@
 		{#key items[currentIndex].src}
 		{#if isPhoneClip}
 			<div class="phone-slide">
-					<PhoneVideo src={items[currentIndex].src} label={items[currentIndex].alt} bind:videoEl loop={false} onended={handleVideoEnded} />
+					<PhoneVideo src={items[currentIndex].src} poster={items[currentIndex].poster} label={items[currentIndex].alt} bind:videoEl loop={false} onended={handleVideoEnded} />
 			</div>
 		{:else}
 			<div class={isBrowserClip ? 'browser-frame' : 'w-full h-full'}>
 			<video
 				bind:this={videoEl}
+				use:visibleVideoPlayback
 				src={items[currentIndex].src}
+				poster={items[currentIndex].poster}
+				preload="auto"
+				aria-label={items[currentIndex].alt}
 				class="w-full object-contain block transition-opacity duration-300 ease-in-out motion-reduce:transition-none"
 				class:h-full={!isBrowserClip}
 				class:h-auto={isBrowserClip}
@@ -147,6 +156,7 @@
 	}
 
 	@media (max-width: 39.999rem) {
-		.phone-slide { width: 100%; height: auto; }
+		.phone-stage { padding-block: 1.5rem; }
+		.phone-slide { width: 72%; height: auto; }
 	}
 </style>

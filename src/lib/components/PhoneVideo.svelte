@@ -1,6 +1,7 @@
 <script lang="ts">
     import frame from '#lib/assets/home/iphone-17-black.webp';
     import recording from '#lib/assets/home/doji-profile-loop.mp4';
+    import { visibleVideoPlayback } from '#lib/actions/visibleVideoPlayback.ts';
 
     let {
         src = recording,
@@ -8,18 +9,20 @@
         videoEl = $bindable<HTMLVideoElement | null>(null),
         loop = true,
         onended,
+        poster,
     }: {
         src?: string;
         label?: string;
         videoEl?: HTMLVideoElement | null;
         loop?: boolean;
         onended?: () => void;
+        poster?: string;
     } = $props();
 </script>
 
 <div class="phone">
-    <video bind:this={videoEl} {src} aria-label={label}
-        autoplay muted playsinline {loop} {onended} preload="metadata"></video>
+    <video bind:this={videoEl} use:visibleVideoPlayback {src} {poster} aria-label={label}
+        autoplay muted playsinline {loop} {onended} preload="auto"></video>
     <img src={frame} alt="" aria-hidden="true" width="1326" height="2742" />
 </div>
 
