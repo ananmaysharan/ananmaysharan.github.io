@@ -41,8 +41,12 @@
 </header>
 
 <style>
-    @media (max-width: 63.999rem) {
+    @media (max-width: 39.999rem) {
         .home-header { padding-bottom: 0; }
+    }
+
+    @media (min-width: 40rem) and (max-width: 63.999rem) {
+        .home-header { min-height: 6rem; }
     }
 
     .menu-label {

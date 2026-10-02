@@ -9,6 +9,7 @@ export function animatedParagraph(paragraph: HTMLParagraphElement) {
     const animations = new Set<Animation>();
     let destroyed = false;
     let ready = false;
+    const mobile = matchMedia('(max-width: 39.999rem)');
     let geometry: { element: HTMLElement; left: number; line: number; width: number }[] = [];
 
     function cancelAnimations() {
@@ -95,7 +96,7 @@ export function animatedParagraph(paragraph: HTMLParagraphElement) {
     }
 
     function position(withMotion: boolean) {
-        const hiddenSlots = geometry.filter(({ element }) =>
+        const hiddenSlots = mobile.matches ? [] : geometry.filter(({ element }) =>
             element.hasAttribute('data-favicon-slot') && !element.closest('.revealed'));
         const before = geometry.map(({ element }) => getComputedStyle(element).transform);
         cancelAnimations();
@@ -117,6 +118,10 @@ export function animatedParagraph(paragraph: HTMLParagraphElement) {
     }
 
     paragraph.addEventListener('faviconreveal', reveal);
+    function updateLayout() {
+        if (ready) { measure(); position(false); }
+    }
+    mobile.addEventListener('change', updateLayout);
     // Cancel stale destinations on resize; normal text flow handles the new width.
     let width = paragraph.clientWidth;
     const observer = new ResizeObserver(() => {
@@ -131,6 +136,7 @@ export function animatedParagraph(paragraph: HTMLParagraphElement) {
             destroyed = true;
             observer.disconnect();
             paragraph.removeEventListener('faviconreveal', reveal);
+            mobile.removeEventListener('change', updateLayout);
             cancelAnimations();
             delete paragraph.dataset.stableReveals;
             for (const { element } of geometry) element.style.transform = '';

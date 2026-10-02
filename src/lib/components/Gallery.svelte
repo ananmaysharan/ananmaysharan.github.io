@@ -145,4 +145,8 @@
 		.phone-slide { height: min(50svh, 28rem); }
 		.browser-stage { aspect-ratio: auto; padding: 0; }
 	}
+
+	@media (max-width: 39.999rem) {
+		.phone-slide { width: 100%; height: auto; }
+	}
 </style>

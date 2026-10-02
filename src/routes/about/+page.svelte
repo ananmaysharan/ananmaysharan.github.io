@@ -29,6 +29,7 @@
     import wmgIcon from "#lib/assets/favicons/warner-music-group.png";
 
     const BIRTHDAY = new Date(2001, 3, 1);
+    const showCoursework = false;
 
     function getAge() {
         const now = Date.now();
@@ -100,6 +101,7 @@
             at <FaviconLink href="https://www.harvard.edu/" icon={harvardIcon} label="Harvard University" suffix="," iconScale={1.3} bordered={false} /> a collaborative degree program between the
             <FaviconLink href="https://www.gsd.harvard.edu/" icon={gsdIcon} label="Graduate School of Design" bordered={false} /> and the
             <FaviconLink href="https://seas.harvard.edu/" icon={seasIcon} label="School of Engineering and Applied Sciences" suffix="." bordered={false} />
+            {#if showCoursework}
             <HoverCard>
                 {#snippet trigger()}
                     <span class="coursework-link">See the coursework I've completed.</span>
@@ -126,6 +128,7 @@
                     </ul>
                 {/snippet}
             </HoverCard>
+            {/if}
         </p>
         <p use:animatedParagraph>
             During the summer of 2026, I worked on design at

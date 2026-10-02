@@ -76,6 +76,11 @@
 
     a:focus-visible .icon-frame { transition: none; }
 
+    @media (max-width: 39.999rem) {
+        .icon-slot { width: 22px; }
+        .icon-frame { opacity: 1; transform: none; filter: none; transition: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         .icon-frame { transition: none; }
     }

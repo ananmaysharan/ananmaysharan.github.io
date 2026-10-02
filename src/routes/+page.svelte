@@ -37,6 +37,7 @@
         .home-page > section { height: auto; }
         .home-copy { gap: 1.5rem; }
         .home-gallery { flex: none; }
+        .home-page > section { row-gap: 2.25rem; }
     }
 
 
