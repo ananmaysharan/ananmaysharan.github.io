@@ -3,13 +3,23 @@
     import { resolve } from '$app/paths';
     import Logo from './Logo.svelte';
     import SocialLinks from './SocialLinks.svelte';
+    import WorkFilters from './WorkFilters.svelte';
+    import Subnav from './Subnav.svelte';
 
     const tabs = [
         { href: '/', label: 'Home' },
         { href: '/work', label: 'Work' },
-        { href: '/writing', label: 'Writing' },
+        { href: '/garden', label: 'Garden' },
         { href: '/about', label: 'About' },
     ] as const;
+
+    const isWriting = $derived(page.route.id === '/writing' || page.route.id?.startsWith('/writing/'));
+    const isGarden = $derived(page.route.id === '/garden' || page.route.id?.startsWith('/garden/') || isWriting);
+    const gardenItems = $derived([
+        { label: 'Writing', href: resolve('/writing'), current: true },
+        { label: 'Reading' },
+        { label: 'Setup' },
+    ]);
 </script>
 
 <header class:home-header={page.route.id === '/'} class="relative flex flex-wrap items-start justify-between gap-6 px-6 py-6 bg-white font-serif text-sm leading-5 lg:block lg:min-h-24">
@@ -21,17 +31,22 @@
         <ul class="flex w-fit justify-start list-none m-0 p-0">
             {#each tabs as tab, index}
                 {@const href = resolve(tab.href)}
-                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`))}
+                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`)) || (tab.href === '/garden' && isWriting)}
                 <li class="flex items-baseline">
                     <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.route.id === tab.href ? 'page' : 'location') : undefined}>
                         <span class="menu-label" aria-hidden="true">{tab.label}</span>
                     </a>
                     {#if index < tabs.length - 1}
-                        <span aria-hidden="true" class="menu-label menu-separator mx-[0.25em] text-primary">·</span>
+                        <span aria-hidden="true" class="menu-separator mr-[0.25em] text-primary">,</span>
                     {/if}
                 </li>
             {/each}
         </ul>
+        {#if page.route.id === '/work'}
+            <WorkFilters />
+        {:else if isGarden}
+            <Subnav label="Garden sections" items={gardenItems} />
+        {/if}
     </nav>
 
     {#if page.route.id === '/'}
@@ -58,17 +73,12 @@
         font-weight: 400;
     }
 
-    .menu-link .menu-label {
-        transition: font-weight 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
     .menu-separator {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-variation-settings: 'wght' 400;
         cursor: default;
         pointer-events: none;
-    }
-
-    .menu-link[aria-current] .menu-label {
-        font-weight: 600;
     }
 
     .menu-link:focus-visible {
@@ -76,26 +86,15 @@
         outline-offset: 3px;
     }
 
+    .menu-link[aria-current] .menu-label,
     .menu-link:focus-visible .menu-label {
-        font-weight: 600;
-        transition: none;
+        text-decoration: underline;
     }
 
     @media (hover: hover) and (pointer: fine) {
-        ul:has(.menu-link:hover) .menu-link[aria-current]:not(:hover) .menu-label {
-            font-weight: 400;
-        }
-
         .menu-link:hover .menu-label {
-            font-weight: 600;
+            text-decoration: underline;
         }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-        .menu-link .menu-label {
-            transition: none;
-        }
-    }
-
 
 </style>

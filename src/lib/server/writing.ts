@@ -1,9 +1,12 @@
-import type { Post } from '#lib/writing.ts';
+import { dev } from '$app/env';
+import type { Post, PostGroup } from '#lib/writing.ts';
 
 // Only published folders are imported. Drafts never enter the client import map.
 const metadata = import.meta.glob('/src/content/writing/*/index.svx', {
     eager: true, import: 'metadata'
 });
+
+const drafts = dev ? import.meta.glob('/src/content/drafts/*/index.svx', { import: 'metadata' }) : {};
 
 export function parsePost(path: string, value: unknown): Post {
     const fail = (message: string): never => { throw new Error(`${path}: ${message}`); };
@@ -44,3 +47,24 @@ const posts = Object.entries(metadata).map(([path, value]) => parsePost(path, va
 
 export function getPosts(): Post[] { return posts; }
 export function getPost(slug: string): Post | undefined { return posts.find(post => post.slug === slug); }
+
+export async function getPostGroups(): Promise<PostGroup[]> {
+    const entries = getPosts().map(post => ({ ...post, preview: false }));
+    if (dev) {
+        entries.push(...await Promise.all(Object.entries(drafts).map(async ([path, loadMetadata]) => ({
+            ...parsePost(path, await loadMetadata()), preview: true
+        }))));
+    }
+    entries.sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+    const groups: PostGroup[] = [];
+    for (const post of entries) {
+        const year = post.date.slice(0, 4);
+        let group = groups.at(-1);
+        if (group?.year !== year) {
+            group = { year, posts: [] };
+            groups.push(group);
+        }
+        group.posts.push(post);
+    }
+    return groups;
+}
