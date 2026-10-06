@@ -1,0 +1,88 @@
+---
+title: 'Parts of Speech: Interaction Design (Week 2)'
+date: "2026-10-05"
+description: A verb study exploring "clear".
+---
+
+<script>
+    import { XIcon } from 'phosphor-svelte';
+    import Prototype from '#lib/components/writing/Prototype.svelte';
+    import PhotoGallery from '#lib/components/writing/PhotoGallery.svelte';
+    import illustrative from './images/illustrative.png';
+    import abstract from './images/abstract.png';
+    import emotive from './images/emotive.png';
+    import antithetical from './images/antithetical.png';
+    import buttonStealer from './images/button-stealer.png';
+    import clear from './prototypes/clear.html?raw';
+
+    let spoilerRevealed = $state(false);
+
+    const typeStudies = [
+        {
+            src: illustrative, alt: 'Clear set in a simple, legible sans-serif', caption: 'Illustrative', outline: true,
+            description: 'Detailed, clear, descriptive, realistic, functional, direct recognition.',
+            definition: 'To make intelligible.'
+        },
+        {
+            src: abstract, alt: 'CLEAR drawn with overlapping outlined letters and empty interiors', caption: 'Abstract', outline: true,
+            description: 'Distills subjects into non-literal, simplified, geometric, gestural.',
+            definition: 'To free from what obstructs or is unneeded.'
+        },
+        {
+            src: emotive, alt: 'CLEAR set in heavy letters that rise along an arc', caption: 'Emotive', outline: true,
+            description: 'Dramatic, exaggerated, subjective, intimate, evokes visceral emotions.',
+            definition: 'To go over, under, or by without touching.'
+        },
+        {
+            src: antithetical, alt: 'Rows of dotted clear letterforms with one word in blue among the black repetitions', caption: 'Antithetical', outline: true,
+            description: 'Contradictory, binary, paradoxical, argumentative, satirical.',
+            definition: 'To make clear or translucent.'
+        }
+    ];
+</script>
+
+Jump directly to the interaction by [clicking here](#clear-interaction).
+
+As part of the Design Engineering program at the Harvard Graduate School of Design, I'm taking a class called Parts of Speech: Reimagining Computing Through Verbs, taught by [Jenny Rodenhouse](https://jennyrodenhouse.com/). I'll attach a brief excerpt from the syllabus here:
+
+>Every interface is built from actions. We boot, click, swipe, friend, and cancel; each verb carries a history and a worldview about who and what computing is for. With large language models (LLMs) and text-to-form tools, a word can call a world into being in seconds, so choosing how to order a few letters is also a way of building one. This seminar takes verbs as its subject, studying how form and time direct a person to act.
+
+Each week, we do a *verb study*. This involves:
+
+1. Selecting a verb in response to a particular era of computing, researching its origins, etymology, and history through four lenses—illustrative, abstract, emotive and antithetical—and representing these through a type study.
+2. Deconstructing each artifact through elements of design: line, color, shape, form, space and composition, texture.
+3. Sketching the interaction at a low fidelity, before building an interactive version of it using code.
+
+**Week 2:** 
+
+We had to select a verb associated with the "Manipulate" era of computing, specifically in response to the verb "click". **I chose the verb "clear".** 
+
+I liked "clear" since it has meanings both as a verb and an adjective. I also felt like it was interesting to think about how computing as a medium enabled "clearing" something away at the click of a button, similar to "undo". So much so, that the action of "clear" is often abstracted to be just an icon: <span class="inline-clear-icon" role="img" aria-label="an X icon"><XIcon size={16} /></span>.
+
+Here are the type studies I did based on 4 different definitions of "clear":
+
+<PhotoGallery items={typeStudies} label="Clear type studies" aspectRatio="3 / 2" fit="cover" />
+
+
+
+I was really inspired by this Button Stealer Chrome extension (pictured below), which randomly "steals" buttons from websites as I browse the internet and creates an archive of sorts.
+
+<PhotoGallery items={[{ src: buttonStealer, alt: 'An archive of buttons collected from websites, with different labels, colors and type treatments', caption: 'My Button Stealer collection' }]} label="Button Stealer reference" aspectRatio="1408 / 601" />
+
+I connected this to the phenomenon of the many fake download buttons or "clear" ad buttons we have to contend with when on a "sketchier" part of the internet (such as on sports streaming sites). One wrong click, and you're screwed -- the interface probably gets populated with even more popups, a new tab showing an illicit website of some kind, or possibly a dangerous .exe in your Downloads folder. Browse with caution! None of this actually happens in the interaction below, so don't worry.
+
+
+<Prototype id="clear-interaction" title="Clear: a grid of misleading buttons" document={clear} />
+
+<p>FYI, there is a secret button each time that actually works to clear the screen. Reveal the spoiler to learn how! <span role="button" tabindex="0" class="spoiler" class:revealed={spoilerRevealed} aria-label={spoilerRevealed ? undefined : 'Reveal spoiler'} aria-expanded={spoilerRevealed} onclick={() => spoilerRevealed = !spoilerRevealed} onkeydown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); spoilerRevealed = !spoilerRevealed; } }}><span aria-hidden={!spoilerRevealed}>The working button is the only one with the exact lowercase English word <strong>"clear"</strong>.</span></span></p>
+
+I had fun demoing it in class and got good feedback! It could be interesting to abstract it a bit further, especially in the context of drawing or design applications, where 'clear' is a superpower that is most different from real life. This interaction ended up being closer to a piece of "net-art" than a pure interaction.
+
+<style>
+    .inline-clear-icon { display: inline-flex; vertical-align: -0.125em; }
+    .spoiler { display: inline; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .spoiler span { background: #08090a; color: transparent; box-decoration-break: clone; -webkit-box-decoration-break: clone; border-radius: 2px; }
+    .spoiler:not(.revealed) span { user-select: none; }
+    .spoiler.revealed span { background: transparent; color: inherit; }
+    .spoiler:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+</style>

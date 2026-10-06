@@ -39,7 +39,7 @@ description: A verb study exploring "mount".
 
 Jump directly to the interactions by [clicking here](#mount-frame).
 
-It's the fall of 2026 - my second last semester at Harvard. As part of the Design Engineering program, I'm taking a class called Parts of Speech: Reimagining Computing Through Verbs at the GSD, taught by [Jenny Rodenhouse](). I'll attach a brief excerpt from the syllabus here:
+It's the fall of 2026 - my second last semester at Harvard. As part of the Design Engineering program, I'm taking a class called Parts of Speech: Reimagining Computing Through Verbs at the GSD, taught by [Jenny Rodenhouse](https://jennyrodenhouse.com/). I'll attach a brief excerpt from the syllabus here:
 
 >Every interface is built from actions. We boot, click, swipe, friend, and cancel; each verb carries a history and a worldview about who and what computing is for. With large language models (LLMs) and text-to-form tools, a word can call a world into being in seconds, so choosing how to order a few letters is also a way of building one. This seminar takes verbs as its subject, studying how form and time direct a person to act.
 
@@ -53,7 +53,7 @@ I thought it'd be nice to [document](https://notes.andymatuschak.org/zCMhncA1iSE
 
 **Week 1:**
 
-We had to select a verb associate with the "command" era of computing (ie. pre-GUI), specifically in response to the verb "boot".
+We had to select a verb associated with the "command" era of computing (ie. pre-GUI), specifically in response to the verb "boot".
 
 I chose the verb "mount". In computing terms, the definition is as follows:
 

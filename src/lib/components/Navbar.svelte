@@ -14,10 +14,11 @@
     ] as const;
 
     const isWriting = $derived(page.route.id === '/writing' || page.route.id?.startsWith('/writing/'));
-    const isGarden = $derived(page.route.id === '/garden' || page.route.id?.startsWith('/garden/') || isWriting);
+    const isBookshelf = $derived(page.route.id === '/bookshelf');
+    const isGarden = $derived(page.route.id === '/garden' || page.route.id?.startsWith('/garden/') || isWriting || isBookshelf);
     const gardenItems = $derived([
-        { label: 'Writing', href: resolve('/writing'), current: true },
-        { label: 'Reading' },
+        { label: 'Writing', href: resolve('/writing'), current: !isBookshelf },
+        { label: 'Bookshelf', href: resolve('/bookshelf'), current: isBookshelf },
         { label: 'Setup' },
     ]);
 </script>
@@ -27,11 +28,11 @@
         <Logo />
     </div>
 
-    <nav aria-label="Main navigation" class="shrink-0 lg:w-full lg:max-w-120 lg:mx-auto">
-        <ul class="flex w-fit justify-start list-none m-0 p-0">
+    <nav aria-label="Main navigation" class="w-min shrink-0 lg:w-full lg:max-w-120 lg:mx-auto">
+        <ul class="flex w-max justify-start list-none m-0 p-0">
             {#each tabs as tab, index}
                 {@const href = resolve(tab.href)}
-                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`)) || (tab.href === '/garden' && isWriting)}
+                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`)) || (tab.href === '/garden' && isGarden)}
                 <li class="flex items-baseline">
                     <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.route.id === tab.href ? 'page' : 'location') : undefined}>
                         <span class="menu-label" aria-hidden="true">{tab.label}</span>
