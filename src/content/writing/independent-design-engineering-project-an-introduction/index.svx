@@ -1,0 +1,36 @@
+---
+title: 'Independent Design Engineering Project, an introduction'
+date: "2026-10-23"
+description: An introduction to my year-long project exploring human-computer interaction, digital personal archives, and creative empowerment.
+---
+
+<script>
+    import { resolve } from '$app/paths';
+    const bookshelfUrl = resolve('/bookshelf');
+</script>
+
+This post serves as context for the year-long project I'm working on. This is part of the Master's in Design Engineering program I'm in at the Harvard Graduate School of Design. Here's an (edited) excerpt from the program website that does a pretty good job of summarizing it:
+
+> The Independent Design Engineering Project (IDEP) is a two-semester project during which second-year students in the Master in Design Engineering (MDE) program work on understanding a concise, real-world problem and develop a prototypical solution. Each student frames a complex problem and engages with stakeholders in order to understand its multi-scalar, multidisciplinary aspects. Work on a solution involves a combination of analytical and visualization skills, technical skills, and design methods, culminating in the development, prototyping, and evaluation of a solution. The final presentation at the end of IDEP includes an oral presentation, visuals, and a demonstration of the solution.
+
+Broadly, I started off with the intention to explore something related to human-computer interaction and digital personal archives.
+
+Within HCI specifically, I'm curious about how interfaces should evolve to work with increasingly capable artificial intelligence (AI) systems. I want to explore methods of interaction that can enable human *empowerment*, especially in the creative process<sup><a id="note-ref-1" href="#note-1" aria-label="Footnote 1">[1]</a></sup>. I'm particularly inspired by existing work from many researchers, designers and engineers around interface design, tools for thought and malleable software<sup><a id="note-ref-2" href="#note-2" aria-label="Footnote 2">[2]</a></sup>.
+
+I'm also interested in the problem space of fragmented attention, especially as it relates to time spent scrolling endless feeds. I feel that, especially for creative people (are all people creative?), there are some interesting ideas (potentially using AI) to help us claw back our attention from these feeds, and allow us to make progress on some of our goals and projects.
+
+Finally, I'm interested in the notion of 'surfing' the web<sup><a id="note-ref-3" href="#note-3" aria-label="Footnote 3">[3]</a></sup> and going down internet rabbit holes. People today are consuming many kinds of media, yet there are few ways to explore connections between these various kinds of media, and even fewer ways to explore beyond what is algorithmically or culturally relevant.
+
+These are kind of vague, but I'll have more clarity soon.
+
+So, what am I working on right now? I'm making demos, as well as refining a set of values or principles to inform this ongoing work -- which is slightly different in nature to a "typical" IDEP project. As of October 2026, an idea I'm exploring is pairing traditional or analog methods of interaction with computational systems. Nothing totally new, but I think modern AI systems could make this especially accessible to a wider range of people.
+
+I also started a <a href={bookshelfUrl}>bookshelf</a> of some of the books I'm reading during this research process. If you want to suggest a book, paper, resource or article you think is relevant, [email me](mailto:ananmay01@gmail.com)!
+
+---
+
+<p id="note-1">[1] What do I mean by the "creative process"? I mean fields that lean <em>unverifiable</em>, such as writing, design or creative production of any kind. That being said, this is also kind of frustratingly vague and if you have more thoughts on this I'd love to hear from you. <a href="#note-ref-1" aria-label="Back to footnote 1 reference">↩</a></p>
+
+<p id="note-2">[2] Some of these include Andy Matuschak, Maggie Appleton, Geoffrey Litt and Scott Jenson, although there are many more whose work I've consumed! <a href="#note-ref-2" aria-label="Back to footnote 2 reference">↩</a></p>
+
+<p id="note-3">[3] <a href="https://en.wikipedia.org/wiki/Information_superhighway">Information superhighway</a>. <a href="#note-ref-3" aria-label="Back to footnote 3 reference">↩</a></p>
