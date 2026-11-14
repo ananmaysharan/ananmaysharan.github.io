@@ -1,6 +1,6 @@
 ---
 title: "Using a decision model to sketch interfaces in real-time with pen and paper"
-date: "2026-11-10"
+date: "2026-11-14"
 description: I built a prototype that turns pen strokes on paper into interface components and lets me preview how the screens fit together.
 ---
 
@@ -43,5 +43,3 @@ The demo does support that! However, handwriting on a screen has never *quite* f
 ### What about undoing or making edits? Isn't it painful to make a change when working with paper?
 
 Fair point. This is really meant for rough sketching and ideation. Ideally, you could just start on a new page when you have a new idea. Editing, however, is definitely an issue. If you have thoughts on this, [let me know](mailto:ananmay01@gmail.com)!
-
-<!-- Unfinished note from the source: “[3] However, I'm still inspired by Bret Victor's notion of”. -->
