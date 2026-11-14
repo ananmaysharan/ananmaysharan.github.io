@@ -10,12 +10,14 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content={post.description} />
+    {#if post.description}
+        <meta name="description" content={post.description} />
+        <meta property="og:description" content={post.description} />
+    {/if}
     <meta name="author" content={site.author} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="article" />
     <meta property="og:title" content={post.title} />
-    <meta property="og:description" content={post.description} />
     <meta property="og:url" content={canonical} />
     <meta property="article:published_time" content={`${post.date}T00:00:00Z`} />
     {#if post.updated}

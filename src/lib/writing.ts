@@ -2,7 +2,7 @@ export interface Post {
     slug: string;
     title: string;
     date: string;
-    description: string;
+    description?: string;
     updated?: string;
     image?: string;
 }

@@ -1,7 +1,6 @@
 ---
 title: "Using a decision model to sketch interfaces in real-time with pen and paper"
 date: "2026-11-14"
-description: I built a prototype that turns pen strokes on paper into interface components and lets me preview how the screens fit together.
 ---
 
 <script>

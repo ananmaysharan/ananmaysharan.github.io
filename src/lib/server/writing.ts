@@ -28,7 +28,8 @@ export function parsePost(path: string, value: unknown): Post {
     const slug = path.split('/').at(-2)!;
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return fail('Use a lowercase, hyphen-separated folder name.');
     if ('draft' in fields) return fail('Keep drafts in src/content/drafts; remove the draft field before publishing.');
-    const post: Post = { slug, title: text('title'), date: date('date'), description: text('description') };
+    const post: Post = { slug, title: text('title'), date: date('date') };
+    if (fields.description !== undefined) post.description = text('description');
     if (fields.updated !== undefined) {
         post.updated = date('updated');
         if (post.updated < post.date) return fail('"updated" cannot precede the publication date.');
