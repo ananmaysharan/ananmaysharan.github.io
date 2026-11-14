@@ -1,0 +1,47 @@
+---
+title: "Using a decision model to sketch interfaces in real-time with pen and paper"
+date: "2026-11-10"
+description: I built a prototype that turns pen strokes on paper into interface components and lets me preview how the screens fit together.
+---
+
+<script>
+    import { resolve } from '$app/paths';
+    import mobileDemo from './videos/mobile-form.mp4';
+    import mobileCaptions from './videos/mobile-form.vtt?url';
+    import desktopDemo from './videos/desktop-form.mp4';
+    const idepUrl = resolve('/writing/[slug]', { slug: 'independent-design-engineering-project-an-introduction' });
+</script>
+
+As part of the <a href={idepUrl}>Independent Design Engineering Project</a> I'm working on, I've been exploring how people interact with AI, trying to think beyond the chat box, especially for staying in flow during creative tasks.
+
+Inspired by some tweets from [@xhfloz](https://x.com/xhfloz/status/2110108201043775589) and [@seflless](https://x.com/seflless/status/2107860983498817689), as well as previous work by [Geoffrey Litt](https://www.inkandswitch.com/potluck/) and [Andy Matuschak](https://andymatuschak.org/) about the power of pen and paper as the ultimate “dynamic” document, I came up with this prototype:
+
+<figure>
+    <video src={mobileDemo} controls playsinline preload="metadata" width="1920" height="1080" aria-label="Sketching a mobile form on paper">
+        <track kind="captions" src={mobileCaptions} srclang="en" label="English" />
+    </video>
+    <figcaption>Sketching a mobile screen on paper. As I draw, Wireframe turns the strokes into shadcn components</figcaption>
+</figure>
+
+<figure>
+    <video src={desktopDemo} controls playsinline muted preload="metadata" width="1600" height="900" aria-label="Recognizing six desktop form controls"></video>
+    <figcaption>Drawing a form UI with other components</figcaption>
+</figure>
+
+Under the hood, it uses a commercially available smart pen with modified firmware (thanks, Codex). A decision model (Jev) recognizes groups of pen strokes as UI components and the prototype renders them using shadcn in near real time. The canvas can also infer how the screens might fit together and stitch them into a flow I can preview.
+
+In [*Inventing on Principle*](https://vimeo.com/906418692), Bret Victor proposes that creators need an immediate connection to what they're creating. I think this demo gets towards something like that, which is why it was so exciting when I got it to work, even in this limited state.
+
+I'm excited to push this further. I can imagine real-time voice input being useful in an environment like this. As well as this, I'm exploring what extending this workflow to other domains could look like. See my colleague Neha Sajja's work for more on this!
+
+## FAQ
+
+### Why not just use an iPad with an Apple Pencil?
+
+The demo does support that! However, handwriting on a screen has never *quite* felt natural to me, even with a paperlike screen protector, though I know a lot of people do enjoy that workflow. Sketching, drawing or writing with physical materials gives me a greater feeling of traction. The physical limits of a piece of paper or a whiteboard, as opposed to an infinitely zoomable or scrollable canvas, can be a productive constraint for ideation.
+
+### What about undoing or making edits? Isn't it painful to make a change when working with paper?
+
+Fair point. This is really meant for rough sketching and ideation. Ideally, you could just start on a new page when you have a new idea. Editing, however, is definitely an issue. If you have thoughts on this, [let me know](mailto:ananmay01@gmail.com)!
+
+<!-- Unfinished note from the source: “[3] However, I'm still inspired by Bret Victor's notion of”. -->
