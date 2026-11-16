@@ -31,7 +31,7 @@ Under the hood, it uses a commercially available smart pen with modified firmwar
 
 In [*Inventing on Principle*](https://vimeo.com/906418692), Bret Victor proposes that creators need an immediate connection to what they're creating. I think this demo gets towards something like that, which is why it was so exciting when I got it to work, even in this limited state.
 
-I'm excited to push this further. I can imagine real-time voice input being useful in an environment like this. As well as this, I'm exploring what extending this workflow to other domains could look like. See my colleague Neha Sajja's work for more on this!
+I'm excited to push this further. I can imagine real-time voice input being useful in an environment like this. As well as this, I'm exploring what extending this workflow to other domains could look like. See my colleague [Neha Sajja's work](https://nehasajja.com/essays/what-should-our-tools-leave-unfinished/) for more on this!
 
 ## FAQ
 
