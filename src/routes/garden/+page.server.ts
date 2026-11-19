@@ -1,5 +1,6 @@
-import { getPostGroups } from '#lib/server/writing.ts';
+import { redirect } from '@sveltejs/kit';
+import { resolve } from '$app/paths';
 
-export async function load() {
-    return { groups: await getPostGroups(), title: 'Files · Ananmay Sharan' };
+export function load() {
+    redirect(308, resolve('/files'));
 }

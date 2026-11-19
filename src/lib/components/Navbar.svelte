@@ -9,14 +9,14 @@
     const tabs = [
         { href: '/', label: 'Home' },
         { href: '/work', label: 'Work' },
-        { href: '/garden', label: 'Files' },
+        { href: '/files', label: 'Files' },
         { href: '/about', label: 'About' },
     ] as const;
 
     const isWriting = $derived(page.route.id === '/writing' || page.route.id?.startsWith('/writing/'));
     const isBookshelf = $derived(page.route.id === '/bookshelf');
-    const isGarden = $derived(page.route.id === '/garden' || page.route.id?.startsWith('/garden/') || isWriting || isBookshelf);
-    const gardenItems = $derived([
+    const isFiles = $derived(page.route.id === '/files' || page.route.id?.startsWith('/files/') || isWriting || isBookshelf);
+    const filesItems = $derived([
         { label: 'Writing', href: resolve('/writing'), current: !isBookshelf },
         { label: 'Bookshelf', href: resolve('/bookshelf'), current: isBookshelf },
         { label: 'Setup' },
@@ -32,7 +32,7 @@
         <ul class="flex w-max justify-start list-none m-0 p-0">
             {#each tabs as tab, index}
                 {@const href = resolve(tab.href)}
-                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`)) || (tab.href === '/garden' && isGarden)}
+                {@const isActive = page.route.id === tab.href || (tab.href !== '/' && page.route.id?.startsWith(`${tab.href}/`)) || (tab.href === '/files' && isFiles)}
                 <li class="flex items-baseline">
                     <a {href} class="menu-link no-underline text-primary font-serif" aria-label={tab.label} aria-current={isActive ? (page.route.id === tab.href ? 'page' : 'location') : undefined}>
                         <span class="menu-label" aria-hidden="true">{tab.label}</span>
@@ -45,8 +45,8 @@
         </ul>
         {#if page.route.id === '/work'}
             <WorkFilters />
-        {:else if isGarden}
-            <Subnav label="Files sections" items={gardenItems} />
+        {:else if isFiles}
+            <Subnav label="Files sections" items={filesItems} />
         {/if}
     </nav>
 
