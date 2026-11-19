@@ -9,7 +9,7 @@
     const tabs = [
         { href: '/', label: 'Home' },
         { href: '/work', label: 'Work' },
-        { href: '/garden', label: 'Notebook' },
+        { href: '/garden', label: 'Files' },
         { href: '/about', label: 'About' },
     ] as const;
 
@@ -46,7 +46,7 @@
         {#if page.route.id === '/work'}
             <WorkFilters />
         {:else if isGarden}
-            <Subnav label="Notebook sections" items={gardenItems} />
+            <Subnav label="Files sections" items={gardenItems} />
         {/if}
     </nav>
 

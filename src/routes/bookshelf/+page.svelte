@@ -38,8 +38,7 @@
                 </li>
             {/each}
         </ul>
-        <h2 id="project-research" class="text-sm text-text-muted mt-12 mb-3">Independent Design Engineering Project Research</h2>
-        <ul class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 list-none m-0 px-0 pb-0 pt-1.5" aria-labelledby="project-research">
+        <ul class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 list-none m-0 mt-12 px-0 pb-0 pt-1.5" aria-label="Research books">
             {#each researchBooks as book (book.title)}
                 <li class="min-w-0 text-primary">
                     <img class="block w-full aspect-2/3 object-contain object-bottom mb-3" src={book.cover} alt={`Cover of ${book.title} by ${book.author}`} />
